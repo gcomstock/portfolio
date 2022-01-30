@@ -5,9 +5,60 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #251F29;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+@font-face {
+  font-family: 'proxima nova';
+  src: url('./assets/font_proxima_nova_regular.woff2') format('woff2'),
+  url('./assets/font_proxima_nova_regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'proxima nova';
+  src: url('./assets/font_proxima_nova_semibold.woff2') format('woff2'),
+  url('./assets/font_proxima_nova_semibold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'tiempos headline';
+  src: url('./assets/font_tiempos_headline_black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+
+h1 {
+  font-family: 'tiempos headline';
+  font-size: 128px;
+  background: linear-gradient(180deg, #0073B4 50%, #0087D2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 48px 0 0 0;
+}
+
+h4 {
+  font-family: 'tiempos headline';
+  font-size: 24px;
+  color: #0073B4;
+  margin: 0;
+}
+
+main {
+  width: 100%;
+  max-width: 1480px;
+  border: 1px solid green;
+  text-align: left;
+  display: inline-block;
+  margin: 0 48px;
 }

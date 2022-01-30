@@ -1,0 +1,71 @@
+.logo {
+  position: fixed;
+  z-index: 301;
+  top: 20px;
+  left: 52px;
+}
+
+.menuIcon {
+  position: fixed;
+  z-index: 302;
+  top: 0;
+  left: 0;
+  width: 72px;
+  height: 72px;
+
+  background-color: #222;
+  cursor: pointer;
+}
+
+.menuItems {
+  margin: 160px 72px;
+  text-align: left;
+}
+
+.menuItems h3 {
+  font-weight: bold;
+  font-family: 'proxima nova';
+  color: #fff;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  line-height: 24px;
+  margin: 24px 0 0 0;
+}
+
+.menuItems a {
+  display: block;
+  font-family: 'proxima nova';
+  text-decoration: none;
+  color: #999;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  line-height: 24px;
+}
+
+.menuItems a.spotlight:hover {
+  color: blue;
+}
+
+.menuItems a.active {
+  color:red;
+}
+
+
+.Nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 800px;
+  height: 1600px;
+  background-color: black;
+  z-index: 300;
+
+  clip-path: polygon(-125% -10.75%, 6.5% -26%, 21.75% 7.125%, -110% 22.25%);
+  transition: 0.5s ease-in-out;
+}
+
+.Nav.isOpen {
+  clip-path: polygon(0% 100%, 0% 0%, 50% 0%, 100% 100%);
+}
