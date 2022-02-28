@@ -1,3 +1,14 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -21,7 +32,6 @@ code {
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'proxima nova';
   src: url('./assets/font_proxima_nova_semibold.woff2') format('woff2'),
@@ -30,35 +40,129 @@ code {
   font-style: normal;
 }
 
+
 @font-face {
   font-family: 'tiempos headline';
-  src: url('./assets/font_tiempos_headline_black.woff') format('woff');
-  font-weight: 900;
+  src: url('./assets/TiemposHeadlineWeb-Black.woff') format('woff');
   font-style: normal;
+  font-weight: 900;
+}
+@font-face {
+  font-family: 'tiempos headline';
+  src: url('./assets/font_tiempos_headline_semibold.woff') format('woff');
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'tiempos headline';
+  src: url('./assets/font_tiempos_headline_semibold_italic.woff') format('woff');
+  font-style: italic;
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'tiempos headline';
+  src: url('./assets/font_tiempos_headline_italic.woff') format('woff');
+  font-style: italic;
 }
 
 
+/* page header: black serif */
 h1 {
   font-family: 'tiempos headline';
-  font-size: 128px;
-  background: linear-gradient(180deg, #0073B4 50%, #0087D2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+  font-size: 140px;
   margin: 48px 0 0 0;
 }
+.gradientText {
+  background: linear-gradient(180deg, #0073B4 50%, #0F96E2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.headerTagline {
+  font-family: 'Source Serif Pro', serif;
+  font-weight: 600;
+  font-size: 32px;
+  color: #0087D2;
+  margin-bottom: 80px;
+  max-width: 800px;
+}
+/* introduction subhead: italic */
+h1.sub {
+  font-size: 56px;
+  font-weight: normal;
+  font-style: italic;
+  color: white;
+  margin: 0 0 36px 0;
+}
 
-h4 {
+/* section header: black serif */
+h2 {
   font-family: 'tiempos headline';
+  font-weight: 900;
+  font-size: 96px;
+  /* line-height: 92px; */
+  line-height: 112px;
+  color: white;
+  margin: 0 0 28px;
+}
+
+/* sidebar header: black serif */
+h3 {
+  font-family: 'tiempos headline';
+  font-weight: 900;
+  font-size: 32px;
+  color: #9C9DC3;
+  margin: 24px 0 12px;
+}
+h3.sub {
   font-size: 24px;
-  color: #0073B4;
+  font-weight: 700;
+  font-style: italic;
+  color: white;
   margin: 0;
 }
 
+
+
+p {
+  color: #c4c4c4;
+  font-family: 'proxima nova';
+  font-size: 17px;
+  line-height: 32px;
+  max-width: 800px;
+  margin: 0 0 28px;
+}
+
+hr {
+  border-width: 2px;
+  border-color: white;
+  border-style: solid;
+  max-width: 120px;
+  margin: 0 0 38px;
+}
+
 main {
-  width: 100%;
-  max-width: 1480px;
-  border: 1px solid green;
   text-align: left;
-  display: inline-block;
-  margin: 0 48px;
+  /* display: inline-block; */
+  /* margin: 0 48px; */
+  /* width: 100%;
+  max-width: 1480px; */
+  display: grid;
+  grid-template-columns:
+    minmax(48px, 1fr)
+    minmax(0, 1480px)
+    minmax(48px, 1fr)
+  ;
+}
+main > * {
+  grid-column: 2;
+}
+
+
+.slantedBg {
+  position: absolute;
+  top: calc(-20% - 64px);
+  height: calc(100% + 128px);
+  z-index: -1;
+  transform-origin: top right;
 }

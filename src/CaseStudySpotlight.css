@@ -1,27 +1,28 @@
+.CaseStudySpotlight {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
 
 .WorkHeader {
   /* height: 560px; */
   position: relative;
   display: flex;
   justify-content: center;
-  padding-top: 48px;
+  padding-top: 64px;
 }
 
 
 .parallaxBg {
   position: absolute;
-  top: -400px;
+  top: -500px;
   left: -10%;
-
   background-color: #0173B4;
   width: 120%;
-  height: 1000px;
+  height: 900px;
   z-index: -1;
 }
-
-
-
-
 
 
 
@@ -53,4 +54,118 @@
   background-color: white;
   height: 732px;
   width: 1200px;
+}
+
+
+
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+.flexMain {
+  flex: 1 4 auto;
+  margin-right: 80px;
+}
+.flexSide {
+  flex: 0 1 420px;
+}
+
+
+
+
+.Filet {
+  display: flex;
+  position: relative;
+  margin: 200px 0 400px;
+  padding: 104px 0; /*TODO: var*/
+}
+.Filet-bg {
+  position: absolute;
+  top: -20%;
+  left: -100%;
+  background-color: #0173B4;
+  width: 200%;
+  height: 100%;
+  z-index: -1;
+  transform-origin: top right;
+}
+.Filet-img {
+  background-color: white;
+  flex: 0 0 800px;
+  width: 800px;
+  height: 500px;
+  margin: 0 80px 0 0;
+
+  /* box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22); */
+}
+.Filet-text {
+  flex: 1 1 auto;
+  margin-top: -22px;
+}
+
+
+
+
+.Buffet {
+  display: flex;
+  border-bottom: 4px solid white;
+  margin: 0 0 48px 0;
+  align-items: flex-end;
+}
+.Buffet h2 {
+  /* line-height: 120px; */
+  flex: 0 1 auto;
+}
+.Buffet p {
+  flex: 0 0 600px;
+  padding-bottom: 12px; /* to align bottom of paragraph with bottom of title */
+}
+.BuffetImg {
+  margin-bottom: 200px;
+  display: flex;
+  grid-column: 1 / 4;
+  justify-content: center;
+}
+.fullImg {
+  flex: 0 1 1000px;
+  margin-right: 20px;
+  background-color: white;
+  height: 600px;
+}
+.fullImg:last-child {
+  margin-right: 0;
+}
+
+
+
+
+.Banquet {
+  position: relative;
+  padding: 104px 0; /*TODO: var*/
+}
+.Banquet__bg {
+  left: -100%;
+  background-color: #004A74;
+  width: 200%;
+}
+.Banquet__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.Banquet__top__titlebg {
+  right: 0;
+  background-color: #1A84C0;
+  width: 400%;
+}
+.Banquet__top__title {
+  flex: 0 1 auto;
+  position: relative;
+  /* padding: 64px 0; */
+}
+.Banquet__top__text {
+  flex: 0 0 600px;
+  margin-bottom: 12px; /* to align bottom of paragraph with bottom of title */
+  /* padding: 64px 0; */
 }
