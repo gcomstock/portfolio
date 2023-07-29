@@ -24,6 +24,15 @@
   z-index: -1;
 }
 
+.crossBg {
+  position: absolute;
+  z-index: -2;
+  width: 100%;
+  height: 200%;
+  background-image: url('./assets/mainbg.png');
+  background-position: top center;
+}
+
 
 
 
@@ -32,9 +41,10 @@
   background-color: #3F3446;
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   padding: 0 1px 16px;
+  margin-bottom: 48px;
 }
 
 .DeviceWeb .header {
@@ -50,10 +60,8 @@
   margin-right: 8px;
 }
 
-.DeviceWeb .img {
-  background-color: white;
-  height: 732px;
-  width: 1200px;
+.DeviceWeb img {
+  max-width: 1488px;
 }
 
 
@@ -77,18 +85,16 @@
 .Filet {
   display: flex;
   position: relative;
-  margin: 200px 0 400px;
+  margin: 200px 0 480px;
   padding: 104px 0; /*TODO: var*/
 }
 .Filet-bg {
   position: absolute;
   top: -20%;
-  left: -100%;
+  right: 0;
   background-color: #0173B4;
   width: 200%;
   height: 100%;
-  z-index: -1;
-  transform-origin: top right;
 }
 .Filet-img {
   background-color: white;
@@ -143,21 +149,26 @@
 .Banquet {
   position: relative;
   padding: 104px 0; /*TODO: var*/
+  margin-bottom: 200px;
 }
 .Banquet__bg {
-  left: -100%;
+  right: 0;
   background-color: #004A74;
-  width: 200%;
+  width: 128%;
+  height: calc(100% - 48px);
 }
 .Banquet__top {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  margin-bottom: 48px;
 }
 .Banquet__top__titlebg {
   right: 0;
   background-color: #1A84C0;
   width: 400%;
+  top: -184px;
+  height: calc(100% + 184px);
 }
 .Banquet__top__title {
   flex: 0 1 auto;
@@ -168,4 +179,49 @@
   flex: 0 0 600px;
   margin-bottom: 12px; /* to align bottom of paragraph with bottom of title */
   /* padding: 64px 0; */
+}
+.Banquet__spread {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.Banquet__spread__img {
+  flex: 0 0 calc(50% - 16px);
+  height: 500px;
+  margin-bottom: 32px;
+  background-color: white;
+}
+
+
+
+
+.MainCourse {
+  text-align: center;
+  padding: 104px 0; /*TODO: var*/
+}
+.MainCourse__content {
+  display: inline-block;
+}
+.MainCourse__text {
+  display: flex;
+  justify-content: flex-end;
+  text-align: left;
+}
+
+
+.Morsel {
+  position: relative;
+  padding: 104px 0; /*TODO: var*/
+  margin-bottom: 200px;
+  width: 800px;
+}
+
+.Morsel__bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #0173B4;
+  width: 120%;
+  height: 100%;
+  z-index: -1;
 }

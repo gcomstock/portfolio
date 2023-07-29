@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useParallax } from 'react-scroll-parallax';
 
 import './CaseStudySpotlight.css';
-
+import img from './assets/placeholder.jpg';
 
 
 export function CaseStudySpotlight() {
@@ -13,42 +13,56 @@ export function CaseStudySpotlight() {
     targetElement: target.current,
     rootMargin: { top: 0, left: 0, bottom: 700, right: 0 }
   });
-  const filet = useParallax({
-    speed: -10,
-    rotateZ: [-13,-13],
+  const cross = useParallax({
+    speed: -500,
     targetElement: target.current
+  });
+  const filet = useParallax({
+    speed: -15,
+    rotateZ: [-13,-13],
+    targetElement: target.current,
+    rootMargin: { top: 0, left: 0, bottom: 700, right: 0 }
   });
   const filet2 = useParallax({
-    speed: -10,
+    speed: -15,
     rotateZ: [-13,-13],
-    targetElement: target.current
+    targetElement: target.current,
+    rootMargin: { top: 0, left: 0, bottom: 700, right: 0 }
   });
   const banquet = useParallax({
-    speed: -10,
+    speed: -15,
     rotateZ: [-13,-13],
-    targetElement: target.current
+    targetElement: target.current,
+    rootMargin: { top: 0, left: 0, bottom: 700, right: 0 }
   });
   const banquetTitle = useParallax({
-    speed: -5,
+    speed: 5,
     rotateZ: [-13,-13],
-    targetElement: target.current
+    targetElement: target.current,
+    rootMargin: { top: 0, left: 0, bottom: 700, right: 0 }
+  });
+  const morsel = useParallax({
+    speed: -15,
+    rotateZ: [-13,-13],
+    targetElement: target.current,
+    rootMargin: { top: 0, left: 0, bottom: 700, right: 0 }
   });
 
   return (
     <div className="CaseStudySpotlight">
       <div className="parallaxBg" ref={header.ref}/>
+      <div className="crossBg" ref={cross.ref}/>
 
 
       <div className="WorkHeader">
-        <div className="DeviceWeb">
-          <div className="header">
-            <div className="webBubble"/>
-            <div className="webBubble"/>
-            <div className="webBubble"/>
-          </div>
-          <div className="img">
-          </div>
+      <div className="DeviceWeb">
+        <div className="header">
+          <div className="webBubble"/>
+          <div className="webBubble"/>
+          <div className="webBubble"/>
         </div>
+        <img src={img} width="1200"/>
+      </div>
       </div>
 
 
@@ -82,7 +96,7 @@ export function CaseStudySpotlight() {
 
 
         <div className="Filet">
-          <div className="Filet-bg" ref={filet.ref}/>
+          <div className="Filet-bg slantedBg" ref={filet.ref}/>
           <div className="Filet-img"></div>
           <div className="Filet-text">
             <h2>Research & Prototyping</h2>
@@ -104,7 +118,7 @@ export function CaseStudySpotlight() {
 
 
         <div className="Filet">
-          <div className="Filet-bg" ref={filet2.ref}/>
+          <div className="Filet-bg slantedBg" ref={filet2.ref}/>
           <div className="Filet-img"></div>
           <div className="Filet-text">
             <h2>Display Ad Production Tool</h2>
@@ -125,9 +139,39 @@ export function CaseStudySpotlight() {
               <p>Bacon ipsum dolor amet tri-tip strip steak jerky meatloaf chislic turducken cupim. Fatback corned beef ham hock swine spare ribs, jowl bresaola meatloaf frankfurter turkey doner. Filet mignon ribeye flank, shank strip steak beef ribs pork belly chuck porchetta boudin. Sirloin spare ribs burgdoggen, brisket cupim shank meatloaf chislic chicken shoulder leberkas tenderloin bacon. Fatback frankfurter cupim cow andouille chicken boudin, turducken corned beef strip steak sausage.</p>
             </div>
           </div>
+          <div className="Banquet__spread">
+            <div className="Banquet__spread__img"></div>
+            <div className="Banquet__spread__img"></div>
+            <div className="Banquet__spread__img"></div>
+            <div className="Banquet__spread__img"></div>
+          </div>
+        </div>
 
 
+        <div className="MainCourse">
+          <h2>Bringing it<br/>all to life</h2>
+          <hr className="imgNext"/>
+          <br/>
+          <div className="MainCourse__content">
+            <div className="DeviceWeb">
+              <div className="header">
+                <div className="webBubble"/>
+                <div className="webBubble"/>
+                <div className="webBubble"/>
+              </div>
+              <img src={img} width="1200"/>
+            </div>
+            <div className="MainCourse__text">
+              <p>Bacon ipsum dolor amet tri-tip strip steak jerky meatloaf chislic turducken cupim. Fatback corned beef ham hock swine spare ribs, jowl bresaola meatloaf frankfurter turkey doner. Filet mignon ribeye flank, shank strip steak beef ribs pork belly chuck porchetta boudin. Sirloin spare ribs burgdoggen, brisket cupim shank meatloaf chislic chicken shoulder leberkas tenderloin bacon. Fatback frankfurter cupim cow andouille chicken boudin, turducken corned beef strip steak sausage.</p>
+            </div>
+          </div>
+        </div>
 
+
+        <div className="Morsel">
+          <div className="Morsel__bg" ref={morsel.ref}></div>
+          <h2>Lessons<br/>Learned</h2>
+          <p>Bacon ipsum dolor amet tri-tip strip steak jerky meatloaf chislic turducken cupim. Fatback corned beef ham hock swine spare ribs, jowl bresaola meatloaf frankfurter turkey doner. Filet mignon ribeye flank, shank strip steak beef ribs pork belly chuck porchetta boudin. Sirloin spare ribs burgdoggen, brisket cupim shank meatloaf chislic chicken shoulder leberkas tenderloin bacon. Fatback frankfurter cupim cow andouille chicken boudin, turducken corned beef strip steak sausage.</p>
         </div>
 
 
