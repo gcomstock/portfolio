@@ -1,0 +1,15 @@
+.ProjectHeader h1 {
+  font-family: 'tiempos headline';
+  font-weight: 900;
+  font-size: 140px;
+  margin: 0;
+}
+
+.ProjectHeader hgroup p {
+  font-family: 'Source Serif Pro', serif;
+  font-weight: 600;
+  font-size: 32px;
+  margin-bottom: 80px;
+  max-width: 800px;
+}
+

@@ -1,8 +1,11 @@
+import { ParallaxProvider } from 'react-scroll-parallax';
+import { Routes, Route, Outlet, Link } from 'react-router-dom';
+
 import { Nav } from './Nav';
 import { Home } from './Home';
 import { CaseStudySpotlight } from './CaseStudySpotlight';
-import { ParallaxProvider } from 'react-scroll-parallax';
-import { Routes, Route, Outlet, Link } from 'react-router-dom';
+import { CaseStudyPandora } from './CaseStudyPandora';
+
 import './App.css';
 
 function App() {
@@ -13,6 +16,7 @@ function App() {
         <Routes>
           <Route index element={<Home />} />
           <Route path="spotlight" element={<CaseStudySpotlight />} />
+          <Route path="pandora" element={<CaseStudyPandora />} />
 
           {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit
