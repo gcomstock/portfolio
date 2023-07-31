@@ -1,6 +1,6 @@
-import './ProjectHeader.css';
+import './ProjectIntro.css';
 
-export function ProjectHeader({ content, color }) {
+export function ProjectIntro({ content, color }) {
     const description = content.description.map(paragraph =>
       <p>{paragraph}</p>
     );
@@ -15,17 +15,17 @@ export function ProjectHeader({ content, color }) {
     );
 
     return (
-      <div className="ProjectHeader grid">
+      <div className="ProjectIntro grid">
         <hgroup>
           {/* <h1 className="gradientText" style={{color:color}}>{content.title}</h1> */}
           <h1 style={{color:color}}>{content.title}</h1>
           <p style={{color:color}}>{content.subtitle}</p>
         </hgroup>
-        <div className="ProjectHeader-main">
+        <div className="ProjectIntro-main">
             <h3>Opportunity</h3>
             {description}
         </div>
-        <div className="ProjectHeader-side">
+        <div className="ProjectIntro-side">
           <h3>Credits</h3>
           {creditList}
           <h3>Tooling</h3>

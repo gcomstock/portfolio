@@ -1,27 +1,23 @@
-
-.ProjectHeader {
+.ProjectIntro {
   margin-bottom: 200px
 }
-
-.ProjectHeader hgroup {
+.ProjectIntro hgroup {
   grid-column-start: 2;
   grid-column-end: 12;
 }
-
-.ProjectHeader hgroup p {
+.ProjectIntro hgroup p {
   font-family: 'Source Serif Pro', serif;
   font-weight: 700;
   font-size: 28px;
   line-height: 38px;
   margin-bottom: 64px;
 }
-
-.ProjectHeader-main {
+.ProjectIntro-main {
   grid-row-start: 2;
   grid-column-start: 2;
   grid-column-end: 8;
 }
-.ProjectHeader-side {
+.ProjectIntro-side {
   grid-row-start: 2;
   grid-column-start: 9;
   grid-column-end: 12;

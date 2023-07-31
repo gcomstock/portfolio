@@ -1,7 +1,7 @@
 // import React, { useRef } from "react";
 // import { useParallax } from 'react-scroll-parallax';
 
-import { ProjectHeader } from './components/ProjectHeader';
+import { ProjectIntro } from './components/ProjectIntro';
 import { LayoutTwoColBG } from './components/LayoutTwoColBG';
 
 import './CaseStudyPandora.css';
@@ -11,7 +11,7 @@ import img from './assets/placeholder.jpg';
 export function CaseStudyPandora() {
   const PandoraContent = {
     color: '#5E62E1',
-    projectHeader: {
+    ProjectIntro: {
       title: 'Pandora.com',
       subtitle: 'Bringing personalized music streaming to millions of listeners',
       description: [
@@ -63,7 +63,7 @@ export function CaseStudyPandora() {
 
 
       <main>
-        <ProjectHeader content={PandoraContent.projectHeader} color={PandoraContent.color}/>
+        <ProjectIntro content={PandoraContent.ProjectIntro} color={PandoraContent.color}/>
         <LayoutTwoColBG content = {PandoraContent.researchAndPrototyping}/>
 
 
