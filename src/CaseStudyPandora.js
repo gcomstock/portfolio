@@ -1,56 +1,16 @@
-import React, { useRef } from "react";
-import { useParallax } from 'react-scroll-parallax';
+// import React, { useRef } from "react";
+// import { useParallax } from 'react-scroll-parallax';
 
 import { ProjectHeader } from './components/ProjectHeader';
+import { LayoutTwoColBG } from './components/LayoutTwoColBG';
 
 import './CaseStudyPandora.css';
 import img from './assets/placeholder.jpg';
 
 
 export function CaseStudyPandora() {
-  const target = useRef(null);
-  const header = useParallax({
-    speed: -30,
-    rotateZ: [-13,-13],
-    targetElement: target.current,
-    rootMargin: { top: 0, left: 0, bottom: 700, right: 0 }
-  });
-  const cross = useParallax({
-    speed: -500,
-    targetElement: target.current
-  });
-  const filet = useParallax({
-    speed: -15,
-    rotateZ: [-13,-13],
-    targetElement: target.current,
-    rootMargin: { top: 0, left: 0, bottom: 700, right: 0 }
-  });
-  const filet2 = useParallax({
-    speed: -15,
-    rotateZ: [-13,-13],
-    targetElement: target.current,
-    rootMargin: { top: 0, left: 0, bottom: 700, right: 0 }
-  });
-  const banquet = useParallax({
-    speed: -15,
-    rotateZ: [-13,-13],
-    targetElement: target.current,
-    rootMargin: { top: 0, left: 0, bottom: 700, right: 0 }
-  });
-  const banquetTitle = useParallax({
-    speed: 5,
-    rotateZ: [-13,-13],
-    targetElement: target.current,
-    rootMargin: { top: 0, left: 0, bottom: 700, right: 0 }
-  });
-  const morsel = useParallax({
-    speed: -15,
-    rotateZ: [-13,-13],
-    targetElement: target.current,
-    rootMargin: { top: 0, left: 0, bottom: 700, right: 0 }
-  });
-
   const PandoraContent = {
+    color: '#5E62E1',
     projectHeader: {
       title: 'Pandora.com',
       subtitle: 'Bringing personalized music streaming to millions of listeners',
@@ -71,14 +31,23 @@ export function CaseStudyPandora() {
       tooling: [
         'React + Redux (Javascript ES6)', 'Webpack, npm, SASS', 'Sketch'
       ]
+    },
+    researchAndPrototyping: {
+      images: [
+        'pandora/pandora-prototype.gif'
+      ],
+      title: 'Research & Prototyping',
+      text: 'Although the feature set for Pandora.com was already established by its mobile counterparts, many UX considerations still needed validation. I worked closely with our UX researcher to craft user journeys around signup, onboarding, music discovery and playback. Then, I created a high fidelity, interactive prototype in the browser, so we could utilize existing audio API endpoints and respond to user input. Our efforts reduced signup friction by allowing users to listen to music in an anonymous state, with reduced ads, and dismissable prompts following specific interactions.'
     }
   };
 
 
   return (
     <div className="CaseStudySpotlight">
-      <div className="parallaxBg" ref={header.ref}/>
-      <div className="crossBg" ref={cross.ref}/>
+      {/* <div className="parallaxBg" ref={header.ref}/>
+      <div className="crossBg" ref={cross.ref}/> */}
+      <div className="parallaxBg" />
+      <div className="crossBg" />
 
 
       <div className="WorkHeader">
@@ -94,17 +63,9 @@ export function CaseStudyPandora() {
 
 
       <main>
-        <ProjectHeader content={PandoraContent.projectHeader}/>
+        <ProjectHeader content={PandoraContent.projectHeader} color={PandoraContent.color}/>
+        <LayoutTwoColBG content = {PandoraContent.researchAndPrototyping}/>
 
-        <div className="Filet">
-          <div className="Filet-bg slantedBg" ref={filet.ref}/>
-          <div className="Filet-img"></div>
-          <div className="Filet-text">
-            <h2>Research & Prototyping</h2>
-            <hr/>
-            <p>Bacon ipsum dolor amet tri-tip strip steak jerky meatloaf chislic turducken cupim. Fatback corned beef ham hock swine spare ribs, jowl bresaola meatloaf frankfurter turkey doner. Filet mignon ribeye flank, shank strip steak beef ribs pork belly chuck porchetta boudin. Sirloin spare ribs burgdoggen, brisket cupim shank meatloaf chislic chicken shoulder leberkas tenderloin bacon. Fatback frankfurter cupim cow andouille chicken boudin, turducken corned beef strip steak sausage.</p>
-          </div>
-        </div>
 
 
         <div className="Buffet">
@@ -119,7 +80,8 @@ export function CaseStudyPandora() {
 
 
         <div className="Filet">
-          <div className="Filet-bg slantedBg" ref={filet2.ref}/>
+          {/* <div className="Filet-bg slantedBg" ref={filet2.ref}/> */}
+          <div className="Filet-bg slantedBg" />
           <div className="Filet-img"></div>
           <div className="Filet-text">
             <h2>Display Ad Production Tool</h2>
@@ -130,10 +92,12 @@ export function CaseStudyPandora() {
 
 
         <div className="Banquet">
-          <div className="Banquet__bg slantedBg" ref={banquet.ref}/>
+          {/* <div className="Banquet__bg slantedBg" ref={banquet.ref}/> */}
+          <div className="Banquet__bg slantedBg"/>
           <div className="Banquet__top">
             <div className="Banquet__top__title">
-              <div className="Banquet__top__titlebg slantedBg" ref={banquetTitle.ref}/>
+              {/* <div className="Banquet__top__titlebg slantedBg" ref={banquetTitle.ref}/> */}
+              <div className="Banquet__top__titlebg slantedBg" />
               <h2>Example <br/>Display Ads</h2>
             </div>
             <div className="Banquet__top__text">
@@ -170,7 +134,8 @@ export function CaseStudyPandora() {
 
 
         <div className="Morsel">
-          <div className="Morsel__bg" ref={morsel.ref}></div>
+          {/* <div className="Morsel__bg" ref={morsel.ref}></div> */}
+          <div className="Morsel__bg" ></div>
           <h2>Lessons<br/>Learned</h2>
           <p>Bacon ipsum dolor amet tri-tip strip steak jerky meatloaf chislic turducken cupim. Fatback corned beef ham hock swine spare ribs, jowl bresaola meatloaf frankfurter turkey doner. Filet mignon ribeye flank, shank strip steak beef ribs pork belly chuck porchetta boudin. Sirloin spare ribs burgdoggen, brisket cupim shank meatloaf chislic chicken shoulder leberkas tenderloin bacon. Fatback frankfurter cupim cow andouille chicken boudin, turducken corned beef strip steak sausage.</p>
         </div>
