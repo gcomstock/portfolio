@@ -1,15 +1,28 @@
-.ProjectHeader h1 {
-  font-family: 'tiempos headline';
-  font-weight: 900;
-  font-size: 140px;
-  margin: 0;
+
+.ProjectHeader {
+  margin-bottom: 200px
+}
+
+.ProjectHeader hgroup {
+  grid-column-start: 2;
+  grid-column-end: 12;
 }
 
 .ProjectHeader hgroup p {
   font-family: 'Source Serif Pro', serif;
-  font-weight: 600;
-  font-size: 32px;
-  margin-bottom: 80px;
-  max-width: 800px;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 38px;
+  margin-bottom: 64px;
 }
 
+.ProjectHeader-main {
+  grid-row-start: 2;
+  grid-column-start: 2;
+  grid-column-end: 8;
+}
+.ProjectHeader-side {
+  grid-row-start: 2;
+  grid-column-start: 9;
+  grid-column-end: 12;
+}
