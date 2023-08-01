@@ -1,0 +1,29 @@
+.LayoutTwoCol {
+  grid-auto-flow: row;
+}
+
+.LayoutTwoCol-subSection h3 {
+  text-align: center;
+}
+
+/* .LayoutTwoCol-subSection:nth-child(1) {
+  grid-column-start: 2;
+  grid-column-end: 7;
+}
+.LayoutTwoCol-subSection:nth-child(2) {
+  grid-column-start: 8;
+  grid-column-end: 13;
+} */
+
+.LayoutTwoCol-subSections {
+  
+}
+
+.LayoutTwoCol-subSection:nth-child(odd) {
+  grid-column-start: 2;
+  grid-column-end: 7;
+}
+.LayoutTwoCol-subSection:nth-child(even) {
+  grid-column-start: 8;
+  grid-column-end: 13;
+}

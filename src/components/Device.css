@@ -1,0 +1,25 @@
+.Device-web {
+  border-radius: 16px;
+  background-color: #3F3446;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+
+  display: inline-flex;
+  flex-direction: column;
+  padding-bottom: 16px;
+  /* margin-bottom: 48px; */
+
+  width: 100%; /* maybe let image decide? except may be weird while loading - fade in callback when loaded v2? */
+}
+
+.Device-web-header {
+  display: flex;
+  padding: 14px 20px;
+}
+
+.Device-web-bubble {
+  border-radius: 50%;
+  width: 13px;
+  height: 13px;
+  background-color: #574860;
+  margin-right: 8px;
+}

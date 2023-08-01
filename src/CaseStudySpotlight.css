@@ -36,38 +36,6 @@
 
 
 
-.DeviceWeb {
-  border-radius: 16px;
-  background-color: #3F3446;
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-
-  display: inline-flex;
-  flex-direction: column;
-  padding: 0 1px 16px;
-  margin-bottom: 48px;
-}
-
-.DeviceWeb .header {
-  display: flex;
-  padding: 14px 20px;
-}
-
-.DeviceWeb .header .webBubble {
-  border-radius: 50%;
-  width: 13px;
-  height: 13px;
-  background-color: #574860;
-  margin-right: 8px;
-}
-
-.DeviceWeb img {
-  max-width: 1488px;
-}
-
-
-
-
-
 .Buffet {
   display: flex;
   border-bottom: 4px solid white;

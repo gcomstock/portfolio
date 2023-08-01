@@ -15,10 +15,10 @@
 .ProjectIntro-main {
   grid-row-start: 2;
   grid-column-start: 2;
-  grid-column-end: 8;
+  grid-column-end: 9;
 }
 .ProjectIntro-side {
   grid-row-start: 2;
-  grid-column-start: 9;
-  grid-column-end: 12;
+  grid-column-start: 10;
+  grid-column-end: 13;
 }

@@ -1,0 +1,21 @@
+.ProjectHeader {
+  position: relative;
+  margin: 64px 0;
+  /* margin: 200px 0; */
+}
+
+.ProjectHeader-bg {
+  /* top: -150%; */
+  /* top: -800px; */
+  /* top: -560px; */
+  height: 130%;
+  left: 50%;
+  width: 130%;
+  bottom: 70%;
+  /* bottom: 700px; */
+}
+
+.ProjectHeader-web {
+  grid-column-start: 3;
+  grid-column-end: 12;
+}

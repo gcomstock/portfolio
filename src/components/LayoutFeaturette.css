@@ -1,0 +1,24 @@
+.LayoutFeaturette {
+  position: relative;
+  margin-bottom: 400px;
+  /* padding: 104px 0; */
+}
+.LayoutFeaturette-bg {
+  height: calc(100% + 100px);
+  width: 200%;
+  right: -64px;
+  top: -140px;
+  transform-origin: top right;
+
+  grid-column-start: 1;
+  grid-column-end: 13;
+}
+.LayoutFeaturette-img {
+  grid-column-start: 2;
+  grid-column-end: 8;
+}
+.LayoutFeaturette-text {
+  margin-top: -22px;
+  grid-column-start: 9;
+  grid-column-end: 13;
+}

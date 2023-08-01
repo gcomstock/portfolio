@@ -148,12 +148,18 @@ main {
 
 
 
-.slantedBg {
+/* .slantedBg {
   position: absolute;
   top: -96px;
   height: calc(100% + 96px);
   z-index: -1;
   transform-origin: top right;
+} */
+
+.slantedBg {
+  position: absolute;
+  z-index: -1;
+  transform-origin: center;
 }
 
 .grid {
@@ -162,6 +168,7 @@ main {
   column-gap: 16px;
   grid-template-columns:
     minmax(104px, auto)
+    minmax(0, 120px)
     minmax(0, 120px)
     minmax(0, 120px)
     minmax(0, 120px)

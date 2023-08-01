@@ -1,16 +1,18 @@
-// import React, { useRef } from "react";
-// import { useParallax } from 'react-scroll-parallax';
-
+import { ProjectHeader } from './components/ProjectHeader';
 import { ProjectIntro } from './components/ProjectIntro';
-import { LayoutTwoColBG } from './components/LayoutTwoColBG';
+import { LayoutFeaturette } from './components/LayoutFeaturette';
+import { LayoutTwoCol } from './components/LayoutTwoCol';
+import { SectionTitle } from './components/SectionTitle';
 
 import './CaseStudyPandora.css';
 import img from './assets/placeholder.jpg';
 
-
 export function CaseStudyPandora() {
   const PandoraContent = {
     color: '#5E62E1',
+    ProjectHeader: {
+      webImage: 'pandora/pandora-hero.png'
+    },
     ProjectIntro: {
       title: 'Pandora.com',
       subtitle: 'Bringing personalized music streaming to millions of listeners',
@@ -38,108 +40,46 @@ export function CaseStudyPandora() {
       ],
       title: 'Research & Prototyping',
       text: 'Although the feature set for Pandora.com was already established by its mobile counterparts, many UX considerations still needed validation. I worked closely with our UX researcher to craft user journeys around signup, onboarding, music discovery and playback. Then, I created a high fidelity, interactive prototype in the browser, so we could utilize existing audio API endpoints and respond to user input. Our efforts reduced signup friction by allowing users to listen to music in an anonymous state, with reduced ads, and dismissable prompts following specific interactions.'
+    },
+    displayAdArchitecture: {
+      title: 'Display Ad Architecture',
+      subSections: [
+        {
+          title: 'Ad Networks',
+          text: 'Pandora is predominantly an ad-supported business. With the site redesign came an opportunity to rethink what was possible with display advertising. The bread and butter standard banner sizes needed to be supported, along with all of their requirements. Is the browser tab focused? Is the ad 100% within the viewport? Is it obstructed in any way by other DOM elements or CSS properties? How long must it be on the page before being replaced? Invisible network requests and pixel trackers try to enforce fair play across ad networks, and must be considered in the implementation.'
+        },
+        {
+          title: 'In-house Promotions',
+          text: 'Display advertising can be more than banners, though. Pandora has an in-house brand design team that makes use of ad inventory to promote artists, live events, album releases, new product features, and more. We wanted to empower these efforts to be visually stunning, and give designers more freedom than an isolated display ad box to work with. We worked closely to devise layouts for each banner type, and their corresponding takeover skins. In-house ads would be part of the regular pool of display ads, with an extra bit of javascript that passes some arguments on what visual assets to fetch and display in tandem with the ad. Below are a couple artifacts I produced toward the end of the process to communicate to a larger audience.'
+        }
+      ],
+      images: [
+        'pandora/pandora-ad-skin-options.jpg',
+        'pandora/pandora-ad-skin-layers.jpg'
+      ]
     }
   };
 
 
   return (
     <div className="CaseStudySpotlight">
-      {/* <div className="parallaxBg" ref={header.ref}/>
-      <div className="crossBg" ref={cross.ref}/> */}
-      <div className="parallaxBg" />
-      <div className="crossBg" />
-
-
-      <div className="WorkHeader">
-      <div className="DeviceWeb">
-        <div className="header">
-          <div className="webBubble"/>
-          <div className="webBubble"/>
-          <div className="webBubble"/>
-        </div>
-        <img src={img} width="1200"/>
-      </div>
-      </div>
-
+      {/* <div className="crossBg" ref={cross.ref}/> */}
+      {/* <div className="crossBg" /> */}
 
       <main>
+        <ProjectHeader color={PandoraContent.color} webImage={PandoraContent.ProjectHeader.webImage}/>
         <ProjectIntro content={PandoraContent.ProjectIntro} color={PandoraContent.color}/>
-        <LayoutTwoColBG content = {PandoraContent.researchAndPrototyping}/>
+        <LayoutFeaturette content={PandoraContent.researchAndPrototyping} color={PandoraContent.color}/>
+        <LayoutTwoCol
+          title={PandoraContent.displayAdArchitecture.title}
+          subSections={PandoraContent.displayAdArchitecture.subSections}
+        />
 
-
-
-        <div className="Buffet">
-          <h2>Display Ad Architecture</h2>
-          <p>Bacon ipsum dolor amet tri-tip strip steak jerky meatloaf chislic turducken cupim. Fatback corned beef ham hock swine spare ribs, jowl bresaola meatloaf frankfurter turkey doner. Filet mignon ribeye flank, shank strip steak beef ribs pork belly chuck porchetta boudin. Sirloin spare ribs burgdoggen, brisket cupim shank meatloaf chislic chicken shoulder leberkas tenderloin bacon. Fatback frankfurter cupim cow andouille chicken boudin, turducken corned beef strip steak sausage.</p>
-        </div>
 
         <div className="BuffetImg">
           <div className="fullImg"></div>
           <div className="fullImg"></div>
         </div>
-
-
-        <div className="Filet">
-          {/* <div className="Filet-bg slantedBg" ref={filet2.ref}/> */}
-          <div className="Filet-bg slantedBg" />
-          <div className="Filet-img"></div>
-          <div className="Filet-text">
-            <h2>Display Ad Production Tool</h2>
-            <hr/>
-            <p>Bacon ipsum dolor amet tri-tip strip steak jerky meatloaf chislic turducken cupim. Fatback corned beef ham hock swine spare ribs, jowl bresaola meatloaf frankfurter turkey doner. Filet mignon ribeye flank, shank strip steak beef ribs pork belly chuck porchetta boudin. Sirloin spare ribs burgdoggen, brisket cupim shank meatloaf chislic chicken shoulder leberkas tenderloin bacon. Fatback frankfurter cupim cow andouille chicken boudin, turducken corned beef strip steak sausage.</p>
-          </div>
-        </div>
-
-
-        <div className="Banquet">
-          {/* <div className="Banquet__bg slantedBg" ref={banquet.ref}/> */}
-          <div className="Banquet__bg slantedBg"/>
-          <div className="Banquet__top">
-            <div className="Banquet__top__title">
-              {/* <div className="Banquet__top__titlebg slantedBg" ref={banquetTitle.ref}/> */}
-              <div className="Banquet__top__titlebg slantedBg" />
-              <h2>Example <br/>Display Ads</h2>
-            </div>
-            <div className="Banquet__top__text">
-              <p>Bacon ipsum dolor amet tri-tip strip steak jerky meatloaf chislic turducken cupim. Fatback corned beef ham hock swine spare ribs, jowl bresaola meatloaf frankfurter turkey doner. Filet mignon ribeye flank, shank strip steak beef ribs pork belly chuck porchetta boudin. Sirloin spare ribs burgdoggen, brisket cupim shank meatloaf chislic chicken shoulder leberkas tenderloin bacon. Fatback frankfurter cupim cow andouille chicken boudin, turducken corned beef strip steak sausage.</p>
-            </div>
-          </div>
-          <div className="Banquet__spread">
-            <div className="Banquet__spread__img"></div>
-            <div className="Banquet__spread__img"></div>
-            <div className="Banquet__spread__img"></div>
-            <div className="Banquet__spread__img"></div>
-          </div>
-        </div>
-
-
-        <div className="MainCourse">
-          <h2>Bringing it<br/>all to life</h2>
-          <hr className="imgNext"/>
-          <br/>
-          <div className="MainCourse__content">
-            <div className="DeviceWeb">
-              <div className="header">
-                <div className="webBubble"/>
-                <div className="webBubble"/>
-                <div className="webBubble"/>
-              </div>
-              <img src={img} width="1200"/>
-            </div>
-            <div className="MainCourse__text">
-              <p>Bacon ipsum dolor amet tri-tip strip steak jerky meatloaf chislic turducken cupim. Fatback corned beef ham hock swine spare ribs, jowl bresaola meatloaf frankfurter turkey doner. Filet mignon ribeye flank, shank strip steak beef ribs pork belly chuck porchetta boudin. Sirloin spare ribs burgdoggen, brisket cupim shank meatloaf chislic chicken shoulder leberkas tenderloin bacon. Fatback frankfurter cupim cow andouille chicken boudin, turducken corned beef strip steak sausage.</p>
-            </div>
-          </div>
-        </div>
-
-
-        <div className="Morsel">
-          {/* <div className="Morsel__bg" ref={morsel.ref}></div> */}
-          <div className="Morsel__bg" ></div>
-          <h2>Lessons<br/>Learned</h2>
-          <p>Bacon ipsum dolor amet tri-tip strip steak jerky meatloaf chislic turducken cupim. Fatback corned beef ham hock swine spare ribs, jowl bresaola meatloaf frankfurter turkey doner. Filet mignon ribeye flank, shank strip steak beef ribs pork belly chuck porchetta boudin. Sirloin spare ribs burgdoggen, brisket cupim shank meatloaf chislic chicken shoulder leberkas tenderloin bacon. Fatback frankfurter cupim cow andouille chicken boudin, turducken corned beef strip steak sausage.</p>
-        </div>
-
 
       </main>
     </div>
