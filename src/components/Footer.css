@@ -1,0 +1,17 @@
+.Footer {
+  background: var(--rich-black);
+  border-top: 1px solid var(--border);
+  padding: 64px 0;
+  margin-top: 120px;
+}
+.Footer-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.Footer-name { font-size: 20px; font-weight: 600; }
+.Footer-loc { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+.Footer-links { display: flex; gap: 24px; font-size: 13px; flex-wrap: wrap; }
+.Footer-links a { color: var(--text-muted); }
+.Footer-links a:hover { color: var(--text); }

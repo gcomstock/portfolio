@@ -1,0 +1,65 @@
+.Home { padding-top: 64px; }
+.Home-eyebrow { margin-bottom: 32px; }
+
+.Hero {
+  margin: 32px 0 96px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  aspect-ratio: 21 / 9;
+  display: grid;
+  place-items: center;
+  color: var(--text-dim);
+}
+
+/* Case studies — full-width rows */
+.Home-cases { padding-top: 0; }
+.Home-caseList { display: flex; flex-direction: column; gap: 96px; }
+
+.CaseRow {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 48px;
+  align-items: center;
+  transition: transform var(--dur-med) var(--ease-out);
+}
+.CaseRow:hover { transform: translateY(-4px); }
+.CaseRow-media {
+  aspect-ratio: 16 / 10;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  display: grid; place-items: center;
+  color: var(--text-dim); font-size: 13px;
+}
+.CaseRow-title { font-size: var(--fs-h1); margin: 12px 0 16px; }
+.CaseRow-subhead { max-width: 480px; }
+
+/* Smaller projects — 2-col grid */
+.Home-projects { padding-top: 64px; }
+.Home-projectGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px 32px;
+}
+.ProjectCard {
+  display: flex; flex-direction: column; gap: 16px;
+  transition: transform var(--dur-med) var(--ease-out);
+}
+.ProjectCard:hover { transform: translateY(-3px); }
+.ProjectCard-media {
+  aspect-ratio: 16 / 10;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  display: grid; place-items: center;
+  color: var(--text-dim); font-size: 13px;
+}
+.ProjectCard-title { font-size: var(--fs-subhead); }
+.ProjectCard-desc { color: var(--text-muted); font-size: var(--fs-body-sm); margin: 0; }
+
+@media (max-width: 900px) {
+  .CaseRow { grid-template-columns: 1fr; gap: 20px; }
+  .Home-projectGrid { grid-template-columns: 1fr; gap: 40px; }
+  .Home-caseList { gap: 64px; }
+}

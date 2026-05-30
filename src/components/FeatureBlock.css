@@ -1,0 +1,61 @@
+.FeatureBlock-wrap {
+  /* Generous top/bottom space so positive-speed drift never collides with neighbors. */
+  margin: 80px 0;
+}
+
+.FeatureBlock {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 56px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Subtle per-accent gradient wash. Sits inside the block, behind content. */
+.FeatureBlock::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 0% 0%, var(--accent-rgba) 0%, transparent 55%),
+    radial-gradient(ellipse at 100% 100%, var(--accent-rgba-soft) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.FeatureBlock--blue   { --accent-rgba: rgba(106, 169, 255, 0.14); --accent-rgba-soft: rgba(106, 169, 255, 0.06); }
+.FeatureBlock--purple { --accent-rgba: rgba(180, 140, 255, 0.14); --accent-rgba-soft: rgba(180, 140, 255, 0.06); }
+.FeatureBlock--green  { --accent-rgba: rgba(102, 209, 158, 0.14); --accent-rgba-soft: rgba(102, 209, 158, 0.06); }
+.FeatureBlock--amber  { --accent-rgba: rgba(240, 184, 107, 0.14); --accent-rgba-soft: rgba(240, 184, 107, 0.06); }
+.FeatureBlock--pink   { --accent-rgba: rgba(255, 127, 180, 0.14); --accent-rgba-soft: rgba(255, 127, 180, 0.06); }
+
+.FeatureBlock.is-reverse .FeatureBlock-media { order: 2; }
+
+.FeatureBlock-media {
+  aspect-ratio: 4 / 3;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.FeatureBlock-title { font-size: var(--fs-h3); margin-bottom: 16px; }
+.FeatureBlock-eyebrow { margin-bottom: 12px; }
+.FeatureBlock-copy { color: var(--text-muted); }
+.FeatureBlock-copy p:last-child { margin-bottom: 0; }
+
+@media (max-width: 900px) {
+  .FeatureBlock { grid-template-columns: 1fr; padding: 32px; gap: 24px; }
+  .FeatureBlock.is-reverse .FeatureBlock-media { order: 0; }
+  .FeatureBlock-wrap { margin: 48px 0; }
+}

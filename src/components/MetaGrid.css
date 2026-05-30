@@ -1,0 +1,22 @@
+.MetaGrid {
+  display: grid;
+  grid-template-columns: repeat(var(--meta-cols, 4), 1fr);
+  gap: 32px;
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin: 0;
+}
+.MetaGrid-item { margin: 0; }
+.MetaGrid-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+.MetaGrid-value { font-size: 14px; color: var(--text); margin: 0; line-height: 1.4; }
+
+@media (max-width: 900px) {
+  .MetaGrid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+}
