@@ -3,14 +3,12 @@
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  overflow: hidden;
 }
 .BgTexture-inner {
   position: absolute;
-  inset: -20%;
+  inset: 0;
   background-color: var(--bg);
   background-image:
-    radial-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    radial-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px);
   background-size: 24px 24px;
-  opacity: 0.6;
 }

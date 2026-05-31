@@ -37,10 +37,21 @@ export function Home() {
 
 function CaseRow({ project }) {
   const { slug, meta } = project;
+  const imgs = meta.coverImages;
+  const hasIso = !!(imgs?.length);
   return (
-    <Link to={`/work/${slug}`} className="CaseRow">
-      <div className="CaseRow-media" aria-hidden="true">
-        <span className="mono">{meta.company} · cover image</span>
+    <Link to={`/work/${slug}`} className={`CaseRow${hasIso ? ' CaseRow--iso' : ''}`}>
+      <div className={`CaseRow-media${hasIso ? ' CaseRow-media--iso' : ''}`} aria-hidden="true">
+        {hasIso
+          ? (
+            <div className="CaseRow-isoStage">
+              <img src={imgs[0]} alt="" className="CaseRow-isoImg CaseRow-isoImg--back" />
+              <img src={imgs[1]} alt="" className="CaseRow-isoImg CaseRow-isoImg--mid" />
+              <img src={imgs[2]} alt="" className="CaseRow-isoImg CaseRow-isoImg--front" />
+            </div>
+          )
+          : <span className="mono">{meta.company} · cover image</span>
+        }
       </div>
       <div className="CaseRow-body">
         <div className="eyebrow">{meta.company}</div>

@@ -1,5 +1,10 @@
+import cover1 from './images/explore-1.png';
+import cover2 from './images/explore-2.png';
+import cover3 from './images/explore-3.png';
+
 export default {
   kind: 'case-study',
+  coverImages: [cover1, cover2, cover3],
   order: 1,
   number: '01',
   company: 'Netflix',

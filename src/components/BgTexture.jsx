@@ -1,14 +1,25 @@
-import { ParallaxLayer } from './ParallaxLayer.jsx';
+import { useEffect, useRef } from 'react';
+import { useReducedMotion } from '../hooks/useReducedMotion.js';
 import './BgTexture.css';
 
-/**
- * Site-wide back layer: subtle repeating texture that drifts slowly.
- * Swap the background-image URL once Greg provides the texture asset.
- */
 export function BgTexture() {
+  const innerRef = useRef(null);
+  const reduced = useReducedMotion();
+
+  useEffect(() => {
+    if (reduced) return;
+    const el = innerRef.current;
+    if (!el) return;
+    const onScroll = () => {
+      el.style.backgroundPositionY = `${window.scrollY * 0.3}px`;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [reduced]);
+
   return (
     <div className="BgTexture" aria-hidden="true">
-      <ParallaxLayer speed={-20} className="BgTexture-inner" />
+      <div ref={innerRef} className="BgTexture-inner" />
     </div>
   );
 }
