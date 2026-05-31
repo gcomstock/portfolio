@@ -46,8 +46,8 @@
 }
 
 .ImagePanel .ImagePanel-title {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: var(--fs-content-title);
+  font-weight: var(--fw-content-title);
   color: var(--text);
   margin: 0;
 }

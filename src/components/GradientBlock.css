@@ -1,0 +1,28 @@
+.GradientBlock {
+  position: relative;
+  margin: 64px 0;
+  padding: 64px 0 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.GradientBlock::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.GradientBlock--blue::before {
+  background: radial-gradient(ellipse at 50% 0%, rgba(106, 169, 255, 0.07) 0%, transparent 65%);
+}
+.GradientBlock--purple::before {
+  background: radial-gradient(ellipse at 50% 0%, rgba(167, 130, 255, 0.07) 0%, transparent 65%);
+}
+.GradientBlock--green::before {
+  background: radial-gradient(ellipse at 50% 0%, rgba(100, 220, 160, 0.07) 0%, transparent 65%);
+}
+.GradientBlock--amber::before {
+  background: radial-gradient(ellipse at 50% 0%, rgba(255, 185, 80, 0.07) 0%, transparent 65%);
+}

@@ -7,7 +7,20 @@ import imgDiscProblems   from './images/disc-01-problems.png';
 import imgDiscInvest     from './images/disc-02-invest.png';
 import imgDiscJourney    from './images/disc-03-journey.png';
 import imgDiscMoney      from './images/disc-04-money.png';
-import imgResSpeed       from './images/res-01-getting-up-to-speed.png';
+import imgResHoneycomb    from './images/res-honeycomb.gif';
+import imgResGrafana      from './images/res-grafana.png';
+import imgResSumologic    from './images/res-sumologic.png';
+import imgResElastic      from './images/res-elastic.png';
+import imgResRaniSumo     from './images/res-rani-sumologic.png';
+import imgResRadarLogs2   from './images/res-radar-logs-2.png';
+import imgResRadarLogs    from './images/res-radar-logs.png';
+import imgResHariGrafana  from './images/res-hari-grafana.png';
+import imgSprintWb1       from './images/sprint-wb-1.jpg';
+import imgSprintWb2       from './images/sprint-wb-2.jpg';
+import imgSprintWb3       from './images/sprint-wb-3.jpg';
+import imgSprintWb4       from './images/sprint-wb-4.jpg';
+import imgSprintWb5       from './images/sprint-wb-5.jpg';
+import imgResSpeed        from './images/res-01-getting-up-to-speed.png';
 import imgResStrategy    from './images/res-02-strategy.png';
 import imgResAudit       from './images/res-03-industry-audit.png';
 import imgResArch        from './images/res-04-architecture.png';
@@ -68,54 +81,32 @@ import imgNextFar        from './images/next-02-far-from-done.png';
 
 ## Research
 
-With a clear mandate, we ran a structured design sprint to align on strategy, audit the industry, and stress-test our architecture before a single pixel of UI was designed.
-
-<FeatureBlock
-  accent="blue"
-  eyebrow="Customer Research"
-  title="Getting up to speed"
-  media={<img src={imgResSpeed} alt="Customer research sessions" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'4px'}} />}
+<PhotoCollage
+  title="Getting Up to Speed"
+  images={[imgResHoneycomb, imgResGrafana, imgResSumologic, imgResElastic, imgResRaniSumo, imgResRadarLogs2, imgResRadarLogs, imgResHariGrafana]}
 >
-  <p>Customer research involved dozens of stakeholder interviews and walk-through sessions. We met teams where they worked, watching how they navigated between tools when something went wrong in production.</p>
-</FeatureBlock>
+  <p>Customer research took lots of shapes. Some of it was a solo endeavor to just soak up the space. Other sessions members of the Observability team attended to understand when teams used internal vs external products.</p>
+</PhotoCollage>
 
-<FeatureBlock
-  accent="purple"
-  reverse
-  eyebrow="Design Sprint"
-  title="Strategy alignment"
-  media={<img src={imgResStrategy} alt="Strategy alignment sprint" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'4px'}} />}
->
-  <p>The Observability team worked with partners across the organization to document a shared strategy. A key outcome: we needed a unified experience connecting Metrics, Events, Logs, and Traces — starting with the data types teams trusted most.</p>
-</FeatureBlock>
+<GradientBlock accent="blue">
 
-<FeatureBlock
-  accent="green"
-  eyebrow="Design Sprint"
-  title="Industry audit"
-  media={<img src={imgResAudit} alt="Industry audit" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'4px'}} />}
->
-  <p>An industry audit scored external solutions and surfaced recurring UX patterns across Datadog, Grafana, and Honeycomb — tools Netflix engineers were already familiar with. These became reference points, not constraints.</p>
-</FeatureBlock>
+### Design Sprint
 
-<FeatureBlock
-  accent="blue"
-  reverse
-  eyebrow="Design Sprint"
-  title="Architecture alignment"
-  media={<img src={imgResArch} alt="Architecture alignment" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'4px'}} />}
->
-  <p>Not all engineering teams had reached alignment around the Explore product. Architecture diagrams drove clear conversations about which parts of the stack each sub-team owned — locking in the right technology approach before design work began.</p>
-</FeatureBlock>
+<ColGrid>
+  <ColGridItem icon={<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="7.5" stroke="currentColor" strokeWidth="1.5"/><path d="M18 18L24 24" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>} title="Industry audit">
+    <p>I led an industry audit where partners shared their reliance on external vendors and expressed how they thought we could close the gaps.</p>
+  </ColGridItem>
+  <ColGridItem icon={<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.5"/><rect x="16" y="4" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.5"/><rect x="4" y="16" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.5"/><rect x="16" y="16" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.5"/></svg>} title="Architecture alignment">
+    <p>And our engineering lead rallied alignment around how Explore would fit into the larger tech stack.</p>
+  </ColGridItem>
+  <ColGridItem icon={<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 22l3.5-1 12-12a2.121 2.121 0 00-3-3L5.5 18.5 5 22z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/><path d="M17.5 7.5l3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>} title="Whiteboarding and Critique">
+    <p>I led a discussion and critique on a group whiteboarding activity that invited all participants to envision the product's UX.</p>
+  </ColGridItem>
+</ColGrid>
 
-<FeatureBlock
-  accent="amber"
-  eyebrow="Design Sprint"
-  title="Whiteboarding"
-  media={<img src={imgResWhiteboard} alt="Whiteboarding sessions" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'4px'}} />}
->
-  <p>We diverged through a series of whiteboard sessions, exploring different information architectures and establishing a shared vocabulary for the product definition.</p>
-</FeatureBlock>
+<PhotoCollage images={[imgSprintWb1, imgSprintWb2, imgSprintWb3, imgSprintWb4, imgSprintWb5]} layout="whiteboard" />
+
+</GradientBlock>
 
 </section>
 

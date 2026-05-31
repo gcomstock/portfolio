@@ -1,0 +1,51 @@
+.PhotoCollage {
+  margin: 64px 0;
+}
+
+.PhotoCollage-stage {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 740px;
+  overflow: hidden;
+}
+
+.PhotoCollage-item {
+  position: absolute;
+}
+
+.PhotoCollage-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.4),
+    0 12px 48px rgba(0, 0, 0, 0.55);
+}
+
+.PhotoCollage-footer {
+  padding-top: 48px;
+  width: 33%;
+}
+
+.PhotoCollage .PhotoCollage-title {
+  font-size: var(--fs-content-title);
+  font-weight: var(--fw-content-title);
+  margin: 0 0 16px;
+}
+
+.PhotoCollage-text p {
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.65;
+  margin: 0;
+  max-width: none;
+}
+
+@media (max-width: 900px) {
+  .PhotoCollage-stage { height: 360px; }
+  .PhotoCollage-footer { width: 100%; }
+}

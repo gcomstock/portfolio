@@ -38,6 +38,10 @@
   --header-h: 64px;
   --header-h-mobile: 48px;
 
+  /* Shared component title — used by ImagePanel, PhotoCollage, etc. */
+  --fs-content-title: 20px;
+  --fw-content-title: 600;
+
   /* Type scale */
   --fs-eyebrow: 12px;
   --fs-body: 17px;

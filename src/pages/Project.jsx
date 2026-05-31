@@ -10,10 +10,12 @@ import { CaseNav } from '../components/CaseNav.jsx';
 import { ColGrid, ColGridItem } from '../components/ColGrid.jsx';
 import { PullQuote } from '../components/PullQuote.jsx';
 import { ImagePanel } from '../components/ImagePanel.jsx';
+import { PhotoCollage } from '../components/PhotoCollage.jsx';
+import { GradientBlock } from '../components/GradientBlock.jsx';
 import './Project.css';
 
 // MDX content can use these without importing.
-const mdxComponents = { FeatureBlock, Figure, VideoEmbed, ColGrid, ColGridItem, PullQuote, ImagePanel };
+const mdxComponents = { FeatureBlock, Figure, VideoEmbed, ColGrid, ColGridItem, PullQuote, ImagePanel, PhotoCollage, GradientBlock };
 
 export function Project() {
   const { slug } = useParams();
