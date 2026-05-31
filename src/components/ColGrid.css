@@ -1,0 +1,39 @@
+.ColGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  gap: 48px;
+  margin: 32px 0 64px;
+}
+
+.ColGrid-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.ColGrid-img {
+  width: 60%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+
+.ColGrid .ColGrid-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 10px;
+}
+
+.ColGrid-body p {
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.65;
+  margin: 0;
+  max-width: none;
+}
+
+@media (max-width: 900px) {
+  .ColGrid { grid-template-columns: 1fr; }
+}

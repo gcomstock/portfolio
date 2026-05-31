@@ -1,0 +1,66 @@
+.CaseNav {
+  position: fixed;
+  top: var(--header-h);
+  left: 0;
+  right: 0;
+  z-index: 90;
+  height: 32px;
+  width: 100%;
+  background: rgba(11, 13, 18, 0.55);
+  backdrop-filter: saturate(140%) blur(14px);
+  -webkit-backdrop-filter: saturate(140%) blur(14px);
+  border-bottom: 1px solid var(--border);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms var(--ease-out);
+}
+
+.CaseNav.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.CaseNav-inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  max-width: var(--page-max);
+  padding: 0 var(--page-gutter);
+  margin: 0 auto;
+  gap: 0;
+}
+
+.CaseNav-title {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+  margin-right: auto;
+  padding-right: 24px;
+}
+
+.CaseNav-item {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 12px;
+  height: 100%;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  transition: color var(--dur-fast) var(--ease-out);
+  white-space: nowrap;
+}
+
+.CaseNav-item:hover { color: var(--text-muted); }
+.CaseNav-item.is-active { color: var(--accent-blue); }
+
+@media (max-width: 900px) {
+  .CaseNav { top: var(--header-h-mobile); }
+  .CaseNav-title { display: none; }
+  .CaseNav-inner { overflow-x: auto; }
+  .CaseNav-item { font-size: 9px; padding: 0 10px; }
+}

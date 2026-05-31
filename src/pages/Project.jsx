@@ -6,10 +6,14 @@ import { MetaGrid } from '../components/MetaGrid.jsx';
 import { FeatureBlock } from '../components/FeatureBlock.jsx';
 import { Figure } from '../components/Figure.jsx';
 import { VideoEmbed } from '../components/VideoEmbed.jsx';
+import { CaseNav } from '../components/CaseNav.jsx';
+import { ColGrid, ColGridItem } from '../components/ColGrid.jsx';
+import { PullQuote } from '../components/PullQuote.jsx';
+import { ImagePanel } from '../components/ImagePanel.jsx';
 import './Project.css';
 
 // MDX content can use these without importing.
-const mdxComponents = { FeatureBlock, Figure, VideoEmbed };
+const mdxComponents = { FeatureBlock, Figure, VideoEmbed, ColGrid, ColGridItem, PullQuote, ImagePanel };
 
 export function Project() {
   const { slug } = useParams();
@@ -30,29 +34,36 @@ export function Project() {
   }
 
   const { meta } = entry;
+  const navTitle = [meta.company, meta.title].filter(Boolean).join(' · ');
   return (
-    <div className="page Project">
-      <header className="Project-header">
-        <div className="eyebrow Project-eyebrow">
-          {meta.kind === 'case-study' ? `Case study · ${meta.number || '01'} · ` : ''}{meta.company || meta.title}
-        </div>
-        <h1 className="Project-title">{meta.title}</h1>
-        <p className="subhead Project-subhead">{meta.subtitle}</p>
-      </header>
+    <div className="Project">
+      <div className="page Project-above-nav">
+        <header className="Project-header">
+          <div className="eyebrow Project-eyebrow">
+            {meta.kind === 'case-study' ? `Case study · ${meta.number || '01'} · ` : ''}{meta.company || meta.title}
+          </div>
+          <h1 className="Project-title">{meta.title}</h1>
+          <p className="subhead Project-subhead">{meta.subtitle}</p>
+        </header>
 
-      <div className="Project-hero" aria-hidden="true">
-        <span className="mono">final product hero placeholder</span>
+        <div className="Project-hero" aria-hidden="true">
+          <span className="mono">final product hero placeholder</span>
+        </div>
+
+        {meta.metadata && <MetaGrid items={meta.metadata} />}
       </div>
 
-      {meta.metadata && <MetaGrid items={meta.metadata} />}
+      {meta.sections && <CaseNav sections={meta.sections} title={navTitle} />}
 
-      <article className="Project-body">
-        <MDXProvider components={mdxComponents}>
-          <Suspense fallback={<div className="mono Project-loading">loading…</div>}>
-            <Content components={mdxComponents} />
-          </Suspense>
-        </MDXProvider>
-      </article>
+      <div className="page">
+        <article className="Project-body">
+          <MDXProvider components={mdxComponents}>
+            <Suspense fallback={<div className="mono Project-loading">loading…</div>}>
+              <Content components={mdxComponents} />
+            </Suspense>
+          </MDXProvider>
+        </article>
+      </div>
     </div>
   );
 }

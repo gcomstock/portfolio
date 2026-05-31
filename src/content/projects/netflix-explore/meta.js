@@ -11,6 +11,14 @@ export default {
   title: 'Explore',
   subtitle: 'An observability troubleshooting product.',
   accent: 'blue',
+  sections: [
+    { id: 'discovery', label: 'Discovery' },
+    { id: 'research',  label: 'Research'  },
+    { id: 'pivot',     label: 'Pivot'     },
+    { id: 'solution',  label: 'Solution'  },
+    { id: 'reception',  label: 'Reception'   },
+    { id: 'next-steps', label: 'Next Steps'  },
+  ],
   metadata: [
     { label: 'Role', value: 'Product Designer' },
     { label: 'Team', value: 'Solo designer, end-to-end' },

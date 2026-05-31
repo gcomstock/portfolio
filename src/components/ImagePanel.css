@@ -1,0 +1,123 @@
+.ImagePanel {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  align-items: start;
+  margin: 48px 0;
+}
+
+.ImagePanel-media {
+  grid-column: 1 / 3;
+  min-width: 0;
+  position: relative;
+}
+
+.ImagePanel-img-link {
+  display: block;
+  cursor: pointer;
+}
+
+.ImagePanel-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.ImagePanel-img--fade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 600ms ease-in-out;
+}
+
+.ImagePanel-media.is-faded .ImagePanel-img--fade {
+  opacity: 1;
+}
+
+.ImagePanel-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ImagePanel .ImagePanel-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+}
+
+.ImagePanel-cta {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 7px;
+  margin-top: 16px;
+  padding: 7px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #000;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.ImagePanel-cta:hover {
+  color: var(--text);
+}
+
+.ImagePanel-text-wrap {
+  display: grid;
+}
+
+.ImagePanel-text-wrap .ImagePanel-text {
+  grid-area: 1 / 1;
+  transition: opacity 600ms ease-in-out;
+}
+
+.ImagePanel-text--fade {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ImagePanel-text-wrap.is-faded .ImagePanel-text:first-child {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ImagePanel-text-wrap.is-faded .ImagePanel-text--fade {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.ImagePanel-text p,
+.ImagePanel-text li {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin: 0;
+  max-width: none;
+}
+
+.ImagePanel-text ul {
+  padding-left: 18px;
+  margin: 8px 0 0;
+}
+
+.ImagePanel-text li {
+  margin-bottom: 6px;
+}
+
+@media (max-width: 900px) {
+  .ImagePanel {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,4 +1,5 @@
-.Project { padding-top: 64px; }
+.Project { padding-top: 64px; width: 100%; }
+.Project-above-nav { padding-bottom: 8px; }
 .Project-header { margin-bottom: 32px; }
 .Project-eyebrow { margin-bottom: 24px; }
 .Project-title {
@@ -23,6 +24,17 @@
 .Project-body p { max-width: var(--reading-max); color: var(--text-muted); }
 .Project-body h2 { font-size: var(--fs-h2); margin: 64px 0 16px; }
 .Project-body h3 { font-size: var(--fs-h3); margin: 48px 0 12px; }
+
+/* Give named sections breathing room so sticky bars don't obscure headings on scroll */
+.Project-body section {
+  scroll-margin-top: calc(var(--header-h) + 32px + 16px);
+  padding-top: 0;
+}
+
+@media (max-width: 900px) {
+  .Project-body section { scroll-margin-top: calc(var(--header-h-mobile) + 32px + 16px); }
+}
+
 
 .Project-loading { color: var(--text-dim); padding: 48px 0; }
 .Project-missing { padding-top: 120px; text-align: center; color: var(--text-muted); }
