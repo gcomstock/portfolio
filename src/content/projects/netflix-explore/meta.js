@@ -14,6 +14,7 @@ export default {
   sections: [
     { id: 'discovery', label: 'Discovery' },
     { id: 'research',  label: 'Research'  },
+    { id: 'proposal',  label: 'Proposal'  },
     { id: 'pivot',     label: 'Pivot'     },
     { id: 'solution',  label: 'Solution'  },
     { id: 'reception',  label: 'Reception'   },

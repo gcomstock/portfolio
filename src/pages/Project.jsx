@@ -12,10 +12,14 @@ import { PullQuote } from '../components/PullQuote.jsx';
 import { ImagePanel } from '../components/ImagePanel.jsx';
 import { PhotoCollage } from '../components/PhotoCollage.jsx';
 import { GradientBlock } from '../components/GradientBlock.jsx';
+import { AnnotatedImage } from '../components/AnnotatedImage.jsx';
+import { GanttChart } from '../components/GanttChart.jsx';
+import { SpectrumChart } from '../components/SpectrumChart.jsx';
+import { FeedbackFlow } from '../components/FeedbackFlow.jsx';
 import './Project.css';
 
 // MDX content can use these without importing.
-const mdxComponents = { FeatureBlock, Figure, VideoEmbed, ColGrid, ColGridItem, PullQuote, ImagePanel, PhotoCollage, GradientBlock };
+const mdxComponents = { FeatureBlock, Figure, VideoEmbed, ColGrid, ColGridItem, PullQuote, ImagePanel, PhotoCollage, GradientBlock, AnnotatedImage, GanttChart, SpectrumChart, FeedbackFlow };
 
 export function Project() {
   const { slug } = useParams();

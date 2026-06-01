@@ -21,8 +21,23 @@
 }
 
 .Project-body { padding-top: 32px; }
-.Project-body p { max-width: var(--reading-max); color: var(--text-muted); }
-.Project-body h2 { font-size: var(--fs-h2); margin: 64px 0 16px; }
+.Project-body p { max-width: var(--reading-max); color: var(--text-muted); font-size: var(--fs-body-sm); line-height: 1.65; }
+.Project-body h2 {
+  font-size: var(--fs-h2);
+  margin: 64px 0 0;
+  padding-bottom: 16px;
+  position: relative;
+}
+
+.Project-body h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, var(--accent-blue), transparent);
+}
 .Project-body h3 { font-size: var(--fs-h3); margin: 48px 0 12px; }
 
 /* Give named sections breathing room so sticky bars don't obscure headings on scroll */

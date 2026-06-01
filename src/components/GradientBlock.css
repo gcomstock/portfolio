@@ -1,28 +1,45 @@
 .GradientBlock {
   position: relative;
   margin: 64px 0;
-  padding: 64px 0 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  padding: 64px 0;
 }
 
 .GradientBlock::before {
   content: '';
   position: absolute;
-  inset: 0;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
   pointer-events: none;
-  border-radius: inherit;
+}
+
+.GradientBlock::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  pointer-events: none;
 }
 
 .GradientBlock--blue::before {
-  background: radial-gradient(ellipse at 50% 0%, rgba(106, 169, 255, 0.07) 0%, transparent 65%);
+  background: radial-gradient(ellipse at 50% 0%, rgba(106, 169, 255, 0.18) 0%, rgba(106, 169, 255, 0.05) 100%);
 }
 .GradientBlock--purple::before {
-  background: radial-gradient(ellipse at 50% 0%, rgba(167, 130, 255, 0.07) 0%, transparent 65%);
+  background: radial-gradient(ellipse at 50% 0%, rgba(167, 130, 255, 0.18) 0%, rgba(167, 130, 255, 0.05) 100%);
 }
 .GradientBlock--green::before {
-  background: radial-gradient(ellipse at 50% 0%, rgba(100, 220, 160, 0.07) 0%, transparent 65%);
+  background: radial-gradient(ellipse at 50% 0%, rgba(100, 220, 160, 0.18) 0%, rgba(100, 220, 160, 0.05) 100%);
 }
 .GradientBlock--amber::before {
-  background: radial-gradient(ellipse at 50% 0%, rgba(255, 185, 80, 0.07) 0%, transparent 65%);
+  background: radial-gradient(ellipse at 50% 0%, rgba(255, 185, 80, 0.18) 0%, rgba(255, 185, 80, 0.05) 100%);
+}
+.GradientBlock--pink::before {
+  background: radial-gradient(ellipse at 50% 0%, rgba(255, 80, 80, 0.18) 0%, rgba(255, 80, 80, 0.05) 100%);
 }

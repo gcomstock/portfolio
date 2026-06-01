@@ -1,0 +1,106 @@
+.AnnotatedImage {
+  margin: 48px 0;
+}
+
+.AnnotatedImage-stage {
+  position: relative;
+  width: 100%;
+  padding: 80px 0 48px;
+}
+
+.AnnotatedImage-img {
+  display: block;
+  width: 58%;
+  margin: 0 auto;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 1;
+}
+
+/* Each annotation is absolutely positioned within the stage.
+   The bottom of the annotation (the border-bottom line) anchors at top: y
+   via transform: translateY(-100%), so the dot sits exactly on the y coordinate. */
+.AnnotatedImage-annotation {
+  position: absolute;
+  border-bottom: 1px solid var(--line-color, var(--accent-blue));
+  padding-bottom: 10px;
+  z-index: 2;
+}
+
+.AnnotatedImage-annotation--left  { padding-right: 24px; }
+.AnnotatedImage-annotation--right { padding-left:  24px; }
+
+.AnnotatedImage-text {
+  display: block;
+  /* Scale font smoothly with viewport; image takes 58% so ~21% is available per side */
+  font-size: clamp(11px, 1vw, 13px);
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.AnnotatedImage-annotation--left .AnnotatedImage-text {
+  text-align: left;
+  /* Cap at 260px but never wider than the pre-image margin */
+  max-width: min(260px, 20vw);
+}
+
+.AnnotatedImage-annotation--right .AnnotatedImage-text {
+  text-align: right;
+  margin-left: auto;
+  max-width: min(260px, 20vw);
+}
+
+/* Dot centered on the border-bottom line at the image-side end */
+.AnnotatedImage-dot {
+  position: absolute;
+  bottom: -3px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--line-color, var(--accent-blue));
+}
+
+.AnnotatedImage-annotation--left .AnnotatedImage-dot {
+  right: -2px;
+}
+
+.AnnotatedImage-annotation--right .AnnotatedImage-dot {
+  left: -2px;
+}
+
+/* Mobile: plain image + bullet list */
+.AnnotatedImage-mobile-list {
+  display: none;
+  margin: 16px 0 0;
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.AnnotatedImage-mobile-list li {
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.65;
+  margin-bottom: 8px;
+  max-width: none;
+}
+
+@media (max-width: 900px) {
+  .AnnotatedImage-stage {
+    padding: 0;
+  }
+
+  .AnnotatedImage-img {
+    width: 100%;
+    border-radius: 6px;
+  }
+
+  .AnnotatedImage-annotation {
+    display: none;
+  }
+
+  .AnnotatedImage-mobile-list {
+    display: block;
+  }
+}

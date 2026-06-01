@@ -1,0 +1,99 @@
+.GanttChart {
+  width: 100%;
+  padding: 20px 0 8px;
+  position: relative;
+}
+
+/* ── Header ── */
+.GanttChart-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 4px;
+}
+
+.GanttChart-years,
+.GanttChart-months {
+  position: relative;
+  height: 14px;
+}
+
+.GanttChart-year {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text);
+  line-height: 1;
+  transform: translateX(-50%);
+}
+
+.GanttChart-month {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  line-height: 1;
+  transform: translateX(-50%);
+}
+
+/* ── Grid lines ── */
+.GanttChart-grid {
+  position: absolute;
+  inset: 54px 0 0;
+  pointer-events: none;
+}
+
+.GanttChart-gridline {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border);
+  transform: translateX(-50%);
+}
+
+/* ── Bars ── */
+.GanttChart-bars {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.GanttChart-row {
+  position: relative;
+  height: 28px;
+}
+
+.GanttChart-bar {
+  position: absolute;
+  height: 100%;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  transition: width 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  min-width: 0;
+}
+
+.GanttChart-bar--dashed {
+  background: transparent;
+  border: 1px dashed var(--text-dim);
+  border-radius: 4px;
+  overflow: visible;
+}
+
+.GanttChart-label {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  padding: 0 10px;
+  white-space: nowrap;
+  opacity: 1;
+}
+
+.GanttChart-bar--dashed .GanttChart-label {
+  color: var(--text-muted);
+  font-weight: 400;
+}

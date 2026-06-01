@@ -37,6 +37,10 @@
   margin: 0 0 16px;
 }
 
+.PhotoCollage .PhotoCollage-title::after {
+  display: none;
+}
+
 .PhotoCollage-text p {
   color: var(--text-muted);
   font-size: 15px;

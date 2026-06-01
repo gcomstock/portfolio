@@ -25,9 +25,10 @@ import imgResStrategy    from './images/res-02-strategy.png';
 import imgResAudit       from './images/res-03-industry-audit.png';
 import imgResArch        from './images/res-04-architecture.png';
 import imgResWhiteboard  from './images/res-05-whiteboarding.png';
-import imgPivLofi        from './images/piv-01-lofi.png';
-import imgPivHifi        from './images/piv-02-hifi.png';
+import imgPivLofi        from './images/piv-01-lofi.gif';
+import imgPivHifi        from './images/piv-02-hifi.gif';
 import imgPivValid       from './images/piv-03-validation.png';
+import imgPivScreen      from './images/piv-validation-real.png';
 import imgPivPoints      from './images/piv-04-pivot-points.png';
 import imgSolMetA        from './images/sol-01-metrics-ga-a.png';
 import imgSolMetB        from './images/sol-02-metrics-ga-b.png';
@@ -110,20 +111,70 @@ import imgNextFar        from './images/next-02-far-from-done.png';
 
 </section>
 
+<section id="proposal">
+
+## Proposal
+
+<ImagePanel
+  image={imgPivLofi}
+  alt="Lo-fi mockups"
+  title="Lo-Fi Mockups"
+  href="https://www.figma.com/proto/PiH0KYAAa6mMKaUTcI5yNm/Explore-Case-Study?page-id=60721%3A95842&node-id=60721-97760&viewport=327%2C139%2C0.08&t=1mkWohh3f13GR9xX-1&scaling=min-zoom&content-scaling=fixed"
+>
+  <p>Following the sprint, I synthesized the ideas shared and produced really rough mocks to cover the entire troubleshooting journey, not just MELT. It was a blend of existing internal products and new features.</p>
+</ImagePanel>
+
+<ImagePanel
+  image={imgPivHifi}
+  alt="Hi-fi prototyping"
+  title="Hi-Fi Prototyping"
+  href="https://www.figma.com/proto/PiH0KYAAa6mMKaUTcI5yNm/Explore-Case-Study?page-id=64%3A224770&node-id=211-111862&viewport=934%2C646%2C0.15&t=3ZQD7w3OAzTDTGxd-1&scaling=min-zoom&content-scaling=fixed"
+>
+  <p>Figma prototyping got the team aligned on a Grafana inspired UX for MELT, where a user can create a new panel and select a different data source for each. Early feedback was promising!</p>
+</ImagePanel>
+
+<PullQuote leadin="Honestly though…" accent="amber">
+  We needed to Pivot
+</PullQuote>
+
+<GradientBlock accent="pink">
+
+### Validation Fell Short
+
+We decided to **build a scrappy front-end prototype** using the existing API endpoints of the legacy products, to test real-world use cases and data with customers. It became evident that a lot of change was needed.
+
+<AnnotatedImage
+  image={imgPivScreen}
+  alt="Hi-fi prototype validation — Netflix Console Explore showing Metrics, Logs, and Traces panels"
+  accent="red"
+  annotations={[
+    { side: 'left', x: '24%', y: '7%',  text: 'Unclear which query values were supported by all data types, and which were specific' },
+    { side: 'left', x: '24%', y: '23%', text: 'Although we had unified the query building UX, a metrics query took more steps than the legacy product, and metric names were harder to discover' },
+    { side: 'left', x: '36%', y: '66%', text: 'Poor use of screen space for simple queries' },
+    { side: 'right', x: '77%', y: '7%',  text: 'UX became less usable with each panel, and unused panels had to be manually removed', offsetY: 48 },
+    { side: 'right', x: '77%', y: '79%', text: 'Difficult to see table values' },
+  ]}
+/>
+
+</GradientBlock>
+
+</section>
+
 <section id="pivot">
 
 ## Pivot
 
-Early prototypes taught us what the data already suggested: the initial direction was too narrow. We needed to broaden scope, stagger the rollout, and fix the most painful UX gaps.
-
-<FeatureBlock
-  accent="blue"
-  eyebrow="Design"
-  title="Lo-fi mockups"
-  media={<img src={imgPivLofi} alt="Lo-fi mockups" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'4px'}} />}
->
-  <p>Following the sprint, I partnered with engineering to make early single-page models to prove the troubleshooting journey end-to-end. It was a week of speed-sketching and iterating on core information architecture with the full team.</p>
-</FeatureBlock>
+<ColGrid>
+  <ColGridItem media={<SpectrumChart />} title="Broaden the appeal">
+    <p>We over-indexed on the novice troubleshooter because their feedback on the legacy products were strongest. More advanced queries across multiple applications were simply more difficult to do in the new UI. We needed a solution that appealed to both novice and power users.</p>
+  </ColGridItem>
+  <ColGridItem media={<GanttChart />} title="Stagger the release">
+    <p>The end goal was clear: a unified MELT experience and the deprecation of multiple legacy products. Delivering on all fronts was a stacked bet. We instead decided to stagger each feature release, starting with metrics, followed quickly by logs.</p>
+  </ColGridItem>
+  <ColGridItem media={<FeedbackFlow />} title="Fix the pain points">
+    <p>Through customer validation sessions, UserVoice tickets, and a dedicated early feedback channel, we gathered and organized customer requests. Addressing the strongest signals became the highest priority.</p>
+  </ColGridItem>
+</ColGrid>
 
 <FeatureBlock
   accent="purple"
