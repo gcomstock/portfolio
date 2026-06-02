@@ -27,16 +27,14 @@ import imgResArch        from './images/res-04-architecture.png';
 import imgResWhiteboard  from './images/res-05-whiteboarding.png';
 import imgPivLofi        from './images/piv-01-lofi.gif';
 import imgPivHifi        from './images/piv-02-hifi.gif';
-import imgPivValid       from './images/piv-03-validation.png';
 import imgPivScreen      from './images/piv-validation-real.png';
-import imgPivPoints      from './images/piv-04-pivot-points.png';
-import imgSolMetA        from './images/sol-01-metrics-ga-a.png';
-import imgSolMetB        from './images/sol-02-metrics-ga-b.png';
-import imgSolMetC        from './images/sol-03-metrics-ga-c.png';
-import imgSolLogsA       from './images/sol-04-logs-a.png';
-import imgSolLogsB       from './images/sol-05-logs-b.png';
-import imgSolTraces      from './images/sol-06-traces.png';
-import imgSolStory       from './images/sol-07-storyboard.png';
+import imgPivOnepanel    from './images/piv-lofi-1panel.gif';
+import imgPivEvolution   from './images/piv-metrics-evolution.gif';
+import imgSolMetrics     from './images/sol-metrics.png';
+import imgSolLogs        from './images/sol-logs.png';
+import imgSolLogDetails  from './images/sol-log-details.png';
+import imgSolTracesOv    from './images/sol-traces-overview.png';
+import imgSolTraces      from './images/sol-traces.png';
 import imgRecProd        from './images/rec-01-production.png';
 import imgRecStats       from './images/rec-02-reception-stats.png';
 import imgRecSlack       from './images/rec-03-reception-slack.png';
@@ -176,34 +174,27 @@ We decided to **build a scrappy front-end prototype** using the existing API end
   </ColGridItem>
 </ColGrid>
 
-<FeatureBlock
-  accent="purple"
-  reverse
-  eyebrow="Design"
-  title="Hi-fi prototypes"
-  media={<img src={imgPivHifi} alt="Hi-fi prototypes" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'4px'}} />}
->
-  <p>Type prototyping got the team aligned on UI surfaces. Users could filter tag values using inline autocomplete, with suggestions limited to the previous 6 hours. Early feedback was strong — but validation revealed a gap.</p>
-</FeatureBlock>
+<GradientBlock accent="blue">
 
-<FeatureBlock
-  accent="pink"
-  eyebrow="Reflection"
-  title="Validation fell short"
-  media={<img src={imgPivValid} alt="Validation fell short" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'4px'}} />}
+<ImagePanel
+  image={imgPivOnepanel}
+  alt="Lo-fi single-panel query builder"
+  title="Quick Iterations"
+  href="https://excalidraw.com/#json=6_S8IgNKKNZ1b2Fhko8CQ,jXsrB3PK9grLGmndOGLqDg"
 >
-  <p>Building a front-end prototype against the existing API endpoints exposed the real problem: we could not design our way out of the underlying data model issues. External tools were already winning on this front. It became obvious we needed to pivot.</p>
-</FeatureBlock>
+  <p>I explored a variety of solves that enabled complex query building for our power users. Tight iteration with engineering and customers led to quick evolution.</p>
+</ImagePanel>
 
-<FeatureBlock
-  accent="amber"
+<ImagePanel
+  image={imgPivEvolution}
+  alt="More refinement"
+  title="More Refinement"
   reverse
-  eyebrow="Strategy"
-  title="Pivot points"
-  media={<img src={imgPivPoints} alt="Pivot points" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'4px'}} />}
 >
-  <p>Three pivots shaped the path forward: <strong>Broaden the appeal</strong> — open Explore to all data types so it looked like an established product from day one; <strong>Stagger the release</strong> — ship Metrics first, then Logs, then Traces, starting with Safety and Reliability by App; <strong>Fix the pain points</strong> — use a prioritized bug list from customer validation to resolve the highest-friction issues first.</p>
-</FeatureBlock>
+  <p>Once the core patterns of the new UX were established, I worked with engineering to make tight refinements almost daily. They would get them in product and do regular drops for customers.</p>
+</ImagePanel>
+
+</GradientBlock>
 
 </section>
 
@@ -211,73 +202,17 @@ We decided to **build a scrappy front-end prototype** using the existing API end
 
 ## Solution
 
-We shipped in phases — Metrics GA, then Logs Beta, then Traces — validating the unified model and growing the user base before each new data type launched.
+<ProductPanel image={imgSolMetrics} alt="Explore Metrics" title="Explore Metrics">
+  <p>Placeholder — Metrics copy goes here.</p>
+</ProductPanel>
 
-<FeatureBlock
-  accent="blue"
-  eyebrow="Phase 1 · Metrics"
-  title="Metrics GA"
-  media={<img src={imgSolMetA} alt="Metrics GA" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'4px'}} />}
->
-  <p>Once the core patterns of the new UX were established, I worked with engineering to make tight refinements almost daily. The first GA release unified metric querying — Builder or Manual mode, tag filtering, grouping, and multi-panel graph views all in one place.</p>
-</FeatureBlock>
+<ProductPanel image={imgSolLogs} alt="Explore Logs" title="Explore Logs">
+  <p>Placeholder — Logs copy goes here.</p>
+</ProductPanel>
 
-<FeatureBlock
-  accent="purple"
-  reverse
-  eyebrow="Phase 1 · Metrics"
-  title="Inline context and exploration"
-  media={<img src={imgSolMetB} alt="Metrics inline exploration" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'4px'}} />}
->
-  <p>With data on screen, Explore offered inline jump paths to Logs or Traces without losing query context. Sidebar panels kept related metrics visible while a user drilled into a specific time series or anomaly.</p>
-</FeatureBlock>
-
-<FeatureBlock
-  accent="green"
-  eyebrow="Phase 1 · Metrics"
-  title="Metrics in production"
-  media={<img src={imgSolMetC} alt="Metrics in production" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'4px'}} />}
->
-  <p>The final Metrics GA interface shipped with a clean query builder, multi-series support, and deep linking. Engineers could land directly in an Explore view from a Slack alert or an Atlas dashboard without re-building their query.</p>
-</FeatureBlock>
-
-<FeatureBlock
-  accent="amber"
-  reverse
-  eyebrow="Phase 2 · Logs"
-  title="Logs Beta"
-  media={<img src={imgSolLogsA} alt="Logs Beta" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'4px'}} />}
->
-  <p>Logs Beta brought the same query model to structured log data. A histogram showed log volume over time with Info and Error breakdowns. The table view surfaced formattedMessage with expandable rows — 4,320 logs drawn per view, with column configuration and export built in.</p>
-</FeatureBlock>
-
-<FeatureBlock
-  accent="blue"
-  eyebrow="Phase 2 · Logs"
-  title="Logs in depth"
-  media={<img src={imgSolLogsB} alt="Logs detailed view" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'4px'}} />}
->
-  <p>Error-level filtering, grouped log views, and Visualize mode let engineers move from "something is wrong" to a specific error message in seconds — all without leaving Explore or re-writing a Sumologic query.</p>
-</FeatureBlock>
-
-<FeatureBlock
-  accent="purple"
-  reverse
-  eyebrow="Phase 3 · Traces"
-  title="On to traces"
-  media={<img src={imgSolTraces} alt="Traces view" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'4px'}} />}
->
-  <p>Traces completed the MELT picture with Count timelines, percentile heatmaps, and a log overlay — all filterable by span property. 300 sampled traces at 1% surfaced patterns across 13M spans, with duration distribution histograms for at-a-glance health.</p>
-</FeatureBlock>
-
-<FeatureBlock
-  accent="green"
-  eyebrow="End-to-end"
-  title="Storyboarding the full journey"
-  media={<img src={imgSolStory} alt="End-to-end storyboard" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'4px'}} />}
->
-  <p>With all three data types in place, we storyboarded the complete troubleshooting flow — from a production alert landing in Metrics, through a Logs pivot, into a Trace drill-down — validating that the connected experience held together across the full NFLX toolchain.</p>
-</FeatureBlock>
+<ProductPanel image={imgSolTracesOv} alt="Explore Traces" title="Explore Traces">
+  <p>Placeholder — Traces copy goes here.</p>
+</ProductPanel>
 
 </section>
 

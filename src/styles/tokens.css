@@ -4,6 +4,7 @@
   --bg-elevated: #11141b;
   --surface: #161a23;
   --surface-2: #1d2230;
+  --surface-blue: #141a2c;
   --border: #262b3a;
   --border-strong: #353c52;
 
@@ -28,7 +29,7 @@
   --font-mono: 'Geist Mono', 'JetBrains Mono', 'SF Mono', Menlo, monospace;
 
   /* Layout — easy to tweak */
-  --page-gutter: 24px;
+  --page-gutter: 48px;
   --page-max: 1800px;
   --reading-max: 720px;
   --grid-cols: 12;

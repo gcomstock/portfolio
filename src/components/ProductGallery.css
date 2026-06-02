@@ -1,0 +1,64 @@
+.ProductGallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin: 48px 0;
+  perspective: 1500px;
+  perspective-origin: 50% 40%;
+}
+
+.ProductGallery-slide {
+  /* default tilted state — JS overrides inline on scroll */
+  transform: rotateX(50deg) rotateY(5deg) rotateZ(-40deg) translateZ(20px);
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ProductGallery-slide { transform: none; }
+}
+
+/* ── Browser window wrapper ── */
+
+.BrowserFrame {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg-elevated);
+}
+
+.BrowserFrame-chrome {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.BrowserFrame-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.BrowserFrame-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.BrowserFrame-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--surface);
+}
+
+@media (max-width: 900px) {
+  .ProductGallery {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

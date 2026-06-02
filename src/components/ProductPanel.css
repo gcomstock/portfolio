@@ -1,0 +1,94 @@
+.ProductPanel {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  align-items: start;
+  margin: 48px 0;
+}
+
+/* ── Image area (2 cols) ── */
+
+.ProductPanel-media {
+  grid-column: 1 / 3;
+  min-width: 0;
+  /* perspective here keeps each panel's 3D space isolated */
+  perspective: 2500px;
+  perspective-origin: 50% 50%;
+}
+
+.ProductPanel-frame {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  overflow: hidden;
+  /* gradient border: inner fill covers padding, outer gradient shows through the 1px border */
+  background-image:
+    linear-gradient(var(--bg-elevated), var(--bg-elevated)),
+    linear-gradient(to bottom right, #4a587c, #1e2535);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
+  /* default tilted state — JS overrides on scroll */
+  transform: rotateX(15deg) rotateY(10deg) rotateZ(-10deg) scale(0.9);
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ProductPanel-frame { transform: none; }
+}
+
+.ProductPanel-chrome {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: linear-gradient(to bottom right, #1e2740, var(--surface-blue));
+  border-bottom: 1px solid var(--border-strong);
+  flex-shrink: 0;
+}
+
+.ProductPanel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid #4a587c;
+  background: rgba(74, 88, 124, 0.25);
+  flex-shrink: 0;
+}
+
+.ProductPanel-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Text column (1 col) ── */
+
+.ProductPanel-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ProductPanel .ProductPanel-title {
+  font-size: var(--fs-content-title);
+  font-weight: var(--fw-content-title);
+  color: var(--text);
+  margin: 0;
+}
+
+.ProductPanel-text p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin: 0;
+  max-width: none;
+}
+
+@media (max-width: 900px) {
+  .ProductPanel {
+    grid-template-columns: 1fr;
+  }
+  .ProductPanel-media {
+    grid-column: 1;
+  }
+}
