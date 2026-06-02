@@ -24,7 +24,7 @@
 .Project-body p { max-width: var(--reading-max); color: var(--text-muted); font-size: var(--fs-body-sm); line-height: 1.65; }
 .Project-body h2 {
   font-size: var(--fs-h2);
-  margin: 64px 0 0;
+  margin: 0;
   padding-bottom: 16px;
   position: relative;
 }
@@ -42,12 +42,12 @@
 
 /* Give named sections breathing room so sticky bars don't obscure headings on scroll */
 .Project-body section {
-  scroll-margin-top: calc(var(--header-h) + 32px + 16px);
-  padding-top: 0;
+  scroll-margin-top: calc(var(--header-h) + 32px + 40px);
+  padding-top: 32px;
 }
 
 @media (max-width: 900px) {
-  .Project-body section { scroll-margin-top: calc(var(--header-h-mobile) + 32px + 16px); }
+  .Project-body section { scroll-margin-top: calc(var(--header-h-mobile) + 32px + 40px); }
 }
 
 

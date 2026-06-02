@@ -5,7 +5,7 @@ function easeOut(t) {
   return 1 - Math.pow(1 - t, 3);
 }
 
-export function ProductPanel({ image, alt = '', title, children }) {
+export function ProductPanel({ image, alt = '', title, placeholder = false, solo = false, children }) {
   const frameRef = useRef(null);
 
   useEffect(() => {
@@ -20,8 +20,9 @@ export function ProductPanel({ image, alt = '', title, children }) {
     function update() {
       const rect = el.getBoundingClientRect();
       const vh = window.innerHeight;
-      const endPos = vh * 0.5 + rect.height * 0.5;
-      const raw = Math.max(0, Math.min(1, (vh - rect.bottom) / (vh - endPos)));
+      const startPos = vh * 1.15;
+      const endPos   = vh * 0.5;
+      const raw = Math.max(0, Math.min(1, (startPos - rect.bottom) / (startPos - endPos)));
       const t = easeOut(raw);
 
       const rx    =  15 * (1 - t);
@@ -46,17 +47,34 @@ export function ProductPanel({ image, alt = '', title, children }) {
     };
   }, []);
 
+  const frame = (
+    <div ref={frameRef} className="ProductPanel-frame">
+      <div className="ProductPanel-chrome">
+        <span className="ProductPanel-dot" />
+        <span className="ProductPanel-dot" />
+        <span className="ProductPanel-dot" />
+      </div>
+      {placeholder
+        ? <div className="ProductPanel-placeholder" />
+        : <img src={image} alt={alt} className="ProductPanel-img" />
+      }
+    </div>
+  );
+
+  if (solo) {
+    return (
+      <div className="ProductPanel ProductPanel--solo">
+        <div className="ProductPanel-media">
+          {frame}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="ProductPanel">
       <div className="ProductPanel-media">
-        <div ref={frameRef} className="ProductPanel-frame">
-          <div className="ProductPanel-chrome">
-            <span className="ProductPanel-dot" />
-            <span className="ProductPanel-dot" />
-            <span className="ProductPanel-dot" />
-          </div>
-          <img src={image} alt={alt} className="ProductPanel-img" />
-        </div>
+        {frame}
       </div>
       <div className="ProductPanel-body">
         {title && <h3 className="ProductPanel-title">{title}</h3>}

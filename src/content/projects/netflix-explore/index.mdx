@@ -57,7 +57,7 @@ import imgNextFar        from './images/next-02-far-from-done.png';
   </ColGridItem>
 </ColGrid>
 
-<PullQuote leadin="With a team of 30ish…" accent="purple">
+<PullQuote leadin="With a team of 30ish…" accent="blue">
   How do we invest smarter?
 </PullQuote>
 
@@ -131,7 +131,7 @@ import imgNextFar        from './images/next-02-far-from-done.png';
   <p>Figma prototyping got the team aligned on a Grafana inspired UX for MELT, where a user can create a new panel and select a different data source for each. Early feedback was promising!</p>
 </ImagePanel>
 
-<PullQuote leadin="Honestly though…" accent="amber">
+<PullQuote leadin="Honestly though…" accent="blue">
   We needed to Pivot
 </PullQuote>
 
@@ -214,41 +214,33 @@ We decided to **build a scrappy front-end prototype** using the existing API end
   <p>Placeholder — Traces copy goes here.</p>
 </ProductPanel>
 
+<PullQuote leadin="Yeah, yeah, but…" accent="blue">
+  How's production?
+</PullQuote>
+
+<ProductPanel solo placeholder />
+
 </section>
 
 <section id="reception">
 
 ## Reception
 
-Explore Metrics launched to strong internal adoption. Teams that had relied on external vendors started consolidating onto the platform within weeks of GA.
-
-<FeatureBlock
-  accent="blue"
-  eyebrow="Production"
-  title="A look at production"
-  media={<img src={imgRecProd} alt="Production usage" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'4px'}} />}
+<ImagePanel
+  image={imgRecProd}
+  alt="Measuring Success"
+  title="Measuring Success"
 >
-  <p>Explore Metrics — Atlas vs. Explore Weekly Active Users grew steadily from launch. The consolidation effect was visible within weeks: teams migrating off Sumologic and Grafana showed up clearly in the usage data.</p>
-</FeatureBlock>
+  <p>Our key success metric is voluntary adoption vs legacy and 3rd party products. We also relied on bi-annual employee satisfaction surveys, and direct customer checkins.</p>
+  <p>Many legacy products do not have deeper analytics integration built in yet, and we'd rather not invest additional engineering effort on products slated for deprecation.</p>
+  <p>Session length does not correlate to a reduced time to insight (TTI) because users tend to leave sessions open to monitor remediation actions.</p>
+</ImagePanel>
 
-<FeatureBlock
-  accent="green"
-  reverse
-  eyebrow="Adoption"
-  title="1.5k↑ Explorer Metrics users in the first week"
-  media={<img src={imgRecStats} alt="Reception stats and Slack messages" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'4px'}} />}
->
-  <p>Slack messages from engineers across the company validated the direction. The new Builder / Manual toggle and placement, deep-linking from alerts, and the inline tag filter were cited most frequently as improvements over the previous tools.</p>
-</FeatureBlock>
-
-<FeatureBlock
-  accent="purple"
-  eyebrow="Feedback"
-  title="Warm reception across the org"
-  media={<img src={imgRecSlack} alt="Reception Slack messages" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'4px'}} />}
->
-  <p>"Looks like full parity with AtlasUI but in the console." "It's quite smooth to use." "I love the guests, it's my favorite part of the new UI." Organic positive feedback in internal channels confirmed that engineers were finding the product on their own and sharing it.</p>
-</FeatureBlock>
+<StatGrid>
+  <StatItem number="+90%" label="Voluntary adoption rate across all Netflix engineering teams, versus legacy internal tools and third-party alternatives." />
+  <StatItem number="+5" label="88/100 Employee Survey score on Observability product sentiment, versus 83/100 pre-launch." />
+  <StatItem number="$20M+" label="Projected annual savings versus third-party observability contracts at Netflix scale." />
+</StatGrid>
 
 </section>
 

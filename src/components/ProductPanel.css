@@ -61,6 +61,26 @@
   display: block;
 }
 
+.ProductPanel-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--surface);
+}
+
+/* ── Solo (centered single-column) variant ── */
+
+.ProductPanel--solo {
+  display: block;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ProductPanel--solo .ProductPanel-media {
+  grid-column: unset;
+  perspective: 2500px;
+}
+
 /* ── Text column (1 col) ── */
 
 .ProductPanel-body {

@@ -107,6 +107,10 @@
   max-width: none;
 }
 
+.ImagePanel-text p + p {
+  margin-top: 24px;
+}
+
 .ImagePanel-text ul {
   padding-left: 18px;
   margin: 8px 0 0;
