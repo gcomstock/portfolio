@@ -15,3 +15,4 @@
 .Footer-links { display: flex; gap: 24px; font-size: 13px; flex-wrap: wrap; }
 .Footer-links a { color: var(--text-muted); }
 .Footer-links a:hover { color: var(--text); }
+.Footer-built { font-size: 11px; color: var(--text-dim); text-align: right; margin-top: 24px; }

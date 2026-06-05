@@ -35,24 +35,31 @@ import imgSolLogs        from './images/sol-logs.png';
 import imgSolLogDetails  from './images/sol-log-details.png';
 import imgSolTracesOv    from './images/sol-traces-overview.png';
 import imgSolTraces      from './images/sol-traces.png';
-import imgRecProd        from './images/rec-01-production.png';
+import imgRecPraise2     from './images/rec-praise2.png';
+import imgRecConversion  from './images/rec-conversion.png';
+import imgRecSlack1      from './images/rec-slack1.png';
+import imgRecSlack2      from './images/rec-slack2.png';
 import imgRecStats       from './images/rec-02-reception-stats.png';
 import imgRecSlack       from './images/rec-03-reception-slack.png';
-import imgNextWhats      from './images/next-01-whats-next.png';
-import imgNextFar        from './images/next-02-far-from-done.png';
+import imgNextMetrics    from './images/next-metrics-heatmap.png';
+import imgNextLogs       from './images/next-logs-heatmap.png';
+import imgNextStoryboard from './images/next-storyboard.png';
+import imgNextClaude1   from './images/next-claude-1.png';
+import imgNextClaude2   from './images/next-claude-2.png';
+import imgNextClaude3   from './images/next-claude-3.png';
 
 <section id="discovery">
 
-## Discovery
+## Problem Definition
 
 <ColGrid>
-  <ColGridItem image={imgProbBroken} title="Observability at Netflix is fragmented">
+  <ColGridItem image={imgProbBroken} title="Observability at Netflix Is Fragmented">
     <p>Jobs to be done span different products with different UX patterns and little inter-operability. Some are actively maintained while others languish from underfunding.</p>
   </ColGridItem>
-  <ColGridItem image={imgProbFragmented} title="Sometimes an external vendor works out…">
+  <ColGridItem image={imgProbFragmented} title="Sometimes an External Vendor Works Out…">
     <p>The Observability team can't build everything. A new strategy bet for live streaming can't wait a year for internal tooling to catch up, so orgs are encouraged to sometimes buy a solution.</p>
   </ColGridItem>
-  <ColGridItem image={imgProbVendor} title="…often times not">
+  <ColGridItem image={imgProbVendor} title="…Often Times Not">
     <p>External tools add fragmentation and grow cost-prohibitive at Netflix's scale. Support becomes complicated, and the internal Observability team ends up chasing a vendor's full offering with a small fraction of the resources.</p>
   </ColGridItem>
 </ColGrid>
@@ -65,7 +72,7 @@ import imgNextFar        from './images/next-02-far-from-done.png';
   image={imgDiscJourneyMap}
   fadeImage={imgDiscJourneyMapHighlight}
   alt="Observability user journey map"
-  title="Understanding the full journey"
+  title="Understanding the Full Journey"
   href="https://docs.google.com/spreadsheets/d/1AaQY2WoEymaYFRem1RP0cREcYyVuN6Xoy0CVCn_JYDA/edit?gid=1033181950#gid=1033181950"
   fadeBody={<><p>Debugging &amp; troubleshooting emerged as the highest priority to address</p><ul><li>Individual teams are already reaching for external solutions in the MELT space like Sumologic, Grafana, and Honeycomb.</li><li>These are some of the hardest category of products to purchase external solutions for due to Netflix scale and, subsequently, cost.</li><li>The existing internal products in this space were disconnected, with different repos, UI/UX patterns, and no way to jump from one to another. Logs and events were owned by a different sub-team than Metrics and Traces!</li></ul></>}
 >
@@ -92,10 +99,10 @@ import imgNextFar        from './images/next-02-far-from-done.png';
 ### Design Sprint
 
 <ColGrid>
-  <ColGridItem icon={<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="7.5" stroke="currentColor" strokeWidth="1.5"/><path d="M18 18L24 24" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>} title="Industry audit">
+  <ColGridItem icon={<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="7.5" stroke="currentColor" strokeWidth="1.5"/><path d="M18 18L24 24" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>} title="Industry Audit">
     <p>I led an industry audit where partners shared their reliance on external vendors and expressed how they thought we could close the gaps.</p>
   </ColGridItem>
-  <ColGridItem icon={<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.5"/><rect x="16" y="4" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.5"/><rect x="4" y="16" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.5"/><rect x="16" y="16" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.5"/></svg>} title="Architecture alignment">
+  <ColGridItem icon={<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.5"/><rect x="16" y="4" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.5"/><rect x="4" y="16" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.5"/><rect x="16" y="16" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.5"/></svg>} title="Architecture Alignment">
     <p>And our engineering lead rallied alignment around how Explore would fit into the larger tech stack.</p>
   </ColGridItem>
   <ColGridItem icon={<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 22l3.5-1 12-12a2.121 2.121 0 00-3-3L5.5 18.5 5 22z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/><path d="M17.5 7.5l3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>} title="Whiteboarding and Critique">
@@ -163,13 +170,13 @@ We decided to **build a scrappy front-end prototype** using the existing API end
 ## Pivot
 
 <ColGrid>
-  <ColGridItem media={<SpectrumChart />} title="Broaden the appeal">
+  <ColGridItem media={<SpectrumChart />} title="Broaden the Appeal">
     <p>We over-indexed on the novice troubleshooter because their feedback on the legacy products were strongest. More advanced queries across multiple applications were simply more difficult to do in the new UI. We needed a solution that appealed to both novice and power users.</p>
   </ColGridItem>
-  <ColGridItem media={<GanttChart />} title="Stagger the release">
+  <ColGridItem media={<GanttChart />} title="Stagger the Release">
     <p>The end goal was clear: a unified MELT experience and the deprecation of multiple legacy products. Delivering on all fronts was a stacked bet. We instead decided to stagger each feature release, starting with metrics, followed quickly by logs.</p>
   </ColGridItem>
-  <ColGridItem media={<FeedbackFlow />} title="Fix the pain points">
+  <ColGridItem media={<FeedbackFlow />} title="Fix the Pain Points">
     <p>Through customer validation sessions, UserVoice tickets, and a dedicated early feedback channel, we gathered and organized customer requests. Addressing the strongest signals became the highest priority.</p>
   </ColGridItem>
 </ColGrid>
@@ -227,7 +234,8 @@ We decided to **build a scrappy front-end prototype** using the existing API end
 ## Reception
 
 <ImagePanel
-  image={imgRecProd}
+  images={[imgRecPraise2, imgRecConversion, imgRecSlack1, imgRecSlack2]}
+  naturalSize
   alt="Measuring Success"
   title="Measuring Success"
 >
@@ -248,23 +256,28 @@ We decided to **build a scrappy front-end prototype** using the existing API end
 
 ## Next Steps
 
-<FeatureBlock
-  accent="amber"
-  reverse
-  eyebrow="What's Next"
-  title="Far from done"
-  media={<img src={imgNextFar} alt="Far from done" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'4px'}} />}
+<ImagePanel
+  images={[imgNextMetrics, imgNextLogs]}
+  alt="Better Insights"
+  title="Better Insights"
 >
-  <p>Priorities beyond the initial phases include: full-history session replays and UX heatmaps; richer feedback via dedicated Slack channels and user panels; deeper Alerting integration across all three data types so engineers can act on what they find without leaving Explore.</p>
-</FeatureBlock>
+  <p>The team has enabled Fullstory for session replays and heatmaps, giving us more quantifiable data for UX iterations, while we continue to seek low friction feedback through the Observability Slack help channel and UserVoice integration.</p>
+</ImagePanel>
 
-<FeatureBlock
-  accent="blue"
-  eyebrow="Roadmap"
-  title="What's next?"
-  media={<img src={imgNextWhats} alt="What's next" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'4px'}} />}
+<ImagePanel
+  image={imgNextStoryboard}
+  alt="Storyboarding the Full Product Suite"
+  title="Storyboarding the Full Product Suite"
 >
-  <p>The foundation is in place. The unified query model, the cross-signal jump paths, and the growing user base make Explore the natural home for observability work at Netflix. The roadmap ahead focuses on depth, not breadth — hardening the experience for power users who live in the tool daily.</p>
-</FeatureBlock>
+  <p>I created a series of low fidelity visionary designs to help the team hone in on what part of the troubleshooting life cycle is best to tackle next and how that feeds into the Explore product.</p>
+</ImagePanel>
+
+<ImagePanel
+  images={[imgNextClaude1, imgNextClaude2, imgNextClaude3]}
+  alt="Going Broad with Claude"
+  title="Going Broad with Claude"
+>
+  <p>I've been able to cover a lot of ground rapidly by leveraging Claude design and Claude Code to go from idea to clickable prototype for the product spaces that are adjacent to Explore.</p>
+</ImagePanel>
 
 </section>

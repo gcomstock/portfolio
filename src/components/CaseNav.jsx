@@ -2,56 +2,40 @@ import { useEffect, useState } from 'react';
 import './CaseNav.css';
 
 export function CaseNav({ sections, title }) {
-  const [active,  setActive]  = useState(sections[0]?.id ?? null);
-  const [visible, setVisible] = useState(false);
+  const [active, setActive] = useState(null);
 
-  // Fade in/out based on whether the first section has passed the main header
+  // Highlight whichever section last crossed the top of the viewport
+  // (accounting for header 64px + this nav 32px = 96px offset)
   useEffect(() => {
-    const firstId = sections[0]?.id;
-    if (!firstId) return;
+    const OFFSET = 96 + 16; // a little breathing room
+
     const onScroll = () => {
-      const el = document.getElementById(firstId);
-      if (!el) return;
-      setVisible(el.getBoundingClientRect().top <= 64);
+      let current = null;
+      for (const { id } of sections) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        if (el.getBoundingClientRect().top <= OFFSET) {
+          current = id;
+        }
+      }
+      setActive(current);
     };
+
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, [sections]);
 
-  // Highlight whichever section is in view
-  useEffect(() => {
-    const els = sections
-      .map(({ id }) => document.getElementById(id))
-      .filter(Boolean);
-
-    const obs = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (visible.length) setActive(visible[0].target.id);
-      },
-      { rootMargin: '-35% 0px -60% 0px' }
-    );
-
-    els.forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
-  }, [sections]);
-
   const scrollTo = (id) => {
     const el = document.getElementById(id);
     if (!el) return;
-    const offset = 64 + 32;
+    const offset = 64 + 32 + 16;
     const top = el.getBoundingClientRect().top + window.scrollY - offset;
     window.scrollTo({ top, behavior: 'smooth' });
   };
 
   return (
-    <nav
-      className={`CaseNav${visible ? ' is-visible' : ''}`}
-      aria-label="Case study sections"
-    >
+    <nav className="CaseNav" aria-label="Case study sections">
       <div className="CaseNav-inner">
         {title && <span className="CaseNav-title">{title}</span>}
         {sections.map(({ id, label }) => (

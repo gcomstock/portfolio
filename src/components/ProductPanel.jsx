@@ -21,7 +21,7 @@ export function ProductPanel({ image, alt = '', title, placeholder = false, solo
       const rect = el.getBoundingClientRect();
       const vh = window.innerHeight;
       const startPos = vh * 1.15;
-      const endPos   = vh * 0.5;
+      const endPos   = vh * 0.5 + rect.height * 0.5;
       const raw = Math.max(0, Math.min(1, (startPos - rect.bottom) / (startPos - endPos)));
       const t = easeOut(raw);
 

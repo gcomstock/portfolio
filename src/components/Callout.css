@@ -1,0 +1,35 @@
+.Callout {
+  border-left: 2px solid var(--callout-accent);
+  background: var(--callout-bg);
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin: 48px 0;
+  max-width: var(--reading-max);
+}
+
+.Callout--blue  { --callout-accent: var(--accent-blue);   --callout-bg: rgba(96, 165, 250, 0.05); }
+.Callout--green { --callout-accent: var(--accent-green);  --callout-bg: rgba(102, 209, 158, 0.05); }
+.Callout--purple{ --callout-accent: var(--accent-purple); --callout-bg: rgba(167, 139, 250, 0.05); }
+.Callout--amber { --callout-accent: var(--accent-amber);  --callout-bg: rgba(251, 191, 36, 0.05); }
+.Callout--pink  { --callout-accent: var(--accent-pink);   --callout-bg: rgba(244, 114, 182, 0.05); }
+
+.Callout-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--callout-accent);
+  margin-bottom: 10px;
+}
+
+.Callout-body p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.Callout-body p + p {
+  margin-top: 16px;
+}

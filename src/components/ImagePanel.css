@@ -12,9 +12,28 @@
   position: relative;
 }
 
+.ImagePanel-media--natural {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.ImagePanel-media--natural .ImagePanel-img {
+  width: auto;
+  max-width: 100%;
+}
+
 .ImagePanel-img-link {
   display: block;
   cursor: pointer;
+}
+
+.ImagePanel-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--surface);
+  border-radius: 8px;
+  border: 1px dashed var(--border);
 }
 
 .ImagePanel-img {
@@ -23,6 +42,31 @@
   display: block;
   border-radius: 8px;
   border: 1px solid var(--border);
+}
+
+.ImagePanel-slideshow {
+  display: grid;
+}
+
+.ImagePanel-slide {
+  grid-area: 1 / 1;
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0;
+  transition: opacity 600ms ease-in-out;
+}
+
+.ImagePanel-slide.is-active {
+  opacity: 1;
+}
+
+/* Natural-size variant: images render at their own dimensions, centered at top */
+.ImagePanel-slideshow--natural .ImagePanel-slide {
+  width: auto;
+  max-width: 100%;
+  justify-self: center;
+  align-self: start;
 }
 
 .ImagePanel-img--fade {

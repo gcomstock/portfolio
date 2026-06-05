@@ -10,14 +10,6 @@
   backdrop-filter: saturate(140%) blur(14px);
   -webkit-backdrop-filter: saturate(140%) blur(14px);
   border-bottom: 1px solid var(--border);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 300ms var(--ease-out);
-}
-
-.CaseNav.is-visible {
-  opacity: 1;
-  pointer-events: auto;
 }
 
 .CaseNav-inner {

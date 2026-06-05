@@ -9,10 +9,10 @@ export default {
   number: '01',
   company: 'Netflix',
   title: 'Explore',
-  subtitle: 'An observability troubleshooting product.',
+  subtitle: 'An observability troubleshooting product',
   accent: 'blue',
   sections: [
-    { id: 'discovery', label: 'Discovery' },
+    { id: 'discovery', label: 'Problem Definition' },
     { id: 'research',  label: 'Research'  },
     { id: 'proposal',  label: 'Proposal'  },
     { id: 'pivot',     label: 'Pivot'     },

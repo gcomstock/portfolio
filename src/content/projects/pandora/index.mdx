@@ -1,8 +1,144 @@
-## Overview
+<section id="discovery">
 
-Placeholder case study body for Pandora.com.
+## Problem Definition
 
-<FeatureBlock accent="green" eyebrow="Section" title="A subhead goes here"
-  media={<div className="mono" style={{ color: 'var(--text-dim)' }}>image placeholder</div>}>
-  <p>Placeholder description.</p>
-</FeatureBlock>
+<ImagePanel
+  placeholder
+  alt="The old Pandora.com radio player"
+  title="A Radio Product in an On-Demand World"
+>
+  <p>Since its launch in 2005, Pandora let listeners create personalized radio stations seeded by an artist or song. It was a compelling product, but by 2016 the streaming landscape had shifted. Spotify was offering on-demand listening, playlist creation, and podcast integration on web. Pandora's web app, last overhauled in 2011 and still running Adobe Flash, couldn't do any of it. Bolting these capabilities onto the existing architecture wasn't a realistic path. A complete redesign was the only way forward.</p>
+  <p>As a front-end engineer with several years of prior experience on Pandora's design team, I was embedded across both engineering and design. I was responsible for implementing the Now Playing page and designing for its many edge cases, and served as de facto designer for how display advertising worked across the entire product.</p>
+</ImagePanel>
+
+<PullQuote leadin="With so many new features on the horizon…" accent="blue">
+  A redesign was the only way forward
+</PullQuote>
+
+</section>
+
+import imgResearchPrototype  from './images/research-prototype.gif';
+import imgAdSkinLayers       from './images/adarch-skin-layers.jpg';
+import imgAdSkinOptions      from './images/adarch-skin-options.jpg';
+import imgAdSkinOptionsFull  from './images/adarch-skin-options-full.png';
+
+<section id="research">
+
+## Research
+
+<ImagePanel
+  image={imgResearchPrototype}
+  alt="High-fidelity browser prototype"
+  title="Front-End Prototyping for Customer Validation"
+  naturalSize
+>
+  <p>Although the feature set for the new Pandora.com was largely established by its mobile counterparts, many UX questions still needed answers before engineering committed to them. I worked with our UX researcher to define user journeys around onboarding and signups. Rather than build a static mockup, I built a working prototype in the browser — wired into Pandora's existing audio API endpoints so participants could search for real artists, play real music, and interact with a real player. Our sessions followed structured prompts designed to walk users through the full funnel: finding music, listening, hitting the free song limit, and completing signup.</p>
+</ImagePanel>
+
+<GradientBlock accent="green">
+
+### What the Testing Revealed
+
+<ColGrid>
+  <ColGridItem icon={<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8L7 8C13 8 15 14 21 14" stroke="#66d19e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M2 20L7 20C13 20 15 14 21 14" stroke="#66d19e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M21 11L27 14L21 17Z" fill="#66d19e"/></svg>} title="Two Entry Points, Not One">
+    <p>A curated list of one-click stations seeded by popular artists was a popular starting point for many participants. But just as many wanted to search for a specific song or artist that wasn't presented. The key finding was that having both was net additive. The right answer wasn't to choose one over the other.</p>
+  </ColGridItem>
+  <ColGridItem icon={<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="9.5" stroke="#66d19e" strokeWidth="1.5"/><path d="M9 14l3.5 3.5 6.5-7" stroke="#66d19e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>} title="Design Direction Validated">
+    <p>Testing also gave us an opportunity to get early reactions on the new design direction. The sessions confirmed the designs were proving successful. There were no showstoppers or major pivot points needed coming out of research.</p>
+  </ColGridItem>
+  <ColGridItem icon={<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 6l14 8-14 8V6z" stroke="#66d19e" strokeWidth="1.5" strokeLinejoin="round"/></svg>} title="Keep the Music Playing">
+    <p>We had to strike a balance between encouraging signups and not alienating listeners. Research sessions led us to gate further UX interactivity after a few songs, but never the music itself. If a user backgrounded the browser, playback continued and audio ads would occasionally roll in, keeping Pandora useful while creating an incentive to sign up for more.</p>
+  </ColGridItem>
+</ColGrid>
+
+</GradientBlock>
+
+</section>
+
+
+<section id="ads">
+
+## Ad Architecture
+
+<ImagePanel
+  image={imgAdSkinOptions}
+  href={imgAdSkinOptionsFull}
+  alt="Ad network banner layout"
+  title="Supporting Ad Networks"
+>
+  <p>Pandora is predominantly an ad-supported business, so the new site had to support the full range of standard IAB banner sizes along with all the compliance requirements that come with them. Is the browser tab active? Is the ad fully within the viewport? Is it obstructed by any DOM elements or CSS properties? How long must it remain on the page before being replaced? Invisible network requests and pixel trackers enforce fair play across ad networks, and every one of these requirements had to be accounted for in the implementation.</p>
+  <p>To drive alignment between the Ad Design and Product Design Teams, I created low-fidelity designs presenting an array of layout options across multiple browser sizes. Laying out the options side by side gave both teams a shared frame of reference and a clear basis for evaluating the pros and cons and making an informed decision together.</p>
+</ImagePanel>
+
+<ImagePanel
+  image={imgAdSkinLayers}
+  href={imgAdSkinLayers}
+  alt="In-house display ad promotions"
+  title="In-House Promotions"
+  reverse
+  after={<Callout eyebrow="Problem Identified" accent="green"><p>To stage an in-progress display ad in the real product, a designer had to manually upload their design files to the ad server, hand-edit a CSS file, and construct a URL with specific parameters to fetch those assets. Even then, the uploaded files weren't immediately available. Propagation on the ad server could take several minutes. Any single change meant repeating the entire process and waiting again before seeing the result. For a creative workflow that depends on rapid iteration, this was a significant bottleneck. See the Solution section for how I solved this.</p></Callout>}
+>
+  <p>Pandora's in-house brand design team used ad inventory to promote artists, live events, album releases, and new product features. Display ad skins gave them more creative freedom than a standard banner box allowed. The constraint that kept it all coherent: banner placement and sizes stayed consistent with third-party network ads, so users always knew what was interactive and what wasn't.</p>
+  <p>Because I was the front-end engineer for the Now Playing screen, I was able to translate the business need for custom ad skins into a concrete set of layout rules that the Ad Design Team could utilize predictably. I worked closely with the team to design layouts for each banner type and their corresponding takeover skins. In-house ads ran in the regular display ad pool, with an extra bit of JavaScript that passed arguments for which visual assets to fetch and render alongside the ad. This image shows the various layers that could be utilized when defining an ad skin.</p>
+</ImagePanel>
+
+
+</section>
+
+<section id="solution">
+
+## Solution
+
+<ProductPanel placeholder title="Placeholder — Final Product 1">
+  <p>Placeholder copy.</p>
+</ProductPanel>
+
+<ProductPanel placeholder title="Placeholder — Final Product 2">
+  <p>Placeholder copy.</p>
+</ProductPanel>
+
+<PullQuote leadin="Placeholder leadin…" accent="green">
+  Placeholder pull quote about the launch
+</PullQuote>
+
+<ProductPanel solo placeholder />
+
+</section>
+
+<section id="reception">
+
+## Reception
+
+<ImagePanel
+  placeholder
+  alt="Placeholder — Reception"
+  title="Placeholder Title"
+>
+  <p>Placeholder copy — launch reception, Webby People's Voice Award, listener response.</p>
+</ImagePanel>
+
+<StatGrid>
+  <StatItem number="10%+" label="Placeholder — increase in display ad capacity from pre-fetching." />
+  <StatItem number="50%+" label="Placeholder — faster time to music after dropping the Flash audio player." />
+  <StatItem number="Webby" label="Placeholder — 2017 Webby People's Voice Award for Best Music Site." />
+</StatGrid>
+
+</section>
+
+<section id="retrospective">
+
+## Retrospective
+
+<ColGrid>
+  <ColGridItem placeholder title="Communicate Early and Often">
+    <p>Placeholder copy — the gap between original mocks and shipped product; how cross-team jam sessions uncovered blindspots the PRD missed.</p>
+  </ColGridItem>
+  <ColGridItem placeholder title="The Bigger Picture">
+    <p>Placeholder copy — the product succeeded technically but Pandora was too slow to communicate its new capabilities; many users still don't know on-demand exists.</p>
+  </ColGridItem>
+  <ColGridItem placeholder title="BYO Impact">
+    <p>Placeholder copy — how a unique cross-discipline background created space to identify and build the Display Ad Builder without being asked.</p>
+  </ColGridItem>
+</ColGrid>
+
+</section>
