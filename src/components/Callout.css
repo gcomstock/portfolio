@@ -14,6 +14,9 @@
 .Callout--pink  { --callout-accent: var(--accent-pink);   --callout-bg: rgba(244, 114, 182, 0.05); }
 
 .Callout-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 600;
@@ -21,6 +24,12 @@
   letter-spacing: 0.1em;
   color: var(--callout-accent);
   margin-bottom: 10px;
+}
+
+.Callout-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .Callout-body p {

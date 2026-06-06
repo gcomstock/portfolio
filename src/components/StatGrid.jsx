@@ -9,8 +9,8 @@ function parseNumberStr(str) {
 
 function formatSigns(str) {
   if (!str) return null;
-  return str.split(/([%+$]|[A-Z]+)/).map((part, i) =>
-    part && /^([%+$]|[A-Z]+)$/.test(part)
+  return str.split(/([%+$~]|[A-Z]+)/).map((part, i) =>
+    part && /^([%+$~]|[A-Z]+)$/.test(part)
       ? <span key={i} className="StatItem-sign">{part}</span>
       : part || null
   );

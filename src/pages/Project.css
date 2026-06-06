@@ -51,5 +51,15 @@
 }
 
 
+.Project-body .caption {
+  font-size: var(--fs-body-sm);
+  color: var(--text-dim);
+  line-height: 1.65;
+  text-align: right;
+  margin-top: -80px;
+  margin-bottom: 64px;
+  max-width: none;
+}
+
 .Project-loading { color: var(--text-dim); padding: 48px 0; }
 .Project-missing { padding-top: 120px; text-align: center; color: var(--text-muted); }

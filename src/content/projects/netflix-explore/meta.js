@@ -9,7 +9,7 @@ export default {
   number: '01',
   company: 'Netflix',
   title: 'Explore',
-  subtitle: 'An observability troubleshooting product',
+  subtitle: 'A comprehensive observability troubleshooting product',
   accent: 'blue',
   sections: [
     { id: 'discovery', label: 'Problem Definition' },

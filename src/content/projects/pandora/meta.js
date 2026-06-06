@@ -9,7 +9,7 @@ export default {
   number: '03',
   company: 'Pandora',
   title: 'Pandora.com',
-  subtitle: 'Placeholder — one sentence description of the Pandora case study.',
+  subtitle: 'Bringing personalized music streaming to millions of listeners',
   accent: 'green',
   sections: [
     { id: 'discovery',     label: 'Problem Definition' },
@@ -17,7 +17,6 @@ export default {
     { id: 'ads',           label: 'Ad Architecture' },
     { id: 'solution',      label: 'Solution'      },
     { id: 'reception',     label: 'Reception'     },
-    { id: 'retrospective', label: 'Retrospective' },
   ],
   metadata: [
     { label: 'Role',     value: 'Front-end Engineer & Designer' },

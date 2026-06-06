@@ -22,9 +22,9 @@
 }
 
 .ColGrid-img {
-  width: 60%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
+  width: 100%;
+  height: auto;
+  display: block;
   border-radius: 8px;
   flex-shrink: 0;
 }

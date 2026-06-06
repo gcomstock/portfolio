@@ -5,7 +5,7 @@ function easeOut(t) {
   return 1 - Math.pow(1 - t, 3);
 }
 
-export function ProductPanel({ image, alt = '', title, placeholder = false, solo = false, children }) {
+export function ProductPanel({ image, alt = '', title, href, cta, placeholder = false, solo = false, reverse = false, children }) {
   const frameRef = useRef(null);
 
   useEffect(() => {
@@ -61,24 +61,36 @@ export function ProductPanel({ image, alt = '', title, placeholder = false, solo
     </div>
   );
 
+  const media = href
+    ? <a href={href} target="_blank" rel="noopener noreferrer" className="ProductPanel-frame-link">{frame}</a>
+    : frame;
+
   if (solo) {
     return (
       <div className="ProductPanel ProductPanel--solo">
         <div className="ProductPanel-media">
-          {frame}
+          {media}
         </div>
       </div>
     );
   }
 
   return (
-    <div className="ProductPanel">
+    <div className={`ProductPanel${reverse ? ' ProductPanel--reverse' : ''}`}>
       <div className="ProductPanel-media">
-        {frame}
+        {media}
       </div>
       <div className="ProductPanel-body">
         {title && <h3 className="ProductPanel-title">{title}</h3>}
         <div className="ProductPanel-text">{children}</div>
+        {cta && (
+          <a href={cta.href || '#'} target="_blank" rel="noopener noreferrer" className="ProductPanel-cta">
+            {cta.label}
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </a>
+        )}
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import './ImagePanel.css';
 
-export function ImagePanel({ image, images, placeholder = false, naturalSize = false, fadeImage, fadeBody, alt = '', title, href, after, children }) {
+export function ImagePanel({ image, images, placeholder = false, naturalSize = false, fadeImage, fadeBody, alt = '', title, href, cta, after, children }) {
   const mediaRef  = useRef(null);
   const pausedRef = useRef(false);
   const [faded, setFaded]       = useState(false);
@@ -86,6 +86,14 @@ export function ImagePanel({ image, images, placeholder = false, naturalSize = f
         {href && !images && (
           <a href={href} target="_blank" rel="noopener noreferrer" className="ImagePanel-cta">
             Check it out
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </a>
+        )}
+        {cta && (
+          <a href={cta.href || '#'} target="_blank" rel="noopener noreferrer" className="ImagePanel-cta">
+            {cta.label}
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
               <path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>

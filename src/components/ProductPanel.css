@@ -3,7 +3,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 48px;
   align-items: start;
-  margin: 48px 0;
+  margin: 48px 0 128px;
 }
 
 /* ── Image area (2 cols) ── */
@@ -67,6 +67,18 @@
   background: var(--surface);
 }
 
+/* ── Reverse (text left, image right) variant ── */
+
+.ProductPanel--reverse .ProductPanel-media {
+  grid-column: 2 / 4;
+  grid-row: 1;
+}
+
+.ProductPanel--reverse .ProductPanel-body {
+  grid-column: 1 / 2;
+  grid-row: 1;
+}
+
 /* ── Solo (centered single-column) variant ── */
 
 .ProductPanel--solo {
@@ -96,7 +108,39 @@
   margin: 0;
 }
 
-.ProductPanel-text p {
+.ProductPanel-frame-link {
+  display: block;
+  cursor: pointer;
+}
+
+.ProductPanel-cta {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 7px;
+  margin-top: 16px;
+  padding: 7px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #000;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.ProductPanel-cta:hover {
+  color: var(--text);
+}
+
+.ProductPanel-text p + p {
+  margin-top: 24px;
+}
+
+.ProductPanel-text p,
+.ProductPanel-text li {
   font-size: 15px;
   line-height: 1.65;
   color: var(--text-muted);

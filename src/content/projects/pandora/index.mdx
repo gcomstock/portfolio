@@ -11,16 +11,26 @@
   <p>As a front-end engineer with several years of prior experience on Pandora's design team, I was embedded across both engineering and design. I was responsible for implementing the Now Playing page and designing for its many edge cases, and served as de facto designer for how display advertising worked across the entire product.</p>
 </ImagePanel>
 
-<PullQuote leadin="With so many new features on the horizon…" accent="blue">
-  A redesign was the only way forward
+<PullQuote leadin="As a front-end engineer with several years of design experience…" accent="blue">
+  My involvement spanned<br />the entire project
 </PullQuote>
 
 </section>
 
 import imgResearchPrototype  from './images/research-prototype.gif';
+import imgSolAnimation       from './images/sol-ui-animation.gif';
+import imgAdCycle            from './images/pandora-ad-cycle.gif';
+import imgAdBuilder          from './images/pandora-ad-builder.gif';
 import imgAdSkinLayers       from './images/adarch-skin-layers.jpg';
 import imgAdSkinOptions      from './images/adarch-skin-options.jpg';
 import imgAdSkinOptionsFull  from './images/adarch-skin-options-full.png';
+import imgWebby             from './images/webby.png';
+import imgPerformance       from './images/outcome-performance.png';
+import imgAdCycleViking     from './images/pandora-ad-cycle-vikinghorn.gif';
+import imgAds1              from './images/pandora-ads-1.jpg';
+import imgAds2              from './images/pandora-ads-2.jpg';
+import imgAds3              from './images/pandora-ads-3.jpg';
+import imgAds4              from './images/pandora-ads-4.jpg';
 
 <section id="research">
 
@@ -76,7 +86,7 @@ import imgAdSkinOptionsFull  from './images/adarch-skin-options-full.png';
   alt="In-house display ad promotions"
   title="In-House Promotions"
   reverse
-  after={<Callout eyebrow="Problem Identified" accent="green"><p>To stage an in-progress display ad in the real product, a designer had to manually upload their design files to the ad server, hand-edit a CSS file, and construct a URL with specific parameters to fetch those assets. Even then, the uploaded files weren't immediately available. Propagation on the ad server could take several minutes. Any single change meant repeating the entire process and waiting again before seeing the result. For a creative workflow that depends on rapid iteration, this was a significant bottleneck. See the Solution section for how I solved this.</p></Callout>}
+  after={<Callout eyebrow="Problem Identified" accent="amber" icon={<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 1.5L11 10.5H1L6 1.5Z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/><path d="M6 5V7" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/><circle cx="6" cy="9" r="0.6" fill="currentColor"/></svg>}><p>To stage an in-progress display ad in the real product, a designer had to manually upload their design files to the ad server, hand-edit a CSS file, and construct a URL with specific parameters to fetch those assets. Even then, the uploaded files weren't immediately available. Propagation on the ad server could take several minutes. Any change meant repeating the entire process and waiting again to see the result. For a creative workflow that depends on rapid iteration, this was a significant bottleneck. See the Solution section for how I solved this.</p></Callout>}
 >
   <p>Pandora's in-house brand design team used ad inventory to promote artists, live events, album releases, and new product features. Display ad skins gave them more creative freedom than a standard banner box allowed. The constraint that kept it all coherent: banner placement and sizes stayed consistent with third-party network ads, so users always knew what was interactive and what wasn't.</p>
   <p>Because I was the front-end engineer for the Now Playing screen, I was able to translate the business need for custom ad skins into a concrete set of layout rules that the Ad Design Team could utilize predictably. I worked closely with the team to design layouts for each banner type and their corresponding takeover skins. In-house ads ran in the regular display ad pool, with an extra bit of JavaScript that passed arguments for which visual assets to fetch and render alongside the ad. This image shows the various layers that could be utilized when defining an ad skin.</p>
@@ -89,19 +99,53 @@ import imgAdSkinOptionsFull  from './images/adarch-skin-options-full.png';
 
 ## Solution
 
-<ProductPanel placeholder title="Placeholder — Final Product 1">
-  <p>Placeholder copy.</p>
+<ProductPanel
+  image={imgSolAnimation}
+  alt="Pandora.com UI animations and interactions"
+  title="Rich Interaction Design"
+  href="#"
+  cta={{ label: 'Watch the Full Video' }}
+>
+  <p>I was responsible for all interaction design and animations on the new Pandora.com. As a designer and developer, I was able to design and perfect the animations directly in code rather than handing off specs to be interpreted by someone else. This closed the loop between intent and execution.</p>
+  <p>The Now Playing page was the most complex surface. A matrix of states had to coexist gracefully, and the original mocks didn't capture many of the combinations. The edge cases emerged during implementation and were solved on the fly, always balancing the needs of the listener against the requirements of the advertiser:</p>
+  <ul>
+    <li>Premium vs. ad-supported listener</li>
+    <li>Radio station vs. on-demand playback</li>
+    <li>Album art vs. radio station art</li>
+    <li>Lyrics available or not, gated below the fold to avoid per-fetch third-party costs</li>
+    <li>Concert tickets available when a tour was upcoming</li>
+    <li>Sponsored and branded stations with custom HTML layouts</li>
+  </ul>
 </ProductPanel>
 
-<ProductPanel placeholder title="Placeholder — Final Product 2">
-  <p>Placeholder copy.</p>
+<ProductPanel
+  image={imgAdCycle}
+  alt="Display ad cycling on the Pandora Now Playing screen"
+  title="More Ad Capacity without Compromising UX"
+  href="#"
+  cta={{ label: 'Watch the Full Video' }}
+>
+  <p>Previously, the old ad was unloaded before the new one was fetched and displayed. Now, the next ad was being pre-fetched and loading in an invisible HTML element. Once the previous ad was displayed for long enough, a qualifying user interaction fired an event to transition between the old ad and the pre-fetched new one.</p>
+  <p>I was also able to identify additional user interaction points to trigger display ad refreshes across the product, most notably the new scroll event.</p>
 </ProductPanel>
 
-<PullQuote leadin="Placeholder leadin…" accent="green">
-  Placeholder pull quote about the launch
+<ProductPanel
+  image={imgAdBuilder}
+  alt="The Pandora Display Ad Builder tool"
+  title="Display Ad Builder"
+  href="#"
+  cta={{ label: 'Watch the Full Video' }}
+>
+  <p>Designers couldn't be expected to set up and maintain a local dev environment, and pushing assets to the ad server and using a test link was a lengthy process if iteration was needed. Because I was already responsible for implementing display ads on Pandora.com, it was easy for me to port the React components over into a standalone ad builder tool. I then added a UI for designers to select assets produced on their machine, position to their needs, and generate corresponding CSS to upload to the ad server.</p>
+</ProductPanel>
+
+<PullQuote leadin="With the help of my Display Ad Builder and front-end engineering..." accent="blue">
+  We took advertising<br />to the next level.
 </PullQuote>
 
-<ProductPanel solo placeholder />
+<BrowserGrid images={[imgAds2, imgAds4, imgAds1, imgAds3]} />
+
+<p className="caption">Here's a few of the first display ads produced by Pandora's in-house design team using the Display Ad Builder and guidelines set by our working group.</p>
 
 </section>
 
@@ -109,36 +153,22 @@ import imgAdSkinOptionsFull  from './images/adarch-skin-options-full.png';
 
 ## Reception
 
-<ImagePanel
-  placeholder
-  alt="Placeholder — Reception"
-  title="Placeholder Title"
->
-  <p>Placeholder copy — launch reception, Webby People's Voice Award, listener response.</p>
-</ImagePanel>
-
-<StatGrid>
-  <StatItem number="10%+" label="Placeholder — increase in display ad capacity from pre-fetching." />
-  <StatItem number="50%+" label="Placeholder — faster time to music after dropping the Flash audio player." />
-  <StatItem number="Webby" label="Placeholder — 2017 Webby People's Voice Award for Best Music Site." />
-</StatGrid>
-
-</section>
-
-<section id="retrospective">
-
-## Retrospective
-
 <ColGrid>
-  <ColGridItem placeholder title="Communicate Early and Often">
-    <p>Placeholder copy — the gap between original mocks and shipped product; how cross-team jam sessions uncovered blindspots the PRD missed.</p>
+  <ColGridItem image={imgAdCycleViking} title="Increased Ad Revenue">
+    <p>My display ad implementation was able to increase display ad capacity over 13%, without negatively impacting the user experience. Additionally, the high-end in-house advertising campaigns were able to attract bigger deals and partnerships.</p>
   </ColGridItem>
-  <ColGridItem placeholder title="The Bigger Picture">
-    <p>Placeholder copy — the product succeeded technically but Pandora was too slow to communicate its new capabilities; many users still don't know on-demand exists.</p>
+  <ColGridItem image={imgPerformance} title="Faster Performance">
+    <p>Time to music was cut by more than 50% as the new site shed its Adobe Flash audio player and went full HTML5. Other key interactions like station changes and track skipping were also much snappier.</p>
   </ColGridItem>
-  <ColGridItem placeholder title="BYO Impact">
-    <p>Placeholder copy — how a unique cross-discipline background created space to identify and build the Display Ad Builder without being asked.</p>
+  <ColGridItem image={imgWebby} title="Loads of New Features">
+    <p>The new Pandora.com delivered everything the old site couldn't: on-demand listening, playlist creation, podcast integration, and a full HTML5 player. The breadth and quality of what shipped earned Pandora the 2017 Webby People's Voice Award for Best Music Site.</p>
   </ColGridItem>
 </ColGrid>
+
+<StatGrid>
+  <StatItem number="+13%" label="Increase in display ad capacity vs. old site." />
+  <StatItem number="+50%" label="Faster time to music vs. old site." />
+  <StatItem number="~3x" label="Faster display ad trafficking with Display Ad Builder." />
+</StatGrid>
 
 </section>
