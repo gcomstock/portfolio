@@ -1,8 +1,187 @@
-## Overview
+<section id="discovery">
 
-Placeholder case study body for Netflix Console.
+## Problem Definition
 
-<FeatureBlock accent="purple" eyebrow="Section" title="A subhead goes here"
-  media={<div className="mono" style={{ color: 'var(--text-dim)' }}>image placeholder</div>}>
-  <p>Placeholder description.</p>
-</FeatureBlock>
+import imgProbBestPractices from './images/no-best-practices.png';
+import imgProbAccountability from './images/no-accountability.png';
+import imgProbStartingPlace  from './images/no-starting-place.png';
+
+<ColGrid>
+  <ColGridItem image={imgProbBestPractices} contain title="No Best Practices">
+    <p>Want to start a new Java or React app? You could look and ask around for advice, but teams were left to their own devices to come up with their own solutions. Needed to create a source of truth for discovering best practices for software development at Netflix. This was especially important for new hires who had little assistance ramping up and understanding the internal tool chain.</p>
+  </ColGridItem>
+  <ColGridItem image={imgProbAccountability} contain title="No Accountability">
+    <p>Code at Netflix is not a mono repo; it's a spiderweb of thousands of micro-services, each with their own deployment and support schedules. As engineers left the company and teams re-org'd, touching dependencies felt like walking a minefield. Some less active services had unknown owners and were left to run until something broke.</p>
+  </ColGridItem>
+  <ColGridItem image={imgProbStartingPlace} contain title="No Starting Place">
+    <p>Where do users go to deploy software, or see resiliency trends? How about observing production performance, or alerting and troubleshooting incidents? Every stop in the SDLC had its own cleverly-named product that had few or no connection points with others.</p>
+  </ColGridItem>
+</ColGrid>
+
+<PullQuote leadin="With a small team covering such a broad space..." accent="purple">
+  Where do we start?
+</PullQuote>
+
+</section>
+
+<section id="research">
+
+## Research
+
+import imgResMiroProcess        from './images/research-miro-process.jpg';
+import imgArchProductivity     from './images/arch-productivity-eng.png';
+import imgArchBackstage        from './images/arch-backstage.png';
+import imgArchHawkins          from './images/arch-hawkins.png';
+import imgResBackstage      from './images/research-backstage.jpg';
+import imgResHeroku         from './images/research-heroku.jpg';
+import imgResVisionPortal   from './images/research-visionportal.jpg';
+import imgResCreativeCloud  from './images/research-creativecloud.jpg';
+import imgResAzure          from './images/research-azure.jpg';
+import imgResAtlassian      from './images/research-atlassiancompass.jpg';
+
+export const CONSOLE_RESEARCH_CONFIGS = [
+  { left: '0%',   top: '12%', width: '34%', rotate: '-1.2deg',  speed: 3,  zIndex: 4 },
+  { left: '28%',  top: '4%',  width: '38%', rotate: '0.7deg',   speed: 9,  zIndex: 6 },
+  { left: '66%',  top: '8%',  width: '32%', rotate: '-0.6deg',  speed: 6,  zIndex: 3 },
+  { left: '2%',   top: '52%', width: '30%', rotate: '1.1deg',   speed: 5,  zIndex: 5 },
+  { left: '30%',  top: '46%', width: '36%', rotate: '-1deg',    speed: 11, zIndex: 7 },
+  { left: '65%',  top: '50%', width: '31%', rotate: '0.9deg',   speed: 4,  zIndex: 2 },
+];
+
+<PhotoCollage
+  title="Studying the Industry"
+  images={[imgResBackstage, imgResHeroku, imgResVisionPortal, imgResCreativeCloud, imgResAzure, imgResAtlassian]}
+  configs={CONSOLE_RESEARCH_CONFIGS}
+  maxWidth="var(--page-max)"
+>
+  <p>We gave ourselves time to study the industry. We looked at developer portals from Spotify, Heroku, Microsoft, Atlassian, and others. We also drew inspiration from general "hubs" like Apple's App Store and Adobe's Creative Cloud.</p>
+</PhotoCollage>
+
+<div style={{ marginTop: '80px' }} />
+
+<ImagePanel
+  image={imgResMiroProcess}
+  alt="Miro board showing the Discovery MVP brainstorm for Console"
+  title="Laying It All Out"
+>
+  <p>The team laid out all the potential areas we could invest in, and organized them according to the top customer pain points. This helped inform the feature set for MVP, and also informed the working model we'd need to be successful.</p>
+</ImagePanel>
+
+<GradientBlock accent="purple">
+
+### Finding Our Starting Point
+
+<ColGrid>
+  <ColGridItem image={imgArchProductivity} contain transparent title="Platform and Product">
+    <p>It was clear that our small team would be unable to implement every feature for every team within developer productivity at Netflix. We needed to define the scaffolding and design standards so that partner teams could follow our patterns and maintain their own plugins.</p>
+  </ColGridItem>
+  <ColGridItem image={imgArchBackstage} contain transparent title="Working with Spotify">
+    <p>Backstage, being open source, was able to accelerate our front-end development efforts, particularly around interfacing with a software catalog.</p>
+  </ColGridItem>
+  <ColGridItem image={imgArchHawkins} contain transparent title="Internal Design System">
+    <p>We chose to use our own design system over Backstage's out of the box components, so partner teams that were linking into and out of their existing experiences had the same visuals and UX patterns as Console itself.</p>
+  </ColGridItem>
+</ColGrid>
+
+</GradientBlock>
+
+</section>
+
+<section id="vision">
+
+## Vision Setting
+
+<ImagePanel
+  placeholder
+  alt="Placeholder — Vision Setting"
+  title="Placeholder Title"
+>
+  <p>Placeholder copy.</p>
+</ImagePanel>
+
+<ImagePanel
+  placeholder
+  alt="Placeholder — Vision Setting 2"
+  title="Placeholder Title"
+  reverse
+>
+  <p>Placeholder copy.</p>
+</ImagePanel>
+
+</section>
+
+<section id="going-broad">
+
+## Going Broad
+
+<ImagePanel
+  placeholder
+  alt="Placeholder — Going Broad"
+  title="Placeholder Title"
+>
+  <p>Placeholder copy.</p>
+</ImagePanel>
+
+<BrowserGrid />
+
+</section>
+
+<section id="narrowing-focus">
+
+## Narrowing Focus
+
+<ImagePanel
+  placeholder
+  alt="Placeholder — Narrowing Focus"
+  title="Placeholder Title"
+>
+  <p>Placeholder copy.</p>
+</ImagePanel>
+
+<PullQuote leadin="Placeholder leadin…" accent="purple">
+  Placeholder pull quote
+</PullQuote>
+
+</section>
+
+<section id="solution">
+
+## Solution
+
+<ProductPanel placeholder title="Placeholder — Solution">
+  <p>Placeholder copy.</p>
+</ProductPanel>
+
+<ProductPanel placeholder title="Placeholder — Solution 2">
+  <p>Placeholder copy.</p>
+</ProductPanel>
+
+<ProductPanel placeholder title="Placeholder — Solution 3">
+  <p>Placeholder copy.</p>
+</ProductPanel>
+
+</section>
+
+<section id="reception">
+
+## Reception
+
+<ColGrid>
+  <ColGridItem placeholder title="Placeholder Outcome One">
+    <p>Placeholder copy.</p>
+  </ColGridItem>
+  <ColGridItem placeholder title="Placeholder Outcome Two">
+    <p>Placeholder copy.</p>
+  </ColGridItem>
+  <ColGridItem placeholder title="Placeholder Outcome Three">
+    <p>Placeholder copy.</p>
+  </ColGridItem>
+</ColGrid>
+
+<StatGrid>
+  <StatItem number="62%" label="Placeholder stat one." />
+  <StatItem number="TBD" label="Placeholder stat two." />
+  <StatItem number="TBD" label="Placeholder stat three." />
+</StatGrid>
+
+</section>

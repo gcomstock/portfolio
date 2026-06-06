@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import './CaseNav.css';
 
 export function CaseNav({ sections, title }) {
@@ -34,7 +35,7 @@ export function CaseNav({ sections, title }) {
     window.scrollTo({ top, behavior: 'smooth' });
   };
 
-  return (
+  return createPortal(
     <nav className="CaseNav" aria-label="Case study sections">
       <div className="CaseNav-inner">
         {title && <span className="CaseNav-title">{title}</span>}
@@ -48,6 +49,7 @@ export function CaseNav({ sections, title }) {
           </button>
         ))}
       </div>
-    </nav>
+    </nav>,
+    document.body
   );
 }

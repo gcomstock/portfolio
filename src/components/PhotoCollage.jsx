@@ -48,11 +48,11 @@ function CollageItem({ src, config }) {
   );
 }
 
-export function PhotoCollage({ images = [], configs, layout: layoutName, title, children }) {
+export function PhotoCollage({ images = [], configs, layout: layoutName, title, children, maxWidth }) {
   const layout = configs ?? (layoutName === 'whiteboard' ? WHITEBOARD_CONFIGS : DEFAULT_CONFIGS);
   return (
     <div className="PhotoCollage">
-      <div className="PhotoCollage-stage">
+      <div className="PhotoCollage-stage" style={maxWidth ? { maxWidth, margin: '0 auto' } : undefined}>
         {images.map((src, i) => (
           <CollageItem key={i} src={src} config={layout[i % layout.length]} />
         ))}

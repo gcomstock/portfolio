@@ -29,6 +29,34 @@
   flex-shrink: 0;
 }
 
+.ColGrid-img-wrap {
+  background: #2d232d;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  padding: 24px 0;
+}
+
+.ColGrid-img-wrap.ColGrid-img-wrap--transparent {
+  background: transparent;
+  justify-content: flex-start;
+}
+
+.ColGrid-img-wrap--transparent .ColGrid-img--natural {
+  max-width: 100%;
+  width: 100%;
+}
+
+.ColGrid-img--natural {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+}
+
 .ColGrid-media {
   align-self: stretch;
   display: flex;
