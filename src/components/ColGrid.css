@@ -33,7 +33,6 @@
   background: #2d232d;
   border-radius: 8px;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-shrink: 0;
   overflow: hidden;
@@ -86,6 +85,10 @@
   line-height: 1.65;
   margin: 0;
   max-width: none;
+}
+
+.ColGrid-body p + p {
+  margin-top: 16px;
 }
 
 @media (max-width: 900px) {

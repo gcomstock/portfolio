@@ -13,6 +13,7 @@
   transform: translateX(-50%);
   width: 100vw;
   pointer-events: none;
+  z-index: -1;
 }
 
 .GradientBlock::after {

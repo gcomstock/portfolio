@@ -79,7 +79,7 @@ export const CONSOLE_RESEARCH_CONFIGS = [
     <p>Backstage, being open source, was able to accelerate our front-end development efforts, particularly around interfacing with a software catalog.</p>
   </ColGridItem>
   <ColGridItem image={imgArchHawkins} contain transparent title="Internal Design System">
-    <p>We chose to use our own design system over Backstage's out of the box components, so partner teams that were linking into and out of their existing experiences had the same visuals and UX patterns as Console itself.</p>
+    <p>We chose to use our own design system over Backstage's out of the box components, so partner teams that were integrating with their existing experiences had the same visuals and UX patterns as Console itself.</p>
   </ColGridItem>
 </ColGrid>
 
@@ -91,21 +91,35 @@ export const CONSOLE_RESEARCH_CONFIGS = [
 
 ## Vision Setting
 
-<ImagePanel
-  placeholder
-  alt="Placeholder — Vision Setting"
-  title="Placeholder Title"
->
-  <p>Placeholder copy.</p>
-</ImagePanel>
+import imgConceptualDeck from './images/conceptual-deck.gif';
 
 <ImagePanel
-  placeholder
-  alt="Placeholder — Vision Setting 2"
-  title="Placeholder Title"
+  image={imgConceptualDeck}
+  alt="Conceptual vision prototype for Console"
+  title="Seeing Is Believing"
+  href="https://www.figma.com/proto/8aOyRRgFaDGFLMLwxCdr7p/Console-Case-Study---Design-Files?page-id=9882%3A32030&node-id=9882-36411&p=f&viewport=1284%2C751%2C0.06&t=mMsGunHa0vzCYksk-1&scaling=min-zoom&content-scaling=fixed"
+>
+  <p>With the broader goals shaping up, I created a set of visionary designs to show what the product could look like at the end of a medium-term roadmap. This exercise had a few goals:</p>
+  <ul>
+    <li>Generate ideas within the immediate team</li>
+    <li>Provide a compelling set of visuals to communicate the strategy and pitch to the broader engineering org</li>
+    <li>Encourage partner teams to contribute</li>
+    <li>And, of course, to get feedback on the holistic direction</li>
+  </ul>
+</ImagePanel>
+
+import imgVisionSoon  from './images/vision-productivity-eng-soon.png';
+import imgVisionLater from './images/vision-productivity-eng-later.png';
+import imgVisionRoles from './images/vision-roles.jpg';
+
+<ImagePanel
+  images={[imgVisionSoon, imgVisionLater, imgVisionRoles]}
+  naturalSize
+  alt="Operating model diagrams showing the near and long-term vision for Console"
+  title="The Pitch"
   reverse
 >
-  <p>Placeholder copy.</p>
+  <p>The team went on a virtual, covid-era roadshow to partner teams across our org to present the vision and gather feedback and support. I created some visuals to help communicate the personas and operating model.</p>
 </ImagePanel>
 
 </section>
@@ -114,13 +128,21 @@ export const CONSOLE_RESEARCH_CONFIGS = [
 
 ## Going Broad
 
+import imgStockChart from './images/broad-stock-2021-before.png';
+
+<GradientBlock accent="green">
+
 <ImagePanel
-  placeholder
-  alt="Placeholder — Going Broad"
-  title="Placeholder Title"
+  image={imgStockChart}
+  alt="Netflix stock chart showing a strong upward trend from 2016 to 2021"
+  title="Stonk's Up, Hiring's Up"
+  imgMaxWidth="50%"
 >
-  <p>Placeholder copy.</p>
+  <p>Netflix enjoyed a solid covid bump. With the stock and sentiment at all time highs, hiring had become more lax, and promises of additional resources across all partner teams were made.</p>
+  <p>We would have engineers from observability, delivery, resiliency, developer education, and others, all dedicated to their plugins within Console, and our team would grow to meet the need.</p>
 </ImagePanel>
+
+</GradientBlock>
 
 <BrowserGrid />
 
