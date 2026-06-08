@@ -3,7 +3,7 @@ export default {
   order: 2,
   number: '02',
   company: 'Netflix',
-  title: 'Console',
+  title: 'Spotlight',
   subtitle: 'The Front Door for Software Ownership and Development',
   accent: 'purple',
   sections: [

@@ -39,7 +39,7 @@ import imgResCreativeCloud  from './images/research-creativecloud.jpg';
 import imgResAzure          from './images/research-azure.jpg';
 import imgResAtlassian      from './images/research-atlassiancompass.jpg';
 
-export const CONSOLE_RESEARCH_CONFIGS = [
+export const SPOTLIGHT_RESEARCH_CONFIGS = [
   { left: '0%',   top: '12%', width: '34%', rotate: '-1.2deg',  speed: 3,  zIndex: 4 },
   { left: '28%',  top: '4%',  width: '38%', rotate: '0.7deg',   speed: 9,  zIndex: 6 },
   { left: '66%',  top: '8%',  width: '32%', rotate: '-0.6deg',  speed: 6,  zIndex: 3 },
@@ -51,7 +51,7 @@ export const CONSOLE_RESEARCH_CONFIGS = [
 <PhotoCollage
   title="Studying the Industry"
   images={[imgResBackstage, imgResHeroku, imgResVisionPortal, imgResCreativeCloud, imgResAzure, imgResAtlassian]}
-  configs={CONSOLE_RESEARCH_CONFIGS}
+  configs={SPOTLIGHT_RESEARCH_CONFIGS}
   maxWidth="var(--page-max)"
   stageHeight="clamp(360px, 45.56vw, 820px)"
 >
@@ -62,7 +62,7 @@ export const CONSOLE_RESEARCH_CONFIGS = [
 
 <ImagePanel
   image={imgResMiroProcess}
-  alt="Miro board showing the Discovery MVP brainstorm for Console"
+  alt="Miro board showing the Discovery MVP brainstorm for Spotlight"
   title="Laying It All Out"
 >
   <p>The team laid out all the potential areas we could invest in, and organized them according to the top customer pain points. This helped inform the feature set for MVP, and also informed the working model we'd need to be successful.</p>
@@ -80,7 +80,7 @@ export const CONSOLE_RESEARCH_CONFIGS = [
     <p>Backstage, being open source, was able to accelerate our front-end development efforts, particularly around interfacing with a software catalog.</p>
   </ColGridItem>
   <ColGridItem image={imgArchHawkins} contain transparent title="Internal Design System">
-    <p>We chose to use our own design system over Backstage's out of the box components, so partner teams that were integrating with their existing experiences had the same visuals and UX patterns as Console itself.</p>
+    <p>We chose to use our own design system over Backstage's out of the box components, so partner teams that were integrating with their existing experiences had the same visuals and UX patterns as Spotlight itself.</p>
   </ColGridItem>
 </ColGrid>
 
@@ -96,9 +96,9 @@ import imgConceptualDeck from './images/conceptual-deck.gif';
 
 <ImagePanel
   image={imgConceptualDeck}
-  alt="Conceptual vision prototype for Console"
+  alt="Conceptual vision prototype for Spotlight"
   title="Seeing Is Believing"
-  href="https://www.figma.com/proto/8aOyRRgFaDGFLMLwxCdr7p/Console-Case-Study---Design-Files?page-id=9882%3A32030&node-id=9882-36411&p=f&viewport=1284%2C751%2C0.06&t=mMsGunHa0vzCYksk-1&scaling=min-zoom&content-scaling=fixed"
+  href="https://www.figma.com/proto/8aOyRRgFaDGFLMLwxCdr7p/Spotlight-Case-Study---Design-Files?page-id=9882%3A32030&node-id=9882-36411&p=f&viewport=1284%2C751%2C0.06&t=mMsGunHa0vzCYksk-1&scaling=min-zoom&content-scaling=fixed"
 >
   <p>With the broader goals shaping up, I created a set of visionary designs to show what the product could look like at the end of a medium-term roadmap. This exercise had a few goals:</p>
   <ul>
@@ -116,7 +116,7 @@ import imgVisionRoles from './images/vision-roles.jpg';
 <ImagePanel
   images={[imgVisionSoon, imgVisionLater, imgVisionRoles]}
   naturalSize
-  alt="Operating model diagrams showing the near and long-term vision for Console"
+  alt="Operating model diagrams showing the near and long-term vision for Spotlight"
   title="The Pitch"
   reverse
 >
@@ -140,7 +140,7 @@ import imgStockChart from './images/broad-stock-2021-before.png';
   imgMaxWidth="50%"
 >
   <p>Netflix enjoyed a solid covid bump. With the stock and sentiment at all time highs, hiring had become more lax, and promises of additional resources across all partner teams were made.</p>
-  <p>We would have engineers from observability, delivery, resiliency, developer education, and others, all dedicated to their plugins within Console, and our team would grow to meet the need.</p>
+  <p>We would have engineers from observability, delivery, resiliency, developer education, and others, all dedicated to their plugins within Spotlight, and our team would grow to meet the need.</p>
 </ImagePanel>
 
 </GradientBlock>
@@ -150,7 +150,7 @@ import imgBroadIA  from './images/broad-ia.gif';
 
 <ImagePanel
   image={imgBroadNav}
-  alt="Early wireframe defining page layouts and UX patterns for Console"
+  alt="Early wireframe defining page layouts and UX patterns for Spotlight"
   title="Defining Page Layouts and UX Patterns"
 >
   <p>Because the project was new, there were no existing patterns to inherit. I started with low-fidelity Figma mocks to reach alignment, then designed a set of higher-fidelity exemplar plugins that became the reference standard for future plugin providers. Those patterns eventually lived in both a Figma component library and the codebase itself, with the goal that providers could make sound design decisions without needing me in the room.</p>
@@ -159,12 +159,12 @@ import imgBroadIA  from './images/broad-ia.gif';
 
 <ImagePanel
   image={imgBroadIA}
-  alt="Early wireframe establishing the information architecture for Console"
+  alt="Early wireframe establishing the information architecture for Spotlight"
   title="Establishing the Information Architecture"
   reverse
 >
   <p>Existing developer tools at Netflix were inconsistent. Some let you view specific applications or teams, some didn't. Some let you save entities, some didn't. The IA work aimed to bring enough consistency that any plugin provider could develop against it and have their experience feel seamless alongside every other plugin.</p>
-  <p>We landed on a sidebar for top-level plugin navigation, keeping traversal simple regardless of how many plugins existed. Within a plugin, breadcrumbs handled deeper navigation, but switching plugins reset the breadcrumb trail. A global search tied it all together, letting users jump directly to an application, team, or collection and have the sidebar reflect their context automatically. The implicit promise to plugin providers: build inside Console, and all of this comes for free.</p>
+  <p>We landed on a sidebar for top-level plugin navigation, keeping traversal simple regardless of how many plugins existed. Within a plugin, breadcrumbs handled deeper navigation, but switching plugins reset the breadcrumb trail. A global search tied it all together, letting users jump directly to an application, team, or collection and have the sidebar reflect their context automatically. The implicit promise to plugin providers: build inside Spotlight, and all of this comes for free.</p>
 </ImagePanel>
 
 <PullQuote leadin="Now that the design patterns and UX direction were shaping up..." accent="purple">
@@ -207,7 +207,7 @@ export const SWARM_COLLAGE_CONFIGS = [
   stageHeight="clamp(360px, 45.83vw, 1100px)"
   title="Getting Partners Started"
 >
-  <p>I paired up with various teams across the org to put together mocks with different fidelity to give these teams starting points for their console plugins. The idea was to be scrappy and get all of the product areas on board in a rough draft state and then continue to have partner teams iterate from there.</p>
+  <p>I paired up with various teams across the org to put together mocks with different fidelity to give these teams starting points for their Spotlight plugins. The idea was to be scrappy and get all of the product areas on board in a rough draft state and then continue to have partner teams iterate from there.</p>
 </PhotoCollage>
 
 import imgStockChartDown from './images/broad-stock-2022-after.png';
