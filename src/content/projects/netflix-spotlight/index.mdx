@@ -256,10 +256,10 @@ import imgNarrowingCampaigns from './images/narrowing-campaigns.svg';
 <ScrollDim invert targetOpacity={0.2}>
 <ColGrid>
   <ColGridItem image={imgNarrowingDiscovery} contain transparent imgMaxWidth="200px" imgMaxHeight="200px" title="Software Discovery">
-    <p>Create a directory to promote the "paved path" platform solutions for different facets of software development to prevent fragmentation, and keep it as a reliable source of truth.</p>
+    <p>Continue our effort on creating a directory to promote the "paved path" platform solutions for different facets of software development to prevent fragmentation, and elevate it inside of Spotlight so that it remained a reliable source of truth for software developers.</p>
   </ColGridItem>
   <ColGridItem image={imgNarrowingCatalog} contain transparent imgMaxWidth="200px" imgMaxHeight="200px" title="Software Catalog">
-    <p>Enforce software ownership and responsibility through change at the company. Create the scaffolding for deferred partner features.</p>
+    <p>Deprioritize Spotlight's full software development lifecycle plugins that would be owned by partner teams and focus on Spotlight being the source of truth for the Netflix microservice architecture. Create the scaffolding for partner plugins so that it was available when they were able to reprioritize their efforts.</p>
   </ColGridItem>
   <ColGridItem image={imgNarrowingCampaigns} contain transparent imgMaxWidth="200px" imgMaxHeight="200px" title="Campaigns">
     <p>Consistent, streamlined ways to keep those many micro services up to date went hand in hand with the software catalog. Giving leaders insight into campaign completion also helped inform the cost/benefit of running a campaign, and how to prioritize tech debt against other work.</p>
@@ -267,12 +267,16 @@ import imgNarrowingCampaigns from './images/narrowing-campaigns.svg';
 </ColGrid>
 </ScrollDim>
 
+import imgNarrowingCampaignWires from './images/narrowing-campaign-wires.gif';
+
 <ImagePanel
-  placeholder
-  alt="Placeholder — Narrowing Focus"
-  title="Placeholder Title"
+  image={imgNarrowingCampaignWires}
+  alt="Wireframes showing the Campaigns feature in Spotlight"
+  title="Getting Campaigns Right"
 >
-  <p>Placeholder copy.</p>
+  <p>User experiences around software discovery and the software catalog were already well on the way from before our priorities were narrowed. Because there were no existing teams within our org that handled campaigns, that was on us now. I conducted a series of customer interviews and put together low-fidelity mocks to cater to two different personas. The campaign manager and the campaign recipient.</p>
+  <p>Campaigns would be the first major feature available in Spotlight. Campaign owners could create migration plans or library upgrades and target them against the entire software catalog. Microservice owners could then pick up those campaigns directly in Spotlight. Campaign progress was tracked through a structured set of statuses: NOT_STARTED, BLOCKED, IN_PROGRESS, WILL_NOT_DO, and COMPLETE. This gave campaign managers the data they needed to build timelines, make predictions, and have honest conversations about what was actually achievable.</p>
+  <p>The MVP focused on visibility into microservice hygiene, but the vision didn't stop there. Over time it evolved into guided wizards and even automated campaigns, where microservice owners simply had to acknowledge the change.</p>
 </ImagePanel>
 
 <PullQuote leadin="Placeholder leadin…" accent="purple">
