@@ -29,6 +29,10 @@
   pointer-events: none;
 }
 
+.GradientBlock--compact {
+  padding: 32px 0;
+}
+
 .GradientBlock--blue::before {
   background: radial-gradient(ellipse at 50% 0%, rgba(106, 169, 255, 0.18) 0%, rgba(106, 169, 255, 0.05) 100%);
 }

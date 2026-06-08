@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import { ParallaxLayer } from './ParallaxLayer.jsx';
 import './PhotoCollage.css';
 
@@ -14,47 +15,75 @@ const DEFAULT_CONFIGS = [
 ];
 
 // Whiteboard sprint layout (5 images):
-// two-row mosaic — small top-left, medium top-center, large right full-height,
-// large bottom-left, large bottom-center.
 export const WHITEBOARD_CONFIGS = [
-  // 0: wb1 — RDX/Explore diagram, landscape — bottom-left, large
   { left: '0%',   top: '50%', width: '36%', rotate: '-0.8deg', speed: 4,  zIndex: 5 },
-  // 1: wb2 — Dashboards list, portrait — top-left, smallest
   { left: '0%',   top: '3%',  width: '26%', rotate: '0.6deg',  speed: 7,  zIndex: 4 },
-  // 2: wb3 — Large whiteboard wireframes — bottom-center, large
   { left: '30%',  top: '52%', width: '34%', rotate: '-0.5deg', speed: 5,  zIndex: 6 },
-  // 3: wb4 — Wireframe sketches — top-center, medium
   { left: '27%',  top: '0%',  width: '36%', rotate: '-0.8deg', speed: 8,  zIndex: 3 },
-  // 4: wb5 — Wall with many sketches, portrait — right, spans full height
   { left: '64%',  top: '1%',  width: '36%', rotate: '1deg',    speed: 3,  zIndex: 2 },
 ];
 
-function CollageItem({ src, config }) {
+function useScrollImageIdx(ref, count) {
+  const [idx, setIdx] = useState(0);
+
+  useEffect(() => {
+    if (count < 2) return;
+    const onScroll = () => {
+      const el = ref.current;
+      if (!el) return;
+      const { top } = el.getBoundingClientRect();
+      const vh = window.innerHeight;
+      if (count >= 3 && top <= vh * 0.15) setIdx(2);
+      else if (top <= vh * 0.5) setIdx(1);
+      else setIdx(0);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [count]);
+
+  return idx;
+}
+
+function CollageItem({ images, config }) {
   const cfg = config;
+  const itemRef = useRef(null);
+  const activeIdx = useScrollImageIdx(itemRef, images.length);
+
   return (
     <ParallaxLayer
       speed={cfg.speed}
       className="PhotoCollage-item"
       style={{ left: cfg.left, top: cfg.top, width: cfg.width, zIndex: cfg.zIndex }}
     >
-      <img
-        src={src}
-        alt=""
-        aria-hidden="true"
-        className="PhotoCollage-img"
-        style={{ transform: `rotate(${cfg.rotate})` }}
-      />
+      <div ref={itemRef} className="PhotoCollage-img-wrap" style={{ transform: `rotate(${cfg.rotate})` }}>
+        {images.map((src, i) => (
+          <img
+            key={i}
+            src={src}
+            alt=""
+            aria-hidden="true"
+            className={`PhotoCollage-img${i === activeIdx ? ' is-active' : ''}`}
+          />
+        ))}
+      </div>
     </ParallaxLayer>
   );
 }
 
-export function PhotoCollage({ images = [], configs, layout: layoutName, title, children, maxWidth }) {
+export function PhotoCollage({ images = [], imageSets, configs, layout: layoutName, title, children, maxWidth, stageHeight }) {
   const layout = configs ?? (layoutName === 'whiteboard' ? WHITEBOARD_CONFIGS : DEFAULT_CONFIGS);
+  // imageSets = array of arrays; images = array of srcs (single image per cell)
+  const sets = imageSets ?? images.map(src => [src]);
+  const stageStyle = {
+    ...(maxWidth ? { maxWidth, margin: '0 auto' } : {}),
+    ...(stageHeight ? { height: stageHeight } : {}),
+  };
   return (
     <div className="PhotoCollage">
-      <div className="PhotoCollage-stage" style={maxWidth ? { maxWidth, margin: '0 auto' } : undefined}>
-        {images.map((src, i) => (
-          <CollageItem key={i} src={src} config={layout[i % layout.length]} />
+      <div className="PhotoCollage-stage" style={Object.keys(stageStyle).length ? stageStyle : undefined}>
+        {sets.map((imgs, i) => (
+          <CollageItem key={i} images={imgs} config={layout[i % layout.length]} />
         ))}
       </div>
       {(title || children) && (

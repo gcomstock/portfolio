@@ -130,7 +130,7 @@ import imgVisionRoles from './images/vision-roles.jpg';
 
 import imgStockChart from './images/broad-stock-2021-before.png';
 
-<GradientBlock accent="green">
+<GradientBlock accent="green" compact>
 
 <ImagePanel
   image={imgStockChart}
@@ -144,7 +144,69 @@ import imgStockChart from './images/broad-stock-2021-before.png';
 
 </GradientBlock>
 
-<BrowserGrid />
+import imgBroadNav from './images/broad-nav.gif';
+import imgBroadIA  from './images/broad-ia.gif';
+
+<ImagePanel
+  image={imgBroadNav}
+  alt="Early wireframe defining page layouts and UX patterns for Console"
+  title="Defining Page Layouts and UX Patterns"
+>
+  <p>Because the project was new, there were no existing patterns to inherit. I started with low-fidelity Figma mocks to reach alignment, then designed a set of higher-fidelity exemplar plugins that became the reference standard for future plugin providers. Those patterns eventually lived in both a Figma component library and the codebase itself, with the goal that providers could make sound design decisions without needing me in the room.</p>
+  <p>One point of contention was the detail panel: a right-side drawer that opened when a user clicked on an entity. Critics felt it obscured the main content area. The counter-argument was that once a user opened a detail panel, it became their primary area of focus. Keyboard shortcuts let them move between entities without ever returning to the list, making the main content area a secondary concern in that moment. And for larger viewports, a max-width constraint on the main content column meant the panel opened beside the content rather than over it.</p>
+</ImagePanel>
+
+<ImagePanel
+  image={imgBroadIA}
+  alt="Early wireframe establishing the information architecture for Console"
+  title="Establishing the Information Architecture"
+  reverse
+>
+  <p>Existing developer tools at Netflix were inconsistent. Some let you view specific applications or teams, some didn't. Some let you save entities, some didn't. The IA work aimed to bring enough consistency that any plugin provider could develop against it and have their experience feel seamless alongside every other plugin.</p>
+  <p>We landed on a sidebar for top-level plugin navigation, keeping traversal simple regardless of how many plugins existed. Within a plugin, breadcrumbs handled deeper navigation, but switching plugins reset the breadcrumb trail. A global search tied it all together, letting users jump directly to an application, team, or collection and have the sidebar reflect their context automatically. The implicit promise to plugin providers: build inside Console, and all of this comes for free.</p>
+</ImagePanel>
+
+<PullQuote leadin="Now that the design patterns and UX direction were shaping up..." accent="purple">
+  We swarmed plugin development.
+</PullQuote>
+
+import imgSwarmAlerts1    from './images/swarm-alerts1.png';
+import imgSwarmLibrary1   from './images/swarm-library1.png';
+import imgSwarmLibrary2   from './images/swarm-library2.png';
+import imgSwarmDelivery1  from './images/swarm-delivery1.png';
+import imgSwarmDelivery2  from './images/swarm-delivery2.png';
+import imgSwarmDiscovery1 from './images/swarm-discovery1.png';
+import imgSwarmDiscovery2 from './images/swarm-discovery2.png';
+import imgSwarmDiscovery3 from './images/swarm-discovery3.png';
+import imgSwarmBuilds1    from './images/swarm-builds1.png';
+import imgSwarmBuilds2    from './images/swarm-builds2.png';
+import imgSwarmPipelines1 from './images/swarm-pipelines1.png';
+import imgSwarmPipelines2 from './images/swarm-pipelines2.png';
+import imgSwarmPipelines3 from './images/swarm-pipelines3.png';
+
+
+export const SWARM_COLLAGE_CONFIGS = [
+  { left: '0%',  top: '2%',  width: '32%', rotate: '-1deg',   speed: 4,  zIndex: 4 },
+  { left: '31%', top: '0%',  width: '32%', rotate: '0.8deg',  speed: 9,  zIndex: 6 },
+  { left: '62%', top: '1%',  width: '32%', rotate: '-0.6deg', speed: 6,  zIndex: 3 },
+  { left: '0%',  top: '42%', width: '32%', rotate: '0.7deg',  speed: 5,  zIndex: 7 },
+  { left: '31%', top: '40%', width: '32%', rotate: '-1.2deg', speed: 11, zIndex: 5 },
+  { left: '62%', top: '43%', width: '32%', rotate: '1deg',    speed: 3,  zIndex: 2 },
+];
+
+<PhotoCollage
+  imageSets={[
+    [imgSwarmAlerts1],
+    [imgSwarmBuilds1, imgSwarmBuilds2],
+    [imgSwarmDelivery1, imgSwarmDelivery2],
+    [imgSwarmDiscovery1, imgSwarmDiscovery2],
+    [imgSwarmLibrary1, imgSwarmLibrary2],
+    [imgSwarmPipelines1, imgSwarmPipelines2],
+  ]}
+  configs={SWARM_COLLAGE_CONFIGS}
+  maxWidth="2400px"
+  stageHeight="1200px"
+/>
 
 </section>
 

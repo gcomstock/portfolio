@@ -15,7 +15,14 @@
   position: absolute;
 }
 
+.PhotoCollage-img-wrap {
+  display: grid;
+  background: #fff;
+  border-radius: 6px;
+}
+
 .PhotoCollage-img {
+  grid-area: 1 / 1;
   width: 100%;
   height: auto;
   display: block;
@@ -24,6 +31,12 @@
   box-shadow:
     0 2px 8px rgba(0, 0, 0, 0.4),
     0 12px 48px rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  transition: opacity 600ms ease-in-out;
+}
+
+.PhotoCollage-img.is-active {
+  opacity: 1;
 }
 
 .PhotoCollage-footer {

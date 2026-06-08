@@ -1,0 +1,41 @@
+.SwarmGrid {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  max-width: 1800px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 64px 0;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.SwarmCell {
+  display: grid;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  aspect-ratio: 3 / 2;
+}
+
+.SwarmCell-img {
+  grid-area: 1 / 1;
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0;
+  transition: opacity 600ms ease-in-out;
+}
+
+.SwarmCell-img.is-active {
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .SwarmGrid {
+    grid-template-columns: 1fr;
+    padding: 0 var(--page-gutter);
+  }
+}
