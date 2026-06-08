@@ -21,10 +21,11 @@ import { StatGrid, StatItem } from '../components/StatGrid.jsx';
 import { Callout } from '../components/Callout.jsx';
 import { BrowserGrid } from '../components/BrowserGrid.jsx';
 import { SwarmGrid } from '../components/SwarmGrid.jsx';
+import { ScrollDim } from '../components/ScrollDim.jsx';
 import './Project.css';
 
 // MDX content can use these without importing.
-const mdxComponents = { FeatureBlock, Figure, VideoEmbed, ColGrid, ColGridItem, PullQuote, ImagePanel, PhotoCollage, GradientBlock, AnnotatedImage, GanttChart, SpectrumChart, FeedbackFlow, ProductPanel, StatGrid, StatItem, Callout, BrowserGrid, SwarmGrid };
+const mdxComponents = { FeatureBlock, Figure, VideoEmbed, ColGrid, ColGridItem, PullQuote, ImagePanel, PhotoCollage, GradientBlock, AnnotatedImage, GanttChart, SpectrumChart, FeedbackFlow, ProductPanel, StatGrid, StatItem, Callout, BrowserGrid, SwarmGrid, ScrollDim };
 
 export function Project() {
   const { slug } = useParams();

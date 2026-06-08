@@ -210,15 +210,17 @@ export const SWARM_COLLAGE_CONFIGS = [
   <p>I paired up with various teams across the org to put together mocks with different fidelity to give these teams starting points for their console plugins. The idea was to be scrappy and get all of the product areas on board in a rough draft state and then continue to have partner teams iterate from there.</p>
 </PhotoCollage>
 
+import imgStockChartDown from './images/broad-stock-2022-after.png';
+
 <GradientBlock accent="red" compact>
 
 <ImagePanel
-  placeholder
-  alt="Placeholder — Stonks Down"
-  title="Stonks Down, Everyone Panic"
+  image={imgStockChartDown}
+  alt="Netflix stock chart showing a sharp decline in 2022"
+  title="Stonk's Down, Everyone Panic!"
   imgMaxWidth="50%"
 >
-  <p>Placeholder copy.</p>
+  <p>Netflix stock fell about 70% over two earnings reports and the timing couldn't have been worse. Every org was being asked to re-prioritize and cut anywhere possible. Our engineering partners vanished, either laid off or re-allocated to shorter term priorities. Hiring was frozen, and partner plugins were abandoned.</p>
 </ImagePanel>
 
 </GradientBlock>
@@ -228,6 +230,42 @@ export const SWARM_COLLAGE_CONFIGS = [
 <section id="narrowing-focus">
 
 ## Narrowing Focus
+
+<ColGrid>
+  <ColGridItem image={imgProbBestPractices} contain title="No Best Practices">
+    <p>Want to start a new Java or React app? You could look and ask around for advice, but teams were left to their own devices to come up with their own solutions. Needed to create a source of truth for discovering best practices for software development at Netflix. This was especially important for new hires who had little assistance ramping up and understanding the internal tool chain.</p>
+  </ColGridItem>
+  <ColGridItem image={imgProbAccountability} contain title="No Accountability">
+    <p>Code at Netflix is not a mono repo; it's a spiderweb of thousands of micro-services, each with their own deployment and support schedules. As engineers left the company and teams re-org'd, touching dependencies felt like walking a minefield. Some less active services had unknown owners and were left to run until something broke.</p>
+  </ColGridItem>
+  <ScrollDim strikethrough targetOpacity={0.2}>
+    <ColGridItem image={imgProbStartingPlace} contain title="No Starting Place">
+      <p>Where do users go to deploy software, or see resiliency trends? How about observing production performance, or alerting and troubleshooting incidents? Every stop in the SDLC had its own cleverly-named product that had few or no connection points with others.</p>
+    </ColGridItem>
+  </ScrollDim>
+</ColGrid>
+
+import imgNarrowingDiscovery from './images/narrowing-discovery.svg';
+import imgNarrowingCatalog   from './images/narrowing-catalog.svg';
+import imgNarrowingCampaigns from './images/narrowing-campaigns.svg';
+
+<PullQuote leadin="Without any partner contributions..." accent="purple">
+  Focus shifted toward new features
+</PullQuote>
+
+<ScrollDim invert targetOpacity={0.2}>
+<ColGrid>
+  <ColGridItem image={imgNarrowingDiscovery} contain transparent imgMaxWidth="200px" imgMaxHeight="200px" title="Software Discovery">
+    <p>Create a directory to promote the "paved path" platform solutions for different facets of software development to prevent fragmentation, and keep it as a reliable source of truth.</p>
+  </ColGridItem>
+  <ColGridItem image={imgNarrowingCatalog} contain transparent imgMaxWidth="200px" imgMaxHeight="200px" title="Software Catalog">
+    <p>Enforce software ownership and responsibility through change at the company. Create the scaffolding for deferred partner features.</p>
+  </ColGridItem>
+  <ColGridItem image={imgNarrowingCampaigns} contain transparent imgMaxWidth="200px" imgMaxHeight="200px" title="Campaigns">
+    <p>Consistent, streamlined ways to keep those many micro services up to date went hand in hand with the software catalog. Giving leaders insight into campaign completion also helped inform the cost/benefit of running a campaign, and how to prioritize tech debt against other work.</p>
+  </ColGridItem>
+</ColGrid>
+</ScrollDim>
 
 <ImagePanel
   placeholder
