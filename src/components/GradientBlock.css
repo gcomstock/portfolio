@@ -44,7 +44,6 @@
 }
 .GradientBlock--amber::before {
   background: radial-gradient(ellipse at 50% 0%, rgba(255, 185, 80, 0.18) 0%, rgba(255, 185, 80, 0.05) 100%);
-}
-.GradientBlock--pink::before {
-  background: radial-gradient(ellipse at 50% 0%, rgba(255, 80, 80, 0.18) 0%, rgba(255, 80, 80, 0.05) 100%);
+}.GradientBlock--red::before {
+  background: radial-gradient(ellipse at 50% 0%, rgba(210, 40, 40, 0.22) 0%, rgba(210, 40, 40, 0.06) 100%);
 }

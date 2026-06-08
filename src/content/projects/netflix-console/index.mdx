@@ -53,6 +53,7 @@ export const CONSOLE_RESEARCH_CONFIGS = [
   images={[imgResBackstage, imgResHeroku, imgResVisionPortal, imgResCreativeCloud, imgResAzure, imgResAtlassian]}
   configs={CONSOLE_RESEARCH_CONFIGS}
   maxWidth="var(--page-max)"
+  stageHeight="clamp(360px, 45.56vw, 820px)"
 >
   <p>We gave ourselves time to study the industry. We looked at developer portals from Spotify, Heroku, Microsoft, Atlassian, and others. We also drew inspiration from general "hubs" like Apple's App Store and Adobe's Creative Cloud.</p>
 </PhotoCollage>
@@ -177,21 +178,19 @@ import imgSwarmDelivery1  from './images/swarm-delivery1.png';
 import imgSwarmDelivery2  from './images/swarm-delivery2.png';
 import imgSwarmDiscovery1 from './images/swarm-discovery1.png';
 import imgSwarmDiscovery2 from './images/swarm-discovery2.png';
-import imgSwarmDiscovery3 from './images/swarm-discovery3.png';
 import imgSwarmBuilds1    from './images/swarm-builds1.png';
 import imgSwarmBuilds2    from './images/swarm-builds2.png';
 import imgSwarmPipelines1 from './images/swarm-pipelines1.png';
 import imgSwarmPipelines2 from './images/swarm-pipelines2.png';
-import imgSwarmPipelines3 from './images/swarm-pipelines3.png';
 
 
 export const SWARM_COLLAGE_CONFIGS = [
-  { left: '0%',  top: '2%',  width: '32%', rotate: '-1deg',   speed: 4,  zIndex: 4 },
-  { left: '31%', top: '0%',  width: '32%', rotate: '0.8deg',  speed: 9,  zIndex: 6 },
-  { left: '62%', top: '1%',  width: '32%', rotate: '-0.6deg', speed: 6,  zIndex: 3 },
-  { left: '0%',  top: '42%', width: '32%', rotate: '0.7deg',  speed: 5,  zIndex: 7 },
-  { left: '31%', top: '40%', width: '32%', rotate: '-1.2deg', speed: 11, zIndex: 5 },
-  { left: '62%', top: '43%', width: '32%', rotate: '1deg',    speed: 3,  zIndex: 2 },
+  { left: '0%',  top: '5%',  width: '32%', rotate: '-1deg',   speed: 4,  zIndex: 4 },
+  { left: '31%', top: '3%',  width: '32%', rotate: '0.8deg',  speed: 9,  zIndex: 6 },
+  { left: '62%', top: '4%',  width: '32%', rotate: '-0.6deg', speed: 6,  zIndex: 3 },
+  { left: '0%',  top: '48%', width: '32%', rotate: '0.7deg',  speed: 5,  zIndex: 7 },
+  { left: '31%', top: '46%', width: '32%', rotate: '-1.2deg', speed: 11, zIndex: 5 },
+  { left: '62%', top: '49%', width: '32%', rotate: '1deg',    speed: 3,  zIndex: 2 },
 ];
 
 <PhotoCollage
@@ -205,8 +204,24 @@ export const SWARM_COLLAGE_CONFIGS = [
   ]}
   configs={SWARM_COLLAGE_CONFIGS}
   maxWidth="2400px"
-  stageHeight="1200px"
-/>
+  stageHeight="clamp(360px, 45.83vw, 1100px)"
+  title="Getting Partners Started"
+>
+  <p>I paired up with various teams across the org to put together mocks with different fidelity to give these teams starting points for their console plugins. The idea was to be scrappy and get all of the product areas on board in a rough draft state and then continue to have partner teams iterate from there.</p>
+</PhotoCollage>
+
+<GradientBlock accent="red" compact>
+
+<ImagePanel
+  placeholder
+  alt="Placeholder — Stonks Down"
+  title="Stonks Down, Everyone Panic"
+  imgMaxWidth="50%"
+>
+  <p>Placeholder copy.</p>
+</ImagePanel>
+
+</GradientBlock>
 
 </section>
 

@@ -11,8 +11,7 @@ function useScrollImageIdx(ref, count) {
       if (!el) return;
       const { top } = el.getBoundingClientRect();
       const vh = window.innerHeight;
-      if (count >= 3 && top <= vh * 0.15) setIdx(2);
-      else if (top <= vh * 0.5) setIdx(1);
+      if (top <= vh * 0.5) setIdx(1);
       else setIdx(0);
     };
     onScroll();
