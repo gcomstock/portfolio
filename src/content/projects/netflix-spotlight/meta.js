@@ -16,10 +16,9 @@ export default {
     { id: 'reception',       label: 'Reception'          },
   ],
   metadata: [
-    { label: 'Role',     value: 'Product Designer'        },
-    { label: 'Team',     value: 'Sole designer, end-to-end' },
-    { label: 'Duration', value: '2021 – early 2023'       },
-    { label: 'Industry', value: 'Streaming / DevTools'    },
-    { label: 'Impact',   value: 'TBD'                     },
+    { label: 'Role',     value: 'Sole Product Designer\nUX Researcher\nUI/UX Strategy' },
+    { label: 'Team',     value: '1 Product Manager\n1 Engineering Manager\n3–5 Engineers' },
+    { label: 'Duration', value: '2021 – early 2023\n(off and on involvement)' },
+    { label: 'Industry', value: 'Developer Productivity\n& Tooling' },
   ],
 };

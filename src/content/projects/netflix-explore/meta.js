@@ -21,10 +21,9 @@ export default {
     { id: 'next-steps', label: 'Next Steps'  },
   ],
   metadata: [
-    { label: 'Role', value: 'Product Designer' },
-    { label: 'Team', value: 'Solo designer, end-to-end' },
-    { label: 'Duration', value: 'TBD' },
-    { label: 'Industry', value: 'Streaming / DevTools' },
-    { label: 'Impact', value: 'TBD' },
+    { label: 'Role', value: 'Sole Product Designer\nUX Researcher' },
+    { label: 'Team', value: '1 Product Manager\n1 Lead Engineer\n1 Engineering Manager\n3–5 Revolving Engineers' },
+    { label: 'Duration', value: '2024 – 2026\n(on and off involvement)' },
+    { label: 'Industry', value: 'Developer Productivity\n& Observability Tooling' },
   ],
 };

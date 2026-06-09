@@ -15,7 +15,7 @@
   color: var(--text-dim);
   margin-bottom: 8px;
 }
-.MetaGrid-value { font-size: 14px; color: var(--text); margin: 0; line-height: 1.4; }
+.MetaGrid-value { font-size: 14px; color: var(--text); margin: 0; line-height: 1.7; white-space: pre-line; }
 
 @media (max-width: 900px) {
   .MetaGrid { grid-template-columns: repeat(2, 1fr); gap: 20px; }

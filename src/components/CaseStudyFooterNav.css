@@ -3,6 +3,8 @@
   padding: 48px 0;
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 
 .CaseStudyFooterNav::before {
@@ -28,12 +30,18 @@
   gap: 10px;
   text-decoration: none;
   max-width: 480px;
-  opacity: 1;
+  opacity: 0.6;
   transition: opacity 300ms var(--ease-out);
 }
 
 .CaseStudyFooterNav-item:hover {
-  opacity: 0.7;
+  opacity: 1;
+}
+
+.CaseStudyFooterNav-item:hover .CaseStudyFooterNav-title,
+.CaseStudyFooterNav-item:hover .CaseStudyFooterNav-subtitle,
+.CaseStudyFooterNav-item:hover .CaseStudyFooterNav-label {
+  color: #fff;
 }
 
 .CaseStudyFooterNav-item--next {
@@ -49,6 +57,7 @@
   font-family: var(--font-mono);
   font-size: var(--fs-eyebrow);
   color: var(--text-muted);
+  transition: color 300ms var(--ease-out);
 }
 
 .CaseStudyFooterNav-title {
@@ -57,6 +66,7 @@
   font-weight: 600;
   color: var(--text-muted);
   line-height: var(--leading-snug);
+  transition: color 300ms var(--ease-out);
 }
 
 .CaseStudyFooterNav-subtitle {
@@ -64,6 +74,7 @@
   font-size: var(--fs-body-sm);
   color: var(--text-muted);
   line-height: var(--leading-body);
+  transition: color 300ms var(--ease-out);
 }
 
 @media (max-width: 900px) {
