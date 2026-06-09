@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { lazy, Suspense, useMemo } from 'react';
 import { MDXProvider } from '@mdx-js/react';
-import { getProject } from '../content/projects/index.js';
+import { getProject, listProjects } from '../content/projects/index.js';
 import { MetaGrid } from '../components/MetaGrid.jsx';
 import { FeatureBlock } from '../components/FeatureBlock.jsx';
 import { Figure } from '../components/Figure.jsx';
@@ -22,6 +22,7 @@ import { Callout } from '../components/Callout.jsx';
 import { BrowserGrid } from '../components/BrowserGrid.jsx';
 import { SwarmGrid } from '../components/SwarmGrid.jsx';
 import { ScrollDim } from '../components/ScrollDim.jsx';
+import { CaseStudyFooterNav } from '../components/CaseStudyFooterNav.jsx';
 import './Project.css';
 
 // MDX content can use these without importing.
@@ -47,12 +48,27 @@ export function Project() {
 
   const { meta } = entry;
   const navTitle = [meta.company, meta.title].filter(Boolean).join(' · ');
+
+  const caseStudies = listProjects('case-study');
+  const currentIdx = caseStudies.findIndex(p => p.slug === slug);
+  const nextEntry = caseStudies[(currentIdx + 1) % caseStudies.length];
+  const prevEntry = caseStudies[(currentIdx - 1 + caseStudies.length) % caseStudies.length];
   return (
     <div className="Project">
       <div className="page Project-above-nav">
         <header className="Project-header">
-          <div className="eyebrow Project-eyebrow">
-            {meta.kind === 'case-study' ? `Case study · ${meta.number || '01'} · ` : ''}{meta.company || meta.title}
+          <div className="Project-eyebrow-row">
+            <div className="eyebrow">
+              {meta.kind === 'case-study' ? `Case study · ${meta.number || '01'} · ` : ''}{meta.company || meta.title}
+            </div>
+            {nextEntry && (
+              <Link to={`/work/${nextEntry.slug}`} className="eyebrow Project-next-link">
+                Next: {nextEntry.meta.title}
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M5 2.5L9.5 7 5 11.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </Link>
+            )}
           </div>
           <h1 className="Project-title">{meta.title}</h1>
           <p className="subhead Project-subhead">{meta.subtitle}</p>
@@ -76,6 +92,13 @@ export function Project() {
           </MDXProvider>
         </article>
       </div>
+
+      {meta.kind === 'case-study' && (
+        <CaseStudyFooterNav
+          prev={prevEntry !== entry ? prevEntry : null}
+          next={nextEntry !== entry ? nextEntry : null}
+        />
+      )}
     </div>
   );
 }
