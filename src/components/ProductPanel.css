@@ -61,6 +61,16 @@
   display: block;
 }
 
+.ProductPanel-img-wrap {
+  display: grid;
+  background: #fff;
+}
+
+.ProductPanel-img--fade {
+  grid-area: 1 / 1;
+  transition: opacity 0.6s ease;
+}
+
 .ProductPanel-placeholder {
   width: 100%;
   aspect-ratio: 16 / 9;

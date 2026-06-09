@@ -8,7 +8,7 @@
   max-width: 14ch;
   margin-bottom: 24px;
 }
-.Project-subhead { max-width: 640px; margin-bottom: 48px; }
+.Project-subhead { max-width: 100%; margin-bottom: 48px; }
 
 .Project-hero {
   aspect-ratio: 16 / 9;

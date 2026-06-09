@@ -1,10 +1,10 @@
 export default {
   kind: 'case-study',
-  order: 2,
-  number: '02',
+  order: 3,
+  number: '03',
   company: 'Netflix',
   title: 'Spotlight',
-  subtitle: 'The Front Door for Software Ownership and Development',
+  subtitle: 'The Front Door for Software Ownership and Development at Netflix',
   accent: 'purple',
   sections: [
     { id: 'discovery',       label: 'Problem Definition' },

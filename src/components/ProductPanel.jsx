@@ -1,12 +1,21 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import './ProductPanel.css';
 
 function easeOut(t) {
   return 1 - Math.pow(1 - t, 3);
 }
 
-export function ProductPanel({ image, alt = '', title, href, cta, placeholder = false, solo = false, reverse = false, children }) {
+export function ProductPanel({ image, images, alt = '', title, href, cta, placeholder = false, solo = false, reverse = false, children }) {
   const frameRef = useRef(null);
+  const imgList = images ?? (image ? [image] : []);
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (imgList.length < 2 || paused) return;
+    const id = setInterval(() => setActiveIdx(i => (i + 1) % imgList.length), 3000);
+    return () => clearInterval(id);
+  }, [imgList.length, paused]);
 
   useEffect(() => {
     const el = frameRef.current;
@@ -56,7 +65,25 @@ export function ProductPanel({ image, alt = '', title, href, cta, placeholder = 
       </div>
       {placeholder
         ? <div className="ProductPanel-placeholder" />
-        : <img src={image} alt={alt} className="ProductPanel-img" />
+        : imgList.length > 1
+          ? (
+            <div
+              className="ProductPanel-img-wrap"
+              onMouseEnter={() => setPaused(true)}
+              onMouseLeave={() => setPaused(false)}
+            >
+              {imgList.map((src, i) => (
+                <img
+                  key={i}
+                  src={src}
+                  alt={i === 0 ? alt : ''}
+                  className="ProductPanel-img ProductPanel-img--fade"
+                  style={{ opacity: i === activeIdx ? 1 : 0 }}
+                />
+              ))}
+            </div>
+          )
+          : <img src={imgList[0]} alt={alt} className="ProductPanel-img" />
       }
     </div>
   );

@@ -5,8 +5,8 @@ import cover3 from './images/pandora-1200px-1.png';
 export default {
   kind: 'case-study',
   coverImages: [cover1, cover2, cover3],
-  order: 3,
-  number: '03',
+  order: 2,
+  number: '02',
   company: 'Pandora',
   title: 'Pandora.com',
   subtitle: 'Bringing personalized music streaming to millions of listeners',
