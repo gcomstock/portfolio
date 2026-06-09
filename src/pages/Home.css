@@ -14,13 +14,15 @@
 
 /* Case studies — full-width rows */
 .Home-cases { padding-top: 0; }
-.Home-caseList { display: flex; flex-direction: column; gap: 0; }
+.Home-caseList { display: flex; flex-direction: column; gap: 0; overflow: visible; }
 
 .CaseRow {
   display: grid;
   grid-template-columns: 8fr 4fr;
   gap: 48px;
   align-items: center;
+  width: 100%;
+  min-width: 0;
   transition: transform var(--dur-med) var(--ease-out);
 }
 .CaseRow:not(.CaseRow--iso):hover { transform: translateY(-4px); }
@@ -32,8 +34,8 @@
 .CaseRow--iso::before {
   content: '';
   position: absolute;
-  inset: -20% 0;
-  background: radial-gradient(ellipse 30% 45% at 35% 50%, rgba(60, 150, 255, 0.9) 0%, transparent 100%);
+  inset: -120px 0;
+  background: radial-gradient(ellipse 30% 45% at 35% 50%, rgba(30, 180, 220, 0.9) 0%, rgba(120, 80, 255, 0) 100%);
   opacity: 0;
   transition: opacity 500ms var(--ease-out);
   pointer-events: none;
@@ -44,7 +46,7 @@
   opacity: 1;
 }
 .CaseRow-media {
-  aspect-ratio: 16 / 12;
+  aspect-ratio: 16 / 10;
   border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--surface);

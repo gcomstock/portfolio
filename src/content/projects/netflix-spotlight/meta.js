@@ -1,5 +1,10 @@
+import cover1 from './images/home-spotlight-1.jpg';
+import cover2 from './images/home-spotlight-2.jpg';
+import cover3 from './images/home-spotlight-3.jpg';
+
 export default {
   kind: 'case-study',
+  coverImages: [cover3, cover2, cover1],
   order: 3,
   number: '03',
   company: 'Netflix',

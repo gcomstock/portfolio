@@ -42,14 +42,13 @@
 
 .AnnotatedImage-annotation--left .AnnotatedImage-text {
   text-align: left;
-  /* Cap at 260px but never wider than the pre-image margin */
-  max-width: min(260px, 20vw);
+  max-width: min(260px, calc(24vw - 71px));
 }
 
 .AnnotatedImage-annotation--right .AnnotatedImage-text {
   text-align: right;
   margin-left: auto;
-  max-width: min(260px, 20vw);
+  max-width: min(260px, calc(21vw - 44px));
 }
 
 /* Dot centered on the border-bottom line at the image-side end */

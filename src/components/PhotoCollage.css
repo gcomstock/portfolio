@@ -7,7 +7,7 @@
   width: 100vw;
   left: 50%;
   transform: translateX(-50%);
-  height: 820px;
+  height: max(360px, 45vw);
   overflow: hidden;
 }
 
@@ -62,6 +62,5 @@
 }
 
 @media (max-width: 900px) {
-  .PhotoCollage-stage { height: 360px; }
   .PhotoCollage-footer { width: 100%; }
 }

@@ -1,10 +1,10 @@
-import cover1 from './images/pandora-1200px-3.png';
-import cover2 from './images/pandora-1200px-2.png';
-import cover3 from './images/pandora-1200px-1.png';
+import cover1 from './images/home-pandora-1.jpg';
+import cover2 from './images/home-pandora-2.jpg';
+import cover3 from './images/home-pandora-3.jpg';
 
 export default {
   kind: 'case-study',
-  coverImages: [cover1, cover2, cover3],
+  coverImages: [cover3, cover2, cover1],
   order: 2,
   number: '02',
   company: 'Pandora',

@@ -110,7 +110,7 @@ import imgNextClaude3   from './images/next-claude-3.png';
   </ColGridItem>
 </ColGrid>
 
-<PhotoCollage images={[imgSprintWb1, imgSprintWb2, imgSprintWb3, imgSprintWb4, imgSprintWb5]} layout="whiteboard" />
+<PhotoCollage images={[imgSprintWb1, imgSprintWb2, imgSprintWb3, imgSprintWb4, imgSprintWb5]} layout="whiteboard" maxWidth="2400px" stageHeight="clamp(360px, 45vw, 1080px)" />
 
 </GradientBlock>
 
@@ -154,10 +154,10 @@ We decided to **build a scrappy front-end prototype** using the existing API end
   accent="red"
   annotations={[
     { side: 'left', x: '24%', y: '7%',  text: 'Unclear which query values were supported by all data types, and which were specific' },
-    { side: 'left', x: '24%', y: '23%', text: 'Although we had unified the query building UX, a metrics query took more steps than the legacy product, and metric names were harder to discover' },
+    { side: 'left', x: '24%', y: '30%', text: 'Although we had unified the query building UX, a metrics query took more steps than the legacy product, and metric names were harder to discover' },
     { side: 'left', x: '36%', y: '66%', text: 'Poor use of screen space for simple queries' },
     { side: 'right', x: '77%', y: '7%',  text: 'UX became less usable with each panel, and unused panels had to be manually removed', offsetY: 48 },
-    { side: 'right', x: '77%', y: '79%', text: 'Difficult to see table values' },
+    { side: 'right', x: '77%', y: '70%', text: 'Difficult to see table values' },
   ]}
 />
 
@@ -245,9 +245,9 @@ We decided to **build a scrappy front-end prototype** using the existing API end
 </ImagePanel>
 
 <StatGrid>
-  <StatItem number="+90%" label="Voluntary adoption rate across all Netflix engineering teams, versus legacy internal tools and third-party alternatives." />
-  <StatItem number="+5" label="88/100 Employee Survey score on Observability product sentiment, versus 83/100 pre-launch." />
-  <StatItem number="$20M+" label="Projected annual savings versus third-party observability contracts at Netflix scale." />
+  <StatItem number="+90%" label="Voluntary adoption rate across all Netflix engineering teams, vs. legacy internal tools and third-party alternatives." />
+  <StatItem number="+5" label="88/100 Employee Survey score on Observability product sentiment, vs. 83/100 pre-launch." />
+  <StatItem number="$20M+" label="Projected annual savings vs. third-party observability contracts at Netflix scale." />
 </StatGrid>
 
 </section>
