@@ -14,7 +14,7 @@
 
 /* Case studies — full-width rows */
 .Home-cases { padding-top: 0; }
-.Home-caseList { display: flex; flex-direction: column; gap: 96px; }
+.Home-caseList { display: flex; flex-direction: column; gap: 0; }
 
 .CaseRow {
   display: grid;
@@ -24,8 +24,27 @@
   transition: transform var(--dur-med) var(--ease-out);
 }
 .CaseRow:not(.CaseRow--iso):hover { transform: translateY(-4px); }
+
+.CaseRow--iso {
+  position: relative;
+}
+
+.CaseRow--iso::before {
+  content: '';
+  position: absolute;
+  inset: -20% 0;
+  background: radial-gradient(ellipse 30% 45% at 35% 50%, rgba(60, 150, 255, 0.9) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 500ms var(--ease-out);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.CaseRow--iso:hover::before {
+  opacity: 1;
+}
 .CaseRow-media {
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 12;
   border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--surface);
@@ -41,6 +60,7 @@
   perspective: 1400px;
   perspective-origin: 12% 40%;
   position: relative;
+  z-index: 1;
 }
 
 .CaseRow-isoStage {
@@ -48,6 +68,7 @@
   width: 100%;
   height: 100%;
 }
+
 
 .CaseRow-isoImg {
   position: absolute;
@@ -57,6 +78,7 @@
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transition: transform 400ms var(--ease-out), filter 400ms var(--ease-out);
+  z-index: 1;
 }
 
 /* Back-to-front DOM order; each screen steps right + up as it recedes */
@@ -85,8 +107,16 @@
 .CaseRow--iso:hover .CaseRow-isoImg--back {
   transform: translateY(-50%) rotateX(8deg) rotateY(30deg) translateX(140px);
 }
-.CaseRow-title { font-size: var(--fs-h1); margin: 12px 0 16px; }
-.CaseRow-subhead { max-width: 480px; }
+.CaseRow-body { position: relative; z-index: 1; }
+.CaseRow-title {
+  font-size: var(--fs-h1);
+  margin: 12px 0 16px;
+  transition: color 500ms var(--ease-out);
+}
+.CaseRow--iso:hover .CaseRow-title {
+  color: #5aabff;
+}
+.CaseRow-subhead { max-width: 480px; font-size: 18px !important; }
 
 /* Smaller projects — 2-col grid */
 .Home-projects { padding-top: 64px; }
