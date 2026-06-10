@@ -113,7 +113,7 @@
   height: 1px;
   background: linear-gradient(to right, var(--accent-blue), transparent);
 }
-.Project-body h3 { font-size: var(--fs-h3); margin: 48px 0 12px; }
+.Project-body h3 { font-size: var(--fs-h3); margin: 0 0 12px; }
 
 /* Give named sections breathing room so sticky bars don't obscure headings on scroll */
 .Project-body section {
