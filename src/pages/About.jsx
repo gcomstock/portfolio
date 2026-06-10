@@ -26,7 +26,7 @@ const AI_SECTIONS = [
   {
     color: '#b48cff',
     title: 'High fidelity prototyping',
-    body: 'Once you\'re ready to converge, Claude\'s design tools can carry you further if your design system is well integrated. If not, move your artifacts into Claude Code, Figma Make, or a similar workflow. My current preference is Claude Code or OpenAI\'s Codex since you get the full breadth of a normal developer\'s toolkit, including real data if API endpoints are available. Sometimes it makes sense to prototype directly in the repo. Familiarity with the project will help you make the right call.',
+    body: 'Once you\'re ready to converge, Claude\'s design tools can carry you further if your design system is well integrated. My current preference is Claude Code since you get the full breadth of a normal developer\'s toolkit, including real data if API endpoints are available. Sometimes it makes sense to prototype directly in the repo. Familiarity with the project will help you make the right call.',
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" />
@@ -46,7 +46,7 @@ const AI_SECTIONS = [
   {
     color: '#6aa9ff',
     title: 'Authoring design guidance for agents',
-    body: 'Once you\'ve aligned on a direction, your leverage shifts toward guidance. Write skills that articulate your product\'s design philosophy holistically, not just as rules. Call out conventions you\'re intentionally breaking, especially any inherited patterns from your design system. If you want to propose a change back upstream, reconciling project guidance with system-level conventions is now something you can do yourself. As long as you\'ve worked out a contribution model with your design system owners and open up a pull request.',
+    body: 'Once you\'ve validated your direction, your leverage shifts toward guidance. Write skills that articulate your product\'s design philosophy holistically, not just as rules. Call out conventions you\'re intentionally breaking, especially any inherited patterns from your design system. If you want to propose a change back upstream, reconciling project guidance with system-level conventions is now something you can do yourself. As long as you\'ve worked out a contribution model with your design system owners and open up a pull request.',
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><line x1="10" y1="9" x2="8" y2="9" />

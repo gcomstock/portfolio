@@ -2,21 +2,23 @@
 
 .About-introGrid {
   display: grid;
-  grid-template-columns: 5fr 7fr;
-  gap: 64px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
   align-items: center;
 }
 .About-portrait {
+  grid-column: 1 / 3;
   border-radius: 16px;
   overflow: hidden;
-  aspect-ratio: 4 / 5;
+  display: flex;
+  justify-content: center;
 }
 .About-portraitImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
+  max-width: min(600px, 100%);
+  width: auto;
+  height: auto;
   display: block;
+  border-radius: 16px;
 }
 .About-title { font-size: var(--fs-h2); margin: 0 0 20px; }
 .About-body { display: flex; flex-direction: column; gap: 20px; max-width: 680px; }
@@ -34,7 +36,7 @@
 .About-aiSections {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 48px 40px;
+  gap: 48px;
   margin-top: 64px;
 }
 .About-aiSection {
@@ -55,8 +57,11 @@
   margin-right: 6px;
 }
 
+
 @media (max-width: 900px) {
-  .About-aiSections { grid-template-columns: 1fr; gap: 40px; }
+  .About-introGrid { grid-template-columns: 1fr; }
+  .About-portrait { grid-column: auto; }
+  .About-aiSections { grid-template-columns: 1fr; }
 }
 
 .GanttStub {
@@ -83,6 +88,3 @@
   opacity: 0.55;
 }
 
-@media (max-width: 900px) {
-  .About-introGrid { grid-template-columns: 1fr; gap: 32px; }
-}
