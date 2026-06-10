@@ -23,6 +23,7 @@ import { BrowserGrid } from '../components/BrowserGrid.jsx';
 import { SwarmGrid } from '../components/SwarmGrid.jsx';
 import { ScrollDim } from '../components/ScrollDim.jsx';
 import { CaseStudyFooterNav } from '../components/CaseStudyFooterNav.jsx';
+import { ParallaxLayer } from '../components/ParallaxLayer.jsx';
 import './Project.css';
 
 // MDX content can use these without importing.
@@ -74,8 +75,18 @@ export function Project() {
           <p className="subhead Project-subhead">{meta.subtitle}</p>
         </header>
 
-        <div className="Project-hero" aria-hidden="true">
-          <span className="mono">final product hero placeholder</span>
+        <div className={`Project-hero${meta.coverImages?.length ? ' Project-hero--iso' : ''}`} aria-hidden="true">
+          {meta.coverImages?.length ? (
+            <ParallaxLayer speed={15} className="Project-heroStage">
+              <div className="Project-heroCluster">
+                <img src={meta.coverImages[0]} alt="" className="Project-heroImg Project-heroImg--back" />
+                <img src={meta.coverImages[1]} alt="" className="Project-heroImg Project-heroImg--mid" />
+                <img src={meta.coverImages[2]} alt="" className="Project-heroImg Project-heroImg--front" />
+              </div>
+            </ParallaxLayer>
+          ) : (
+            <span className="mono">final product hero placeholder</span>
+          )}
         </div>
 
         {meta.metadata && <MetaGrid items={meta.metadata} />}

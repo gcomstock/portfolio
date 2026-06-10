@@ -79,6 +79,7 @@
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  image-rendering: -webkit-optimize-contrast;
   transition: transform 400ms var(--ease-out), filter 400ms var(--ease-out);
   z-index: 1;
 }

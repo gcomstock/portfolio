@@ -38,6 +38,63 @@
   margin-bottom: 48px;
 }
 
+.Project-hero--iso {
+  border: none;
+  background: transparent;
+  overflow: visible;
+  position: relative;
+  aspect-ratio: 16 / 7;
+}
+
+.Project-heroStage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Cluster is capped at its original design width but shrinks with the container.
+   Offsets and image widths are all % of the cluster so everything scales together. */
+.Project-heroCluster {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  left: 50%;
+  width: min(1780px, 100%);
+  transform: translateX(-50%);
+}
+
+.Project-heroImg {
+  position: absolute;
+  width: 57%;
+  border-radius: 8px;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.Project-heroImg--back {
+  left: 43%; top: 38%;
+  transform: translateY(-50%);
+  filter: drop-shadow(0px 16px 32px rgba(0, 0, 0, 0.5));
+}
+.Project-heroImg--mid {
+  left: 21%; top: 50%;
+  transform: translateY(-50%);
+  filter: drop-shadow(0px 20px 40px rgba(0, 0, 0, 0.65));
+}
+.Project-heroImg--front {
+  left: 0; top: 62%;
+  transform: translateY(-50%);
+  filter:
+    drop-shadow(0px 28px 48px rgba(0, 0, 0, 0.8))
+    drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.4));
+}
+
+@media (max-width: 900px) {
+  .Project-hero--iso { aspect-ratio: 4 / 3; }
+}
+
 .Project-body { padding-top: 32px; }
 .Project-body p { max-width: var(--reading-max); color: var(--text-muted); font-size: var(--fs-body-sm); line-height: 1.65; }
 .Project-body h2 {
