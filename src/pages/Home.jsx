@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { listProjects } from '../content/projects/index.js';
-import { ParallaxLayer } from '../components/ParallaxLayer.jsx';
 import { HeroExtruded } from '../components/HeroExtruded.jsx';
 import './Home.css';
 
@@ -10,9 +9,9 @@ export function Home() {
 
   return (
     <div className="page Home">
-      <ParallaxLayer speed={4} className="Hero">
+      <div className="Hero">
         <HeroExtruded />
-      </ParallaxLayer>
+      </div>
 
       <section className="Home-cases">
         <div className="eyebrow Home-eyebrow">Selected work · Case studies</div>

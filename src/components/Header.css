@@ -29,9 +29,9 @@
 
 @media (max-width: 900px) {
   .Header { height: var(--header-h-mobile); }
-  .Header-brand-full { display: none; }
-  .Header-brand-short { display: inline; font-size: 18px; }
+  .Header-brand-short { display: none; }
+  .Header-brand-full { display: inline; font-size: 15px; }
   .Header-nav { gap: 20px; }
-  .Header-linkedin-full { display: none; }
-  .Header-linkedin-icon { display: inline-block; }
+  .Header-resume { display: none; }
+  .Header-linkedin { display: none; }
 }

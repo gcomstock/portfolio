@@ -12,7 +12,7 @@ export function Header() {
         <nav className="Header-nav">
           <NavLink to="/" end className="Header-link">Work</NavLink>
           <NavLink to="/about" className="Header-link">About</NavLink>
-          <a className="Header-link" href="/resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+          <a className="Header-link Header-resume" href="/resume.pdf" target="_blank" rel="noreferrer">Resume</a>
           <a
             className="Header-link Header-linkedin"
             href="https://www.linkedin.com/in/gregcomstock"

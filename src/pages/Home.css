@@ -101,21 +101,21 @@
 
 /* Hover: spread right — back most, mid some, front anchored */
 .CaseRow--iso:hover .CaseRow-isoImg--mid {
-  transform: translateY(-50%) rotateX(8deg) rotateY(30deg) translateX(60px);
+  transform: translateY(-50%) rotateX(8deg) rotateY(30deg) translateX(7%);
 }
 .CaseRow--iso:hover .CaseRow-isoImg--back {
-  transform: translateY(-50%) rotateX(8deg) rotateY(30deg) translateX(140px);
+  transform: translateY(-50%) rotateX(8deg) rotateY(30deg) translateX(16%);
 }
 .CaseRow-body { position: relative; z-index: 1; }
 .CaseRow-title {
-  font-size: var(--fs-h1);
+  font-size: clamp(36px, 3.8vw, var(--fs-h1));
   margin: 12px 0 16px;
   transition: color 500ms var(--ease-out);
 }
 .CaseRow--iso:hover .CaseRow-title {
   color: #5aabff;
 }
-.CaseRow-subhead { max-width: 480px; font-size: 18px !important; }
+.CaseRow-subhead { max-width: 480px; font-size: clamp(14px, 1.2vw, 18px) !important; }
 
 /* Smaller projects — 2-col grid */
 .Home-projects { padding-top: 64px; }
@@ -141,6 +141,12 @@
 .ProjectCard-desc { color: var(--text-muted); font-size: var(--fs-body-sm); margin: 0; }
 
 @media (max-width: 900px) {
+  .Home { padding-top: 48px; }
+  .Hero {
+    aspect-ratio: unset;
+    height: auto;
+    margin-top: 32px;
+  }
   .CaseRow { grid-template-columns: 1fr; gap: 20px; }
   .Home-projectGrid { grid-template-columns: 1fr; gap: 40px; }
   .Home-caseList { gap: 64px; }
