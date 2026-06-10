@@ -7,19 +7,57 @@
   align-items: center;
 }
 .About-portrait {
-  aspect-ratio: 4 / 5;
   border-radius: 16px;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  display: grid; place-items: center;
-  color: var(--text-dim); font-size: 13px;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
 }
-.About-title { font-size: var(--fs-h1); margin: 12px 0 20px; }
-.About-bio { color: var(--text-muted); max-width: var(--reading-max); }
+.About-portraitImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.About-title { font-size: var(--fs-h2); margin: 0 0 20px; }
+.About-body { display: flex; flex-direction: column; gap: 20px; max-width: 680px; }
+.About-bio {
+  font-size: var(--fs-body-sm);
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin: 0;
+}
 
 .About-ai { padding-top: 96px; }
 .About-aiTitle { font-size: var(--fs-h2); margin: 12px 0 20px; }
 .About-aiSubhead { max-width: var(--reading-max); margin-bottom: 48px; }
+.About-aiSubhead.subhead { font-size: var(--fs-body); }
+.About-aiSections {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px 40px;
+  margin-top: 64px;
+}
+.About-aiSection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.About-aiSection-icon {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.About-aiSection-num {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 400;
+  opacity: 0.7;
+  margin-right: 6px;
+}
+
+@media (max-width: 900px) {
+  .About-aiSections { grid-template-columns: 1fr; gap: 40px; }
+}
 
 .GanttStub {
   position: relative;

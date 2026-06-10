@@ -1,0 +1,133 @@
+.AboutHero {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 64px;
+  align-items: center;
+  margin-bottom: 96px;
+}
+
+/* Portrait */
+.AboutHero-portrait {
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+}
+.AboutHero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* Name stage — perspective origin on left so the vanishing
+   point pulls the text toward the center of the page. */
+.AboutHero-nameStage {
+  height: 100%;
+  display: grid;
+  place-items: center start;
+  perspective: 700px;
+  perspective-origin: 0% 50%;
+}
+
+.AboutHero-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transform-style: preserve-3d;
+  /* Mirrored from homepage: flip rotateY and rotateZ so the
+     extrusion faces left, leading the eye toward the portrait. */
+  transform:
+    rotateX(6deg)
+    rotateY(-20deg)
+    rotateZ(6deg);
+  animation: ah-bob 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes ah-bob {
+  0%, 100% { transform: rotateX(6deg) rotateY(-20deg) rotateZ(6deg) translateZ(-8px); }
+  50%      { transform: rotateX(6deg) rotateY(-20deg) rotateZ(6deg) translateZ( 10px); }
+}
+
+.AboutHero-word {
+  position: relative;
+  transform-style: preserve-3d;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: clamp(60px, 8vw, 150px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  animation: ah-bob-word 6s ease-in-out infinite;
+  animation-delay: var(--bob-delay, 0s);
+}
+
+/* Bob lives on the word so stagger works; stack holds static rotation. */
+.AboutHero-stack { animation: none; }
+.AboutHero-word {
+  animation: ah-bob 6s ease-in-out infinite;
+  animation-delay: var(--bob-delay, 0s);
+}
+
+@keyframes ah-bob {
+  0%, 100% { transform: translateZ(-8px); }
+  50%      { transform: translateZ( 10px); }
+}
+
+.AboutHero-layer {
+  display: block;
+  white-space: nowrap;
+  user-select: none;
+  color: inherit;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  padding: 0.05em 0.08em 0.16em;
+}
+
+.AboutHero-layer--front {
+  position: relative;
+  z-index: 1;
+
+  background-image: linear-gradient(110deg,
+    #4a7eff  0%,
+    #82b0ff 22%,
+    #ffffff 44%,
+    #7eecd5 64%,
+    #64c2f8 81%,
+    #4a7eff 100%);
+  background-size: 200% 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: ah-sheen 18s linear infinite;
+  will-change: background-position;
+}
+
+.AboutHero-word .AboutHero-layer:not(.AboutHero-layer--front) {
+  position: absolute;
+  inset: 0;
+}
+
+@keyframes ah-sheen {
+  from { background-position:    0% 50%; }
+  to   { background-position: -200% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .AboutHero-word,
+  .AboutHero-layer--front { animation: none; }
+}
+
+@media (max-width: 900px) {
+  .AboutHero {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .AboutHero-nameStage {
+    place-items: center;
+    perspective-origin: 50% 50%;
+  }
+  .AboutHero-word { font-size: clamp(48px, 14vw, 100px); }
+}
