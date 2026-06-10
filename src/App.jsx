@@ -1,7 +1,6 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { Layout } from './components/Layout.jsx';
-import { ScrollToTop } from './components/ScrollToTop.jsx';
 import { PageTransition } from './components/PageTransition.jsx';
 import { Home } from './pages/Home.jsx';
 import { About } from './pages/About.jsx';
@@ -11,7 +10,6 @@ export default function App() {
   const location = useLocation();
   return (
     <Layout>
-      <ScrollToTop />
       <AnimatePresence mode="wait" initial={false}>
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<PageTransition><Home /></PageTransition>} />

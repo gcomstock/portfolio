@@ -1,0 +1,97 @@
+.HeroExtruded {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  width: 60%;
+  display: grid;
+  place-items: center;
+  perspective: 700px;
+  perspective-origin: 50% 50%;
+}
+
+/* Stack holds the static rotation. No animation here. */
+.HeroExtruded-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transform-style: preserve-3d;
+  transform:
+    rotateX(6deg)
+    rotateY(20deg)
+    rotateZ(-6deg);
+}
+
+.HeroExtruded-word {
+  position: relative;
+  transform-style: preserve-3d;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: clamp(88px, 12vw, 220px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+
+  /* Each word bobs along the rotated Z axis. Staggered via --bob-delay for organic drift. */
+  animation: he-bob 6s ease-in-out infinite;
+  animation-delay: var(--bob-delay, 0s);
+  will-change: transform;
+}
+
+@keyframes he-bob {
+  0%, 100% { transform: translateZ(-8px); }
+  50%      { transform: translateZ( 10px); }
+}
+
+.HeroExtruded-layer {
+  display: block;
+  white-space: nowrap;
+  user-select: none;
+  color: inherit;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* Padding on each layer gives the background-clip:text painting area room to cover
+     glyph extents that poke past the tight line box (e.g. the bottom of the G, the comma
+     descender). Without it, those bits get cropped. */
+  padding: 0.05em 0.08em 0.16em;
+}
+
+/* Front layer sits in normal flow so the word has intrinsic size; back layers overlay it. */
+.HeroExtruded-layer--front {
+  position: relative;
+  z-index: 1;
+
+  background-image: linear-gradient(110deg,
+    #4a7eff  0%,
+    #82b0ff 22%,
+    #ffffff 44%,
+    #7eecd5 64%,
+    #64c2f8 81%,
+    #4a7eff 100%);
+  background-size: 200% 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: he-sheen 18s linear infinite;
+  will-change: background-position;
+}
+
+.HeroExtruded-word .HeroExtruded-layer:not(.HeroExtruded-layer--front) {
+  position: absolute;
+  inset: 0;
+}
+
+@keyframes he-sheen {
+  from { background-position:    0% 50%; }
+  to   { background-position: -200% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .HeroExtruded-word,
+  .HeroExtruded-layer--front { animation: none; }
+}
+
+@media (max-width: 900px) {
+  .HeroExtruded-stack { gap: 2px; }
+  .HeroExtruded-word { font-size: clamp(56px, 16vw, 130px); }
+}

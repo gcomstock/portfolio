@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { listProjects } from '../content/projects/index.js';
 import { ParallaxLayer } from '../components/ParallaxLayer.jsx';
+import { HeroExtruded } from '../components/HeroExtruded.jsx';
 import './Home.css';
 
 export function Home() {
@@ -9,9 +10,8 @@ export function Home() {
 
   return (
     <div className="page Home">
-      {/* TODO: replace with animated typographic visualization */}
       <ParallaxLayer speed={4} className="Hero">
-        <div className="Hero-placeholder mono">hero visualization placeholder</div>
+        <HeroExtruded />
       </ParallaxLayer>
 
       <section className="Home-cases">

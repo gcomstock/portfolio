@@ -2,13 +2,9 @@
 .Home-eyebrow { margin-bottom: 32px; }
 
 .Hero {
-  margin: 32px 0 96px;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  background: var(--surface);
+  position: relative;
+  margin: 64px 0 10vw;
   aspect-ratio: 21 / 9;
-  display: grid;
-  place-items: center;
   color: var(--text-dim);
 }
 
