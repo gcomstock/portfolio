@@ -6,7 +6,7 @@
     <script>
       // SPA redirect: GitHub Pages serves 404.html for unknown routes.
       // Rewrite to /?p=/<path> so index.html can replaceState back to the real URL.
-      var segmentCount = 0;
+      var segmentCount = 1;
       var l = window.location;
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
