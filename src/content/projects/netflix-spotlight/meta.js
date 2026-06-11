@@ -9,7 +9,7 @@ export default {
   number: '03',
   company: 'Netflix',
   title: 'Spotlight',
-  subtitle: 'The Front Door for Software Ownership and Development at Netflix',
+  subtitle: 'The front door for software ownership and development at Netflix',
   accent: 'purple',
   sections: [
     { id: 'discovery',       label: 'Problem Definition' },

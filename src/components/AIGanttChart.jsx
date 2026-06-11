@@ -5,17 +5,17 @@ const SEG = 100 / 6;
 const OVERLAP = 1.5;
 
 const ROWS = [
-  { label: 'Discovery & research',  color: '#ff7fb4', start: SEG * 0, end: SEG * 1 + OVERLAP },
-  { label: 'Low fidelity ideation', color: '#f0b86b', start: SEG * 1, end: SEG * 2 + OVERLAP },
-  { label: 'High fidelity',         color: '#b48cff', start: SEG * 2, end: SEG * 3 + OVERLAP },
-  { label: 'Design validation',     color: '#66d19e', start: SEG * 3, end: SEG * 4 + OVERLAP },
-  { label: 'Design guidance',       color: '#6aa9ff', start: SEG * 4, end: 100 },
-  { label: 'Agent · feature dev',   color: '#3d4556', start: SEG * 4, end: 100 },
-  { label: 'Agent · feature dev',   color: '#3d4556', start: SEG * 4, end: 100 },
-  { label: 'Agent · feature dev',   color: '#3d4556', start: SEG * 4, end: 100 },
-  { label: 'Agent · feature dev',   color: '#3d4556', start: SEG * 4, end: 100 },
-  { label: 'Agent · feature dev',   color: '#3d4556', start: SEG * 4, end: 100 },
-  { label: 'Design refinement',     color: '#4ecdc4', start: 91,      end: 100 },
+  { label: 'Discovery & Research',  color: '#ff7fb4', start: SEG * 0, end: SEG * 1 + OVERLAP },
+  { label: 'Low Fidelity Ideation', color: '#f0b86b', start: SEG * 1, end: SEG * 2 + OVERLAP },
+  { label: 'High Fidelity',         color: '#b48cff', start: SEG * 2, end: SEG * 3 + OVERLAP },
+  { label: 'Design Validation',     color: '#66d19e', start: SEG * 3, end: SEG * 4 + OVERLAP },
+  { label: 'Design Guidance',       color: '#6aa9ff', start: SEG * 4, end: 100 },
+  { label: 'Agent · Feature Dev',   color: '#3d4556', start: SEG * 4, end: 100 },
+  { label: 'Agent · Feature Dev',   color: '#3d4556', start: SEG * 4, end: 100 },
+  { label: 'Agent · Feature Dev',   color: '#3d4556', start: SEG * 4, end: 100 },
+  { label: 'Agent · Feature Dev',   color: '#3d4556', start: SEG * 4, end: 100 },
+  { label: 'Agent · Feature Dev',   color: '#3d4556', start: SEG * 4, end: 100 },
+  { label: 'Design Refinement',     color: '#4ecdc4', start: 91,      end: 100 },
 ];
 
 export function AIGanttChart() {

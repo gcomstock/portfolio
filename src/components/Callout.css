@@ -33,7 +33,7 @@
 }
 
 .Callout-body p {
-  font-size: 15px;
+  font-size: var(--fs-body-sm);
   line-height: 1.65;
   color: var(--text-muted);
   margin: 0;

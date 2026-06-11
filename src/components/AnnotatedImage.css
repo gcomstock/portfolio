@@ -79,7 +79,7 @@
 
 .AnnotatedImage-mobile-list li {
   color: var(--text-muted);
-  font-size: 15px;
+  font-size: var(--fs-body-sm);
   line-height: 1.65;
   margin-bottom: 8px;
   max-width: none;

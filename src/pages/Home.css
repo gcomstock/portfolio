@@ -122,7 +122,7 @@
 .Home-projectGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 48px 32px;
+  gap: 48px;
 }
 .ProjectCard {
   display: flex; flex-direction: column; gap: 16px;

@@ -27,6 +27,7 @@
   display: block;
   border-radius: 8px;
   flex-shrink: 0;
+  margin-bottom: 8px;
 }
 
 .ColGrid-img-wrap {
@@ -74,15 +75,15 @@
 }
 
 .ColGrid-title {
-  font-size: 20px;
-  font-weight: 700;
+  font-size: var(--fs-content-title);
+  font-weight: var(--fw-content-title);
   color: var(--text);
-  margin: 0 0 10px;
+  margin: 0;
 }
 
 .ColGrid-body p {
   color: var(--text-muted);
-  font-size: 15px;
+  font-size: var(--fs-body-sm);
   line-height: 1.65;
   margin: 0;
   max-width: none;

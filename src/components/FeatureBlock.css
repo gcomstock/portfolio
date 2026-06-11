@@ -49,7 +49,7 @@
   font-size: 13px;
 }
 
-.FeatureBlock-title { font-size: var(--fs-h3); margin-bottom: 16px; }
+.FeatureBlock-title { font-size: var(--fs-content-title); font-weight: var(--fw-content-title); margin-bottom: 16px; }
 .FeatureBlock-eyebrow { margin-bottom: 12px; }
 .FeatureBlock-copy { color: var(--text-muted); }
 .FeatureBlock-copy p:last-child { margin-bottom: 0; }

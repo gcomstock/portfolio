@@ -5,7 +5,7 @@ import './About.css';
 const AI_SECTIONS = [
   {
     color: '#ff7fb4',
-    title: 'Discovery & research',
+    title: 'Discovery & Research',
     body: 'Define your problem space and AI can surface existing products worth studying, then help you identify commonalities and differences across them. A feature coverage table across competing products is a great research artifact and a fast one to produce.',
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
@@ -15,7 +15,7 @@ const AI_SECTIONS = [
   },
   {
     color: '#f0b86b',
-    title: 'Low fidelity ideation',
+    title: 'Low Fidelity Ideation',
     body: 'Claude Design is my current favorite for early-stage exploration. Going from one prompt to many possible directions in low fidelity mirrors how I worked before AI, just faster. It\'s a more efficient conversation starter than jumping straight to a high fidelity prototype.',
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
@@ -25,7 +25,7 @@ const AI_SECTIONS = [
   },
   {
     color: '#b48cff',
-    title: 'High fidelity prototyping',
+    title: 'High Fidelity Prototyping',
     body: 'Once you\'re ready to converge, Claude\'s design tools can carry you further if your design system is well integrated. My current preference is Claude Code since you get the full breadth of a normal developer\'s toolkit, including real data if API endpoints are available. Sometimes it makes sense to prototype directly in the repo. Familiarity with the project will help you make the right call.',
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
@@ -35,7 +35,7 @@ const AI_SECTIONS = [
   },
   {
     color: '#66d19e',
-    title: 'Design validation',
+    title: 'Design Validation',
     body: 'AI is a useful tool for capturing and synthesizing design feedback. Record your stakeholder reviews, usability sessions, or team critiques, then feed the transcripts into a model. It can pull out aggregate sentiments, recurring themes, and key pain points across multiple sessions, turning what used to be a manual synthesis pass into a structured summary you can act on quickly.',
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
@@ -45,7 +45,7 @@ const AI_SECTIONS = [
   },
   {
     color: '#6aa9ff',
-    title: 'Authoring design guidance for agents',
+    title: 'Authoring Design Guidance for Agents',
     body: 'Once you\'ve validated your direction, your leverage shifts toward guidance. Write skills that articulate your product\'s design philosophy holistically, not just as rules. Call out conventions you\'re intentionally breaking, especially any inherited patterns from your design system. If you want to propose a change back upstream, reconciling project guidance with system-level conventions is now something you can do yourself. As long as you\'ve worked out a contribution model with your design system owners and open up a pull request.',
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
@@ -55,7 +55,7 @@ const AI_SECTIONS = [
   },
   {
     color: '#4ecdc4',
-    title: 'Design refinement',
+    title: 'Design Refinement',
     body: 'Agents will make poor design decisions regardless of how thorough your guidance is. Embed escalation criteria in your skills files to get looped in earlier, or establish a rhythm of design refinement pull requests, a periodic sweep over UI changes. I keep my PRs small and well-scoped even when authored with an LLM.',
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
@@ -102,7 +102,7 @@ export function About() {
       </section>
 
       <section className="About-ai">
-        <h2 className="About-aiTitle">How I use AI in my workflow</h2>
+        <h2 className="About-aiTitle">How I Use AI in My Workflow</h2>
         <p className="subhead About-aiSubhead">But ask me next week and I might have a different answer!</p>
 
         <AIGanttChart />
