@@ -133,16 +133,17 @@
   border: 1px solid var(--accent-blue);
   border-radius: 6px;
   background: #000;
-  color: var(--text-muted);
+  color: var(--accent-blue);
   font-family: var(--font-sans);
   font-size: 13px;
   font-weight: 700;
   text-decoration: none;
-  transition: color var(--dur-fast) var(--ease-out);
+  transition: color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
 }
 
 .ProductPanel-cta:hover {
-  color: var(--accent-blue);
+  background: var(--accent-blue);
+  color: #000;
 }
 
 .ProductPanel-text p + p {

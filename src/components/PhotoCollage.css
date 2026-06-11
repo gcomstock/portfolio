@@ -41,12 +41,15 @@
 
 .PhotoCollage-footer {
   width: 33%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .PhotoCollage .PhotoCollage-title {
   font-size: var(--fs-content-title);
   font-weight: var(--fw-content-title);
-  margin: 0 0 16px;
+  margin: 0;
 }
 
 .PhotoCollage .PhotoCollage-title::after {

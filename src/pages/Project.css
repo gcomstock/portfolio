@@ -113,7 +113,7 @@
   height: 1px;
   background: linear-gradient(to right, var(--accent-blue), transparent);
 }
-.Project-body section > h3 { font-size: var(--fs-h3); margin: 0 0 12px; }
+.Project-body h3:not([class]) { font-size: var(--fs-content-title); font-weight: var(--fw-content-title); margin: 0 0 12px; }
 
 /* Give named sections breathing room so sticky bars don't obscure headings on scroll */
 .Project-body section {
