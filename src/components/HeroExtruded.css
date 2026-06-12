@@ -3,12 +3,13 @@
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: 8fr 4fr;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
   gap: 48px;
 }
 
 .HeroExtruded-left {
+  grid-column: 1 / 3;
   height: 100%;
   display: grid;
   place-items: center;
