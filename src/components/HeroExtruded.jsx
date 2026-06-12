@@ -41,10 +41,10 @@ export function HeroExtruded() {
 
       <div className="HeroExtruded-right">
         <p className="HeroExtruded-intro">
-          Hi! I'm Greg, a product designer from the San Francisco Bay Area.
+          Hi! I'm Greg, a product designer from the San Francisco Bay Area. Previously, I've worked at Netflix and Pandora.
         </p>
         <p className="HeroExtruded-tagline">
-          It's a new day, full of new tools and tricks. There's never been a better time to ship fast and have fun doing it. Let's build something great together.
+          It's a new day, full of new tools and tricks. There's never been a better time to ship fast and have fun doing it. Let's build something great together!
         </p>
       </div>
     </div>

@@ -38,6 +38,7 @@
   font-size: clamp(11px, 1vw, 13px);
   line-height: 1.5;
   color: var(--text);
+  text-wrap: pretty;
 }
 
 .AnnotatedImage-annotation--left .AnnotatedImage-text {
@@ -83,6 +84,7 @@
   line-height: 1.65;
   margin-bottom: 8px;
   max-width: none;
+  text-wrap: pretty;
 }
 
 @media (max-width: 900px) {

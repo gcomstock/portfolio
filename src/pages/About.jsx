@@ -89,8 +89,7 @@ export function About() {
             </p>
             <p className="About-bio">
               The team is always my first priority. With the right outlook and good camaraderie,
-              any project can be a great one. AI makes the designer, developer, and product boundary blurrier than ever before. We're all dreamers, and we should all be invested
-              in the direction and experience of the product.
+              any project can be a great one. AI makes the designer, developer, and product boundary blurrier than ever before. We're all dreamers, and we should all be on board with the direction and experience of the product.
             </p>
             <p className="About-bio">
               When I'm not at a screen, you can find me trail running, shooting photography,
