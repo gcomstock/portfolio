@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 export function Footer() {
@@ -6,7 +7,7 @@ export function Footer() {
       <div className="Footer-inner page">
         <div className="Footer-row">
           <div className="Footer-brand">
-            <div className="Footer-name">Greg Comstock</div>
+            <Link to="/" className="Footer-name">Greg Comstock</Link>
             <div className="Footer-loc mono">San Francisco Bay Area</div>
           </div>
           <div className="Footer-links mono">
