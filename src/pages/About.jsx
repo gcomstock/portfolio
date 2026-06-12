@@ -56,7 +56,7 @@ const AI_SECTIONS = [
   {
     color: '#4ecdc4',
     title: 'Design Refinement',
-    body: 'Agents will make poor design decisions regardless of how thorough your guidance is. Embed escalation criteria in your skills files to get looped in earlier, or establish a rhythm of design refinement pull requests, a periodic sweep over UI changes. I keep my PRs small and well-scoped even when authored with an LLM.',
+    body: 'Agents will make poor design decisions regardless of how thorough your guidance is. Embed escalation criteria in your skills files to get looped in earlier, or establish a rhythm of design refinement pull requests, a periodic sweep over UI changes. I try to keep my PRs small and well-scoped, even when authored with an LLM.',
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
         <line x1="4" y1="21" x2="4" y2="14" /><line x1="4" y1="10" x2="4" y2="3" /><line x1="12" y1="21" x2="12" y2="12" /><line x1="12" y1="8" x2="12" y2="3" /><line x1="20" y1="21" x2="20" y2="16" /><line x1="20" y1="12" x2="20" y2="3" /><line x1="1" y1="14" x2="7" y2="14" /><line x1="9" y1="8" x2="15" y2="8" /><line x1="17" y1="16" x2="23" y2="16" />
@@ -83,7 +83,7 @@ export function About() {
               My career has been shaped by a technical curiosity. I started in consumer design,
               doing e-commerce projects and advertising design and development, before moving into
               richer front-end application work at Pandora. That experience gave me a deep
-              appreciation for the engineering workflow, and I carried it back into product design
+              appreciation for the engineering workflow, which I carried back into product design
               at Netflix, where I've spent much of my time on developer tooling: software delivery,
               observability, and the spaces in between.
             </p>
