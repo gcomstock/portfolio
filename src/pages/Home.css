@@ -36,9 +36,27 @@
   transition: opacity 500ms var(--ease-out);
   pointer-events: none;
   z-index: 0;
+  animation: hazeDrift 7s ease-in-out infinite;
+}
+
+/* Brighter, tighter spotlight core layered over the base haze */
+.CaseRow--iso::after {
+  content: '';
+  position: absolute;
+  inset: -120px 0;
+  background: radial-gradient(ellipse 24% 40% at 33% 50%, rgba(200, 235, 255, 0.95) 0%, rgba(120, 195, 255, 0.6) 45%, rgba(80, 140, 255, 0) 88%);
+  opacity: 0;
+  transition: opacity 600ms var(--ease-out);
+  pointer-events: none;
+  z-index: 0;
+  animation: spotlightBreathe 7s ease-in-out infinite;
 }
 
 .CaseRow--iso:hover::before {
+  opacity: 1;
+}
+
+.CaseRow--iso:hover::after {
   opacity: 1;
 }
 .CaseRow-media {
@@ -139,8 +157,39 @@
   transition: opacity 500ms var(--ease-out);
   pointer-events: none;
   z-index: 0;
+  animation: hazeDrift 7s ease-in-out infinite;
+}
+/* Brighter, tighter spotlight core layered over the base haze */
+.ProjectCard::after {
+  content: '';
+  position: absolute;
+  inset: -160px -80px;
+  background: radial-gradient(ellipse 39% 30% at 50% 44%, rgba(200, 235, 255, 0.95) 0%, rgba(120, 195, 255, 0.6) 45%, rgba(80, 140, 255, 0) 88%);
+  opacity: 0;
+  transition: opacity 600ms var(--ease-out);
+  pointer-events: none;
+  z-index: 0;
+  animation: spotlightBreathe 7s ease-in-out infinite;
 }
 .ProjectCard:hover::before { opacity: 1; }
+.ProjectCard:hover::after { opacity: 1; }
+
+/* Slow, subtle drift + pulse so the spotlight feels alive on hover */
+@keyframes spotlightBreathe {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(3%, -4%, 0) scale(1.12); }
+}
+/* Gentler, slower motion for the broad base haze */
+@keyframes hazeDrift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); filter: brightness(1); }
+  50% { transform: translate3d(-1.5%, 1.5%, 0) scale(1.04); filter: brightness(0.9); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .CaseRow--iso::before,
+  .CaseRow--iso::after,
+  .ProjectCard::before,
+  .ProjectCard::after { animation: none; }
+}
 .ProjectCard-media {
   aspect-ratio: 16 / 10;
   border-radius: 10px;
@@ -148,7 +197,7 @@
   position: relative;
   color: var(--text-dim); font-size: 13px;
 }
-.ProjectCard-body { display: flex; flex-direction: column; gap: 12px; margin-left: 28%; margin-right: 28%; max-width: 528px; }
+.ProjectCard-body { display: flex; flex-direction: column; gap: 12px; margin-left: 28%; margin-right: 28%; max-width: 528px; position: relative; z-index: 1; }
 .ProjectCard-title { font-size: var(--fs-content-title); font-weight: var(--fw-content-title); margin: 0; transition: color 500ms var(--ease-out); }
 .ProjectCard:hover .ProjectCard-title { color: #5aabff; }
 .ProjectCard-desc { color: var(--text-muted); font-size: var(--fs-body-sm); margin: 0; }
