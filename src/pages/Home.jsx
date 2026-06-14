@@ -63,10 +63,31 @@ function CaseRow({ project }) {
 
 function ProjectCard({ project }) {
   const { slug, meta } = project;
+  const hasDeviceScene = !!(meta.coverImage && meta.coverImageMobile);
   return (
     <Link to={`/work/${slug}`} className="ProjectCard">
       <div className="ProjectCard-media" aria-hidden="true">
-        <span className="mono">{meta.title} · image</span>
+        {hasDeviceScene ? (
+          <div className="DeviceScene">
+            <div className="DeviceScene-browser">
+              <div className="DeviceScene-browserChrome">
+                <span className="DeviceScene-dot" />
+                <span className="DeviceScene-dot" />
+                <span className="DeviceScene-dot" />
+              </div>
+              <img src={meta.coverImage} alt="" className="DeviceScene-browserImg" />
+            </div>
+            <div className="DeviceScene-phone">
+              <div className="DeviceScene-phoneBar">
+                <span className="DeviceScene-phonePill" />
+              </div>
+              <img src={meta.coverImageMobile} alt="" className="DeviceScene-phoneImg" />
+              <div className="DeviceScene-phoneFooter" />
+            </div>
+          </div>
+        ) : (
+          <span className="mono">{meta.title} · image</span>
+        )}
       </div>
       <div className="ProjectCard-body">
         <h3 className="ProjectCard-title">{meta.title}</h3>

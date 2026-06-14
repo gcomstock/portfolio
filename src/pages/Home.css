@@ -122,24 +122,150 @@
 .Home-projects { padding-top: 64px; }
 .Home-projectGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 48px;
+  grid-template-columns: repeat(2, minmax(0, 672px));
+  justify-content: center;
+  gap: clamp(48px, 5vw, 96px);
 }
 .ProjectCard {
-  display: flex; flex-direction: column; gap: 16px;
-  transition: transform var(--dur-med) var(--ease-out);
+  display: flex; flex-direction: column; gap: 24px;
+  position: relative;
 }
-.ProjectCard:hover { transform: translateY(-3px); }
+.ProjectCard::before {
+  content: '';
+  position: absolute;
+  inset: -160px -80px;
+  background: radial-gradient(ellipse 48% 38% at 50% 45%, rgba(80, 140, 255, 1) 0%, rgba(80, 140, 255, 1) 20%, rgba(120, 80, 255, 0) 100%);
+  opacity: 0;
+  transition: opacity 500ms var(--ease-out);
+  pointer-events: none;
+  z-index: 0;
+}
+.ProjectCard:hover::before { opacity: 1; }
 .ProjectCard-media {
   aspect-ratio: 16 / 10;
-  border: 1px solid var(--border);
   border-radius: 10px;
-  background: var(--surface);
   display: grid; place-items: center;
+  position: relative;
   color: var(--text-dim); font-size: 13px;
 }
-.ProjectCard-title { font-size: var(--fs-subhead); }
+.ProjectCard-body { display: flex; flex-direction: column; gap: 12px; margin-left: 28%; margin-right: 28%; max-width: 528px; }
+.ProjectCard-title { font-size: var(--fs-content-title); font-weight: var(--fw-content-title); margin: 0; transition: color 500ms var(--ease-out); }
+.ProjectCard:hover .ProjectCard-title { color: #5aabff; }
 .ProjectCard-desc { color: var(--text-muted); font-size: var(--fs-body-sm); margin: 0; }
+
+/* ── Device scene: web + mobile mockup ── */
+.DeviceScene {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* Desktop browser */
+.DeviceScene-browser {
+  position: absolute;
+  top: 14px;
+  left: 22%;
+  right: 12px;
+  bottom: 12px;
+  max-width: 504px;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid transparent;
+  background-image:
+    linear-gradient(var(--bg-elevated), var(--bg-elevated)),
+    linear-gradient(135deg, #4a587c, #1e2535);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
+  transition: transform 400ms var(--ease-out);
+}
+
+.DeviceScene-browserChrome {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 20px;
+  padding: 0 10px;
+  background: linear-gradient(135deg, #1e2740, #1a2340);
+  border-bottom: 1px solid rgba(74, 88, 124, 0.5);
+  flex-shrink: 0;
+}
+
+.DeviceScene-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1px solid #4a587c;
+  background: rgba(74, 88, 124, 0.25);
+  flex-shrink: 0;
+}
+
+.DeviceScene-browserImg {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  object-fit: cover;
+  object-position: top left;
+  display: block;
+}
+
+/* Mobile phone */
+.DeviceScene-phone {
+  position: absolute;
+  bottom: -8px;
+  left: 21px;
+  width: 22%;
+  z-index: 2;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid transparent;
+  background-image:
+    linear-gradient(var(--bg-elevated), var(--bg-elevated)),
+    linear-gradient(135deg, #4a587c, #1e2535);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9);
+  transition: transform 400ms var(--ease-out);
+}
+
+.DeviceScene-phoneBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  padding: 0;
+  background: linear-gradient(135deg, #1e2740, #1a2340);
+  border-bottom: 1px solid rgba(74, 88, 124, 0.5);
+}
+
+.DeviceScene-phonePill {
+  width: 34%;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(74, 88, 124, 0.5);
+}
+
+.DeviceScene-phoneImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.DeviceScene-phoneFooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  padding: 0;
+  background: linear-gradient(135deg, #1e2740, #1a2340);
+  border-top: 1px solid rgba(74, 88, 124, 0.5);
+}
+
+
+.ProjectCard:hover .DeviceScene-browser { transform: translateX(15px); }
+.ProjectCard:hover .DeviceScene-phone { transform: translateX(-30px); }
 
 @media (max-width: 900px) {
   .Home { padding-top: 48px; }
