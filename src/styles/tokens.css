@@ -40,6 +40,13 @@
   --header-h: 64px;
   --header-h-mobile: 48px;
 
+  /* Device chrome — browser + phone frames, used across Home, Project, PhoneGrid */
+  --device-border-gradient: linear-gradient(135deg, #63666f, #22242b);
+  --device-chrome-bg: linear-gradient(135deg, #222429, #1c1d23);
+  --device-chrome-line: rgba(99, 102, 111, 0.6);
+  --device-dot-border: #63666f;
+  --device-dot-fill: rgba(99, 102, 111, 0.28);
+
   /* Shared component title — used by ImagePanel, PhotoCollage, etc. */
   --fs-content-title: 20px;
   --fw-content-title: 600;

@@ -21,13 +21,14 @@ import { StatGrid, StatItem } from '../components/StatGrid.jsx';
 import { Callout } from '../components/Callout.jsx';
 import { BrowserGrid } from '../components/BrowserGrid.jsx';
 import { SwarmGrid } from '../components/SwarmGrid.jsx';
+import { PhoneGrid } from '../components/PhoneGrid.jsx';
 import { ScrollDim } from '../components/ScrollDim.jsx';
 import { CaseStudyFooterNav } from '../components/CaseStudyFooterNav.jsx';
 import { ParallaxLayer } from '../components/ParallaxLayer.jsx';
 import './Project.css';
 
 // MDX content can use these without importing.
-const mdxComponents = { FeatureBlock, Figure, VideoEmbed, ColGrid, ColGridItem, PullQuote, ImagePanel, PhotoCollage, GradientBlock, AnnotatedImage, GanttChart, SpectrumChart, FeedbackFlow, ProductPanel, StatGrid, StatItem, Callout, BrowserGrid, SwarmGrid, ScrollDim };
+const mdxComponents = { FeatureBlock, Figure, VideoEmbed, ColGrid, ColGridItem, PullQuote, ImagePanel, PhotoCollage, GradientBlock, AnnotatedImage, GanttChart, SpectrumChart, FeedbackFlow, ProductPanel, StatGrid, StatItem, Callout, BrowserGrid, SwarmGrid, ScrollDim, PhoneGrid };
 
 export function Project() {
   const { slug } = useParams();
@@ -50,10 +51,10 @@ export function Project() {
   const { meta } = entry;
   const navTitle = [meta.company, meta.title].filter(Boolean).join(' · ');
 
-  const caseStudies = listProjects('case-study');
-  const currentIdx = caseStudies.findIndex(p => p.slug === slug);
-  const nextEntry = caseStudies[(currentIdx + 1) % caseStudies.length];
-  const prevEntry = caseStudies[(currentIdx - 1 + caseStudies.length) % caseStudies.length];
+  const allProjects = listProjects();
+  const currentIdx = allProjects.findIndex(p => p.slug === slug);
+  const nextEntry = allProjects[(currentIdx + 1) % allProjects.length];
+  const prevEntry = allProjects[(currentIdx - 1 + allProjects.length) % allProjects.length];
   return (
     <div className="Project">
       <div className="page Project-above-nav">
@@ -75,7 +76,10 @@ export function Project() {
           <p className="subhead Project-subhead">{meta.subtitle}</p>
         </header>
 
-        <div className={`Project-hero${meta.coverImages?.length ? ' Project-hero--iso' : ''}`} aria-hidden="true">
+        <div className={`Project-hero${
+          meta.coverImages?.length ? ' Project-hero--iso' :
+          (meta.coverImage && meta.coverImageMobile) ? ' Project-hero--device' : ''
+        }`} aria-hidden="true">
           {meta.coverImages?.length ? (
             <ParallaxLayer speed={15} className="Project-heroStage">
               <div className="Project-heroCluster">
@@ -84,6 +88,24 @@ export function Project() {
                 <img src={meta.coverImages[2]} alt="" className="Project-heroImg Project-heroImg--front" />
               </div>
             </ParallaxLayer>
+          ) : (meta.coverImage && meta.coverImageMobile) ? (
+            <div className="Project-deviceHero">
+              <div className="Project-deviceHero-phone">
+                <div className="Project-deviceHero-phoneBar">
+                  <span className="Project-deviceHero-phonePill" />
+                </div>
+                <img src={meta.coverImageMobile} alt="" className="Project-deviceHero-phoneImg" />
+                <div className="Project-deviceHero-phoneFooter" />
+              </div>
+              <div className="Project-deviceHero-browser">
+                <div className="Project-deviceHero-browserChrome">
+                  <span className="Project-deviceHero-dot" />
+                  <span className="Project-deviceHero-dot" />
+                  <span className="Project-deviceHero-dot" />
+                </div>
+                <img src={meta.coverImage} alt="" className="Project-deviceHero-browserImg" />
+              </div>
+            </div>
           ) : (
             <span className="mono">final product hero placeholder</span>
           )}
@@ -104,12 +126,10 @@ export function Project() {
         </article>
       </div>
 
-      {meta.kind === 'case-study' && (
-        <CaseStudyFooterNav
-          prev={prevEntry !== entry ? prevEntry : null}
-          next={nextEntry !== entry ? nextEntry : null}
-        />
-      )}
+      <CaseStudyFooterNav
+        prev={prevEntry !== entry ? prevEntry : null}
+        next={nextEntry !== entry ? nextEntry : null}
+      />
     </div>
   );
 }

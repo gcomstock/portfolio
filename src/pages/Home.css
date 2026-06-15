@@ -215,7 +215,6 @@
   top: 14px;
   left: 22%;
   right: 12px;
-  bottom: 12px;
   max-width: 504px;
   border-radius: 8px;
   overflow: hidden;
@@ -224,7 +223,7 @@
   border: 1px solid transparent;
   background-image:
     linear-gradient(var(--bg-elevated), var(--bg-elevated)),
-    linear-gradient(135deg, #4a587c, #1e2535);
+    var(--device-border-gradient);
   background-clip: padding-box, border-box;
   background-origin: padding-box, border-box;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
@@ -237,8 +236,8 @@
   gap: 5px;
   height: 20px;
   padding: 0 10px;
-  background: linear-gradient(135deg, #1e2740, #1a2340);
-  border-bottom: 1px solid rgba(74, 88, 124, 0.5);
+  background: var(--device-chrome-bg);
+  border-bottom: 1px solid var(--device-chrome-line);
   flex-shrink: 0;
 }
 
@@ -246,17 +245,14 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  border: 1px solid #4a587c;
-  background: rgba(74, 88, 124, 0.25);
+  border: 1px solid var(--device-dot-border);
+  background: var(--device-dot-fill);
   flex-shrink: 0;
 }
 
 .DeviceScene-browserImg {
   width: 100%;
-  flex: 1;
-  min-height: 0;
-  object-fit: cover;
-  object-position: top left;
+  height: auto;
   display: block;
 }
 
@@ -272,7 +268,7 @@
   border: 1px solid transparent;
   background-image:
     linear-gradient(var(--bg-elevated), var(--bg-elevated)),
-    linear-gradient(135deg, #4a587c, #1e2535);
+    var(--device-border-gradient);
   background-clip: padding-box, border-box;
   background-origin: padding-box, border-box;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9);
@@ -285,15 +281,15 @@
   align-items: center;
   height: 20px;
   padding: 0;
-  background: linear-gradient(135deg, #1e2740, #1a2340);
-  border-bottom: 1px solid rgba(74, 88, 124, 0.5);
+  background: var(--device-chrome-bg);
+  border-bottom: 1px solid var(--device-chrome-line);
 }
 
 .DeviceScene-phonePill {
   width: 34%;
   height: 3px;
   border-radius: 2px;
-  background: rgba(74, 88, 124, 0.5);
+  background: var(--device-chrome-line);
 }
 
 .DeviceScene-phoneImg {
@@ -308,8 +304,8 @@
   align-items: center;
   height: 20px;
   padding: 0;
-  background: linear-gradient(135deg, #1e2740, #1a2340);
-  border-top: 1px solid rgba(74, 88, 124, 0.5);
+  background: var(--device-chrome-bg);
+  border-top: 1px solid var(--device-chrome-line);
 }
 
 

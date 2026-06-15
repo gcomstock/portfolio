@@ -1,8 +1,16 @@
-## Overview
+import webImg from './images/riddickart-2.jpg';
+import mobileImg from './images/home-riddickart-mobile.jpg';
 
-Placeholder body for Riddickart.
+<ImagePanel image={webImg} title="Overview">
+  <p>Artist Mark Riddick has been creating grotesquely gorgeous illustrations since 1991, and has garnered a devoted following within the death metal community. I created and have been maintaining his site since 2009, occasionally adding and removing features and providing minor visual refreshes. I also provide him regular technical guidance, which often means using existing industry products and producing visual design assets with him.</p>
+  <p>Death metal thrives in the underground, with low-quality xeroxed posters stapled to grungy note boards. My aim was to create a site that best tapped into the culture of the scene, while placing Mark's work front and center.</p>
+</ImagePanel>
 
-<FeatureBlock accent="amber" eyebrow="Section" title="A subhead"
-  media={<div className="mono" style={{ color: 'var(--text-dim)' }}>image placeholder</div>}>
-  <p>Placeholder description.</p>
-</FeatureBlock>
+<GradientBlock accent="gray">
+  <PhoneGrid images={[mobileImg, mobileImg, mobileImg]} />
+</GradientBlock>
+
+<ImagePanel placeholder title="Good Bones" cta={{ href: 'https://riddickart.com', label: 'View Site' }}>
+  <p>The visual design for Mark's website has changed very little over the years. By honoring his timeless art style rather than chasing design trends, the site has endured.</p>
+  <p>Mark's primary way of reaching fans is social media, but riddickart.com serves as a valuable, searchable archive of work, as well as the connective tissue to his online presense.</p>
+</ImagePanel>

@@ -67,6 +67,7 @@
   color: var(--text-muted);
   line-height: var(--leading-snug);
   transition: color 300ms var(--ease-out);
+  text-wrap: pretty;
 }
 
 .CaseStudyFooterNav-subtitle {
@@ -75,6 +76,7 @@
   color: var(--text-muted);
   line-height: var(--leading-body);
   transition: color 300ms var(--ease-out);
+  text-wrap: pretty;
 }
 
 @media (max-width: 900px) {

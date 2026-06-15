@@ -1,0 +1,57 @@
+.PhoneGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 48px;
+  row-gap: 16px;
+  margin: 32px 0 64px;
+  align-items: start;
+}
+
+.PhoneGrid-device {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid transparent;
+  background-image:
+    linear-gradient(var(--bg-elevated), var(--bg-elevated)),
+    var(--device-border-gradient);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.PhoneGrid-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 28px;
+  background: var(--device-chrome-bg);
+  border-bottom: 1px solid var(--device-chrome-line);
+}
+
+.PhoneGrid-pill {
+  width: 34%;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--device-chrome-line);
+}
+
+.PhoneGrid-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.PhoneGrid-footer {
+  height: 28px;
+  background: var(--device-chrome-bg);
+  border-top: 1px solid var(--device-chrome-line);
+}
+
+@media (max-width: 900px) {
+  .PhoneGrid {
+    grid-template-columns: 1fr;
+  }
+}

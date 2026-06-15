@@ -1,3 +1,4 @@
+import { useRef, useLayoutEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { listProjects } from '../content/projects/index.js';
 import { HeroExtruded } from '../components/HeroExtruded.jsx';
@@ -30,6 +31,67 @@ export function Home() {
           ))}
         </div>
       </section>
+    </div>
+  );
+}
+
+function DeviceScene({ coverImage, coverImageMobile }) {
+  const sceneRef = useRef(null);
+  const browserImgRef = useRef(null);
+  const phoneRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const scene = sceneRef.current;
+    const browserImg = browserImgRef.current;
+    const phone = phoneRef.current;
+    if (!scene || !browserImg || !phone) return;
+
+    function align() {
+      const phoneImg = phone.querySelector('img');
+      if (!browserImg.complete || !browserImg.naturalWidth) return;
+      if (!phoneImg || !phoneImg.complete || !phoneImg.naturalWidth) return;
+
+      const sceneRect = scene.getBoundingClientRect();
+      const imgRect = browserImg.getBoundingClientRect();
+      const browserImgBottomInScene = imgRect.bottom - sceneRect.top;
+
+      const phoneBarH = phone.querySelector('.DeviceScene-phoneBar')?.offsetHeight ?? 20;
+      const phoneFooterH = phone.querySelector('.DeviceScene-phoneFooter')?.offsetHeight ?? 20;
+      const phoneImgH = phone.offsetHeight - phoneBarH - phoneFooterH;
+
+      phone.style.top = `${browserImgBottomInScene - phoneBarH - phoneImgH}px`;
+      phone.style.bottom = 'auto';
+    }
+
+    browserImg.addEventListener('load', align);
+    const ro = new ResizeObserver(align);
+    ro.observe(browserImg);
+    ro.observe(phone);
+    align();
+
+    return () => {
+      browserImg.removeEventListener('load', align);
+      ro.disconnect();
+    };
+  }, []);
+
+  return (
+    <div ref={sceneRef} className="DeviceScene">
+      <div className="DeviceScene-browser">
+        <div className="DeviceScene-browserChrome">
+          <span className="DeviceScene-dot" />
+          <span className="DeviceScene-dot" />
+          <span className="DeviceScene-dot" />
+        </div>
+        <img ref={browserImgRef} src={coverImage} alt="" className="DeviceScene-browserImg" />
+      </div>
+      <div ref={phoneRef} className="DeviceScene-phone">
+        <div className="DeviceScene-phoneBar">
+          <span className="DeviceScene-phonePill" />
+        </div>
+        <img src={coverImageMobile} alt="" className="DeviceScene-phoneImg" />
+        <div className="DeviceScene-phoneFooter" />
+      </div>
     </div>
   );
 }
@@ -68,23 +130,7 @@ function ProjectCard({ project }) {
     <Link to={`/work/${slug}`} className="ProjectCard">
       <div className="ProjectCard-media" aria-hidden="true">
         {hasDeviceScene ? (
-          <div className="DeviceScene">
-            <div className="DeviceScene-browser">
-              <div className="DeviceScene-browserChrome">
-                <span className="DeviceScene-dot" />
-                <span className="DeviceScene-dot" />
-                <span className="DeviceScene-dot" />
-              </div>
-              <img src={meta.coverImage} alt="" className="DeviceScene-browserImg" />
-            </div>
-            <div className="DeviceScene-phone">
-              <div className="DeviceScene-phoneBar">
-                <span className="DeviceScene-phonePill" />
-              </div>
-              <img src={meta.coverImageMobile} alt="" className="DeviceScene-phoneImg" />
-              <div className="DeviceScene-phoneFooter" />
-            </div>
-          </div>
+          <DeviceScene coverImage={meta.coverImage} coverImageMobile={meta.coverImageMobile} />
         ) : (
           <span className="mono">{meta.title} · image</span>
         )}

@@ -25,5 +25,6 @@ export default {
     { label: 'Team', value: '1 Product Manager\n1 Lead Engineer\n1 Engineering Manager\n3–5 Revolving Engineers' },
     { label: 'Duration', value: '2024 – 2026\n(on and off involvement)' },
     { label: 'Industry', value: 'Developer Productivity\n& Observability Tooling' },
+    { label: 'Tooling', value: 'TBD' },
   ],
 };

@@ -95,6 +95,111 @@
   .Project-hero--iso { aspect-ratio: 4 / 3; }
 }
 
+/* ── Device hero: phone left + browser right, no overlap ── */
+.Project-hero--device {
+  display: block;
+  border: none;
+  background: transparent;
+  overflow: visible;
+  position: relative;
+  aspect-ratio: 16 / 8;
+}
+
+.Project-deviceHero {
+  position: absolute;
+  inset: 0;
+}
+
+.Project-deviceHero-browser {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 76%;
+  max-width: 1024px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid transparent;
+  background-image:
+    linear-gradient(var(--bg-elevated), var(--bg-elevated)),
+    var(--device-border-gradient);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.8), 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.Project-deviceHero-browserChrome {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 32px;
+  padding: 0 14px;
+  background: var(--device-chrome-bg);
+  border-bottom: 1px solid var(--device-chrome-line);
+  flex-shrink: 0;
+}
+
+.Project-deviceHero-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--device-dot-border);
+  background: var(--device-dot-fill);
+  flex-shrink: 0;
+}
+
+.Project-deviceHero-browserImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.Project-deviceHero-phone {
+  position: absolute;
+  left: 0;
+  width: 20%;
+  max-width: 360px;
+  top: 18%;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid transparent;
+  background-image:
+    linear-gradient(var(--bg-elevated), var(--bg-elevated)),
+    var(--device-border-gradient);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.85), 0 8px 20px rgba(0, 0, 0, 0.45);
+}
+
+.Project-deviceHero-phoneBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  background: var(--device-chrome-bg);
+  border-bottom: 1px solid var(--device-chrome-line);
+}
+
+.Project-deviceHero-phonePill {
+  width: 34%;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--device-chrome-line);
+}
+
+.Project-deviceHero-phoneImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.Project-deviceHero-phoneFooter {
+  height: 32px;
+  background: var(--device-chrome-bg);
+  border-top: 1px solid var(--device-chrome-line);
+}
+
 .Project-body { padding-top: 32px; }
 .Project-body p { max-width: var(--reading-max); color: var(--text-muted); font-size: var(--fs-body-sm); line-height: 1.65; }
 .Project-body h2 {

@@ -28,7 +28,7 @@ export function CaseStudyFooterNav({ prev, next }) {
               <span className="mono">Previous</span>
             </div>
             <div className="CaseStudyFooterNav-title">
-              {prev.meta.company} · {prev.meta.title}
+              {[prev.meta.company, prev.meta.title].filter(Boolean).join(' · ')}
             </div>
             <div className="CaseStudyFooterNav-subtitle">{prev.meta.subtitle}</div>
           </Link>
@@ -41,7 +41,7 @@ export function CaseStudyFooterNav({ prev, next }) {
               <ArrowRight />
             </div>
             <div className="CaseStudyFooterNav-title">
-              {next.meta.company} · {next.meta.title}
+              {[next.meta.company, next.meta.title].filter(Boolean).join(' · ')}
             </div>
             <div className="CaseStudyFooterNav-subtitle">{next.meta.subtitle}</div>
           </Link>
