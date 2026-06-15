@@ -29,13 +29,12 @@
 .Project-subhead { max-width: 100%; margin-bottom: 48px; }
 
 .Project-hero {
-  aspect-ratio: 16 / 9;
   border-radius: 16px;
   border: 1px solid var(--border);
   background: var(--surface);
   display: grid; place-items: center;
   color: var(--text-dim); font-size: 13px;
-  margin-bottom: 48px;
+  margin-bottom: 96px;
 }
 
 .Project-hero--iso {
@@ -101,21 +100,19 @@
   border: none;
   background: transparent;
   overflow: visible;
-  position: relative;
-  aspect-ratio: 16 / 8;
+
 }
 
 .Project-deviceHero {
-  position: absolute;
-  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 72px;
 }
 
 .Project-deviceHero-browser {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 76%;
-  max-width: 1024px;
+  flex: 0 1 1202px;
+  max-width: 1202px;
   border-radius: 10px;
   overflow: hidden;
   display: flex;
@@ -156,51 +153,26 @@
 }
 
 .Project-deviceHero-phone {
-  position: absolute;
-  left: 0;
-  width: 20%;
-  max-width: 360px;
-  top: 18%;
-  border-radius: 22px;
-  overflow: hidden;
-  border: 1px solid transparent;
-  background-image:
-    linear-gradient(var(--bg-elevated), var(--bg-elevated)),
-    var(--device-border-gradient);
-  background-clip: padding-box, border-box;
-  background-origin: padding-box, border-box;
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.85), 0 8px 20px rgba(0, 0, 0, 0.45);
+  flex: 0 1 362px;
+  max-width: 362px;
 }
 
-.Project-deviceHero-phoneBar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 32px;
-  background: var(--device-chrome-bg);
-  border-bottom: 1px solid var(--device-chrome-line);
-}
-
-.Project-deviceHero-phonePill {
-  width: 34%;
-  height: 4px;
-  border-radius: 2px;
-  background: var(--device-chrome-line);
-}
-
-.Project-deviceHero-phoneImg {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.Project-deviceHero-phoneFooter {
-  height: 32px;
-  background: var(--device-chrome-bg);
-  border-top: 1px solid var(--device-chrome-line);
-}
 
 .Project-body { padding-top: 32px; }
+
+.Project-body--project {
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+/* Zero component self-margins so the gap above is the sole vertical rhythm */
+.Project-body--project > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 .Project-body p { max-width: var(--reading-max); color: var(--text-muted); font-size: var(--fs-body-sm); line-height: 1.65; }
 .Project-body h2 {
   font-size: var(--fs-h2);

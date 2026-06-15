@@ -1,15 +1,19 @@
-import coverImage from './images/home-riddickart-web.jpg';
-import coverImageMobile from './images/home-riddickart-mobile.jpg';
+import coverImage from './images/riddickart-web-1.jpg';
+import coverImageMobile from './images/riddickart-mobile-1.jpg';
+import thumbImage from './images/home-riddickart-web.jpg';
+import thumbImageMobile from './images/home-riddickart-mobile.jpg';
 
 export default {
   kind: 'project',
   order: 10,
   company: '',
   title: 'Riddickart',
-  subtitle: 'WordPress theme design and development for Death Metal Illustrator.',
+  subtitle: 'WordPress theme design and development for death metal illustrator.',
   accent: 'amber',
   coverImage,
   coverImageMobile,
+  thumbImage,
+  thumbImageMobile,
   metadata: [
     { label: 'Role', value: 'Designer\nDeveloper' },
     { label: 'Team', value: 'Solo' },

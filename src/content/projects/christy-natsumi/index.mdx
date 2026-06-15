@@ -1,8 +1,25 @@
-## Overview
+import webImg1 from './images/christynatsumi-web-2.jpg';
+import webImg2 from './images/christynatsumi-web-3.jpg';
+import webImg3 from './images/christynatsumi-web-4.jpg';
+import webImg4 from './images/christynatsumi-web-5.jpg';
+import mobileImg1 from './images/christynatsumi-mobile-2.jpg';
+import mobileImg2 from './images/christynatsumi-mobile-3.jpg';
+import mobileImg3 from './images/christynatsumi-mobile-4.jpg';
 
-Placeholder body for Christy Natsumi.
+<ImagePanel image={webImg1} title="Overview">
+  <p>Christy Natsumi is a Bay Area-based metalsmith and small business owner selling original handcrafted fine jewelry with an emphasis on custom wedding bands and engagement rings. I designed and developed a custom Shopify theme to give her store a warm, approachable aesthetic that puts her work front and center, and I regularly shoot her product and on-model photography.</p>
 
-<FeatureBlock accent="pink" eyebrow="Section" title="A subhead"
-  media={<div className="mono" style={{ color: 'var(--text-dim)' }}>image placeholder</div>}>
-  <p>Placeholder description.</p>
-</FeatureBlock>
+</ImagePanel>
+
+<GradientBlock accent="pink">
+  <PhoneGrid images={[mobileImg1, mobileImg2, mobileImg3]} />
+</GradientBlock>
+
+<ImagePanel image={webImg3} reverse />
+
+<ImagePanel image={webImg2} title="Liquid Gold" cta={{ href: 'https://christynatsumi.com', label: 'View Site' }}>
+  <p>The theme was built for ease of use — Christy manages her own inventory, product pages, and promotions without touching code. Careful attention to typography and whitespace lets the art breathe while guiding shoppers toward a purchase.</p>
+  <p>Shopify's Liquid template language strikes a great balance between empowering rich, customer-facing features while abstracting away pain points, like currency conversion, payment validation, and shipping. I was able to introduce CSS transitions, lazy loading, responsive design with different image resolutions, and additional item variations, all while having confidence the site would remain stable and payments would process.</p>
+</ImagePanel>
+
+<ImagePanel image={webImg4} reverse />

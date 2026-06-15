@@ -12,6 +12,10 @@
   position: relative;
 }
 
+.ImagePanel-media--reverse {
+  grid-column: 2 / 4;
+}
+
 .ImagePanel-media--natural {
   display: flex;
   justify-content: center;

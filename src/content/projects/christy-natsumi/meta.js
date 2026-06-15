@@ -1,5 +1,7 @@
-import coverImage from './images/home-christynatsumi-web.jpg';
-import coverImageMobile from './images/home-christynatsumi-mobile.jpg';
+import coverImage from './images/christynatsumi-web-1.jpg';
+import coverImageMobile from './images/christynatsumi-mobile-1.jpg';
+import thumbImage from './images/home-christynatsumi-web.jpg';
+import thumbImageMobile from './images/home-christynatsumi-mobile.jpg';
 
 export default {
   kind: 'project',
@@ -10,11 +12,13 @@ export default {
   accent: 'pink',
   coverImage,
   coverImageMobile,
+  thumbImage,
+  thumbImageMobile,
   metadata: [
     { label: 'Role', value: 'Designer\nDeveloper\nPhotographer' },
-    { label: 'Team', value: 'Independent' },
-    { label: 'Duration', value: 'TBD' },
-    { label: 'Industry', value: 'TBD' },
-    { label: 'Tooling', value: 'TBD' },
+    { label: 'Team', value: 'Solo' },
+    { label: 'Duration', value: '1 month\n(side project with periodic updates)' },
+    { label: 'Industry', value: 'Small business, Arts' },
+    { label: 'Tooling', value: 'Figma\nPhotoshop\nShopify Liquid, HTML, JavaScript, CSS' },
   ],
 };

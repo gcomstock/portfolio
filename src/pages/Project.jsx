@@ -22,6 +22,7 @@ import { Callout } from '../components/Callout.jsx';
 import { BrowserGrid } from '../components/BrowserGrid.jsx';
 import { SwarmGrid } from '../components/SwarmGrid.jsx';
 import { PhoneGrid } from '../components/PhoneGrid.jsx';
+import { PhoneFrame } from '../components/PhoneFrame.jsx';
 import { ScrollDim } from '../components/ScrollDim.jsx';
 import { CaseStudyFooterNav } from '../components/CaseStudyFooterNav.jsx';
 import { ParallaxLayer } from '../components/ParallaxLayer.jsx';
@@ -91,11 +92,7 @@ export function Project() {
           ) : (meta.coverImage && meta.coverImageMobile) ? (
             <div className="Project-deviceHero">
               <div className="Project-deviceHero-phone">
-                <div className="Project-deviceHero-phoneBar">
-                  <span className="Project-deviceHero-phonePill" />
-                </div>
-                <img src={meta.coverImageMobile} alt="" className="Project-deviceHero-phoneImg" />
-                <div className="Project-deviceHero-phoneFooter" />
+                <PhoneFrame src={meta.coverImageMobile} />
               </div>
               <div className="Project-deviceHero-browser">
                 <div className="Project-deviceHero-browserChrome">
@@ -117,7 +114,7 @@ export function Project() {
       {meta.sections && <CaseNav sections={meta.sections} title={navTitle} />}
 
       <div className="page">
-        <article className="Project-body">
+        <article className={`Project-body${meta.kind === 'project' ? ' Project-body--project' : ''}`}>
           <MDXProvider components={mdxComponents}>
             <Suspense fallback={<div className="mono Project-loading">loading…</div>}>
               <Content components={mdxComponents} />
