@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { ParallaxLayer } from './ParallaxLayer.jsx';
+import { SectionText } from './SectionText.jsx';
 import './PhotoCollage.css';
 
 // Default layout — used by the research screenshot collage (8 images, two rows).
@@ -86,10 +87,7 @@ export function PhotoCollage({ images = [], imageSets, configs, layout: layoutNa
         ))}
       </div>
       {(title || children) && (
-        <div className="PhotoCollage-footer">
-          {title && <h2 className="PhotoCollage-title">{title}</h2>}
-          {children && <div className="PhotoCollage-text">{children}</div>}
-        </div>
+        <SectionText title={title}>{children}</SectionText>
       )}
     </div>
   );

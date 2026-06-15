@@ -1,0 +1,31 @@
+.SectionText {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 48px;
+}
+
+.SectionText-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.SectionText-title {
+  font-size: var(--fs-content-title);
+  font-weight: var(--fw-content-title);
+  margin: 0;
+}
+
+.SectionText-body p {
+  color: var(--text-muted);
+  font-size: var(--fs-body-sm);
+  line-height: 1.65;
+  margin: 0;
+  max-width: none;
+}
+
+@media (max-width: 900px) {
+  .SectionText {
+    grid-template-columns: 1fr;
+  }
+}

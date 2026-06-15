@@ -1,4 +1,4 @@
-.Project { padding-top: 64px; width: 100%; }
+.Project { padding-top: 64px; width: 100%; overflow-x: clip; }
 .Project-above-nav { padding-bottom: 8px; }
 .Project-header { margin-bottom: 32px; }
 .Project-eyebrow-row {
@@ -155,6 +155,11 @@
 .Project-deviceHero-phone {
   flex: 0 1 362px;
   max-width: 362px;
+}
+
+.Project-deviceHero-scrollDemo {
+  flex: 0 1 1202px;
+  min-width: 0;
 }
 
 

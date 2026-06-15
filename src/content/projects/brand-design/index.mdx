@@ -1,8 +1,29 @@
-## Overview
+import headerSrc from './images/spinnaker-microsite-header.png';
+import contentSrc from './images/spinnaker-microsite.jpg';
+import summit1 from './images/summit-2.jpg';
+import summit2 from './images/summit-1.jpg';
+import summit3 from './images/summit-3.jpg';
+import summit4 from './images/summit-4.jpg';
+import summitLogo from './images/summit-logo.png';
+import managedDeliveryLogo from './images/logo-managed-delivery.png';
+import stickersImg from './images/udx-stickers.jpg';
 
-Placeholder body for Brand Design.
+<QuadGrid
+  images={[summit2, summit1, summit3, summit4]}
+  logo={summitLogo}
+/>
 
-<FeatureBlock accent="green" eyebrow="Section" title="A subhead"
-  media={<div className="mono" style={{ color: 'var(--text-dim)' }}>image placeholder</div>}>
-  <p>Placeholder description.</p>
-</FeatureBlock>
+<SectionText title="Brand and Event Design">
+  <p>Spinnaker is an open source continuous delivery platform founded by Netflix, built for large microservice organizations managing cloud deployments at scale. In 2019, Netflix and Google co-sponsored Spinnaker Summit — an annual gathering of tech talks and hands-on workshops. I created the brand identity, designed and built the microsite, and established the visual direction through art direction for all supplemental conference materials.</p>
+</SectionText>
+
+<ImagePanel media={<BrowserScrollDemo headerSrc={headerSrc} contentSrc={contentSrc} />}>
+  <img src={managedDeliveryLogo} alt="Managed Delivery" style={{width: '100%', maxWidth: '480px', display: 'block', margin: '0 auto 24px'}} />
+  <p>Brand design extended into open source software documentation. To help drive adoption, I created a microsite for a new Spinnaker feature called Managed Delivery. It included a revamped support doc layout and a guided walkthrough on how to onboard.</p>
+</ImagePanel>
+
+<ParallaxBand src={stickersImg} />
+
+<SectionText title="Everyone loves stickers">
+  <p>I always took opportunities to create stickers for team efforts or particular org initiatives. This concept blended an initiative across the productivity org called the Unified Developer Experience with the Transformers Autobots logo. The analogy: with all of our sub-teams coming together, we could unite and transform a fragmented developer experience into a truly badass machine.</p>
+</SectionText>

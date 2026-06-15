@@ -20,16 +20,20 @@ import { ProductPanel } from '../components/ProductPanel.jsx';
 import { StatGrid, StatItem } from '../components/StatGrid.jsx';
 import { Callout } from '../components/Callout.jsx';
 import { BrowserGrid } from '../components/BrowserGrid.jsx';
+import { BrowserScrollDemo } from '../components/BrowserScrollDemo.jsx';
+import { QuadGrid } from '../components/QuadGrid.jsx';
 import { SwarmGrid } from '../components/SwarmGrid.jsx';
 import { PhoneGrid } from '../components/PhoneGrid.jsx';
 import { PhoneFrame } from '../components/PhoneFrame.jsx';
+import { ParallaxBand } from '../components/ParallaxBand.jsx';
+import { SectionText } from '../components/SectionText.jsx';
 import { ScrollDim } from '../components/ScrollDim.jsx';
 import { CaseStudyFooterNav } from '../components/CaseStudyFooterNav.jsx';
 import { ParallaxLayer } from '../components/ParallaxLayer.jsx';
 import './Project.css';
 
 // MDX content can use these without importing.
-const mdxComponents = { FeatureBlock, Figure, VideoEmbed, ColGrid, ColGridItem, PullQuote, ImagePanel, PhotoCollage, GradientBlock, AnnotatedImage, GanttChart, SpectrumChart, FeedbackFlow, ProductPanel, StatGrid, StatItem, Callout, BrowserGrid, SwarmGrid, ScrollDim, PhoneGrid };
+const mdxComponents = { FeatureBlock, Figure, VideoEmbed, ColGrid, ColGridItem, PullQuote, ImagePanel, PhotoCollage, GradientBlock, AnnotatedImage, GanttChart, SpectrumChart, FeedbackFlow, ProductPanel, StatGrid, StatItem, Callout, BrowserGrid, SwarmGrid, ScrollDim, PhoneGrid, BrowserScrollDemo, QuadGrid, ParallaxBand, SectionText };
 
 export function Project() {
   const { slug } = useParams();
@@ -79,6 +83,7 @@ export function Project() {
 
         <div className={`Project-hero${
           meta.coverImages?.length ? ' Project-hero--iso' :
+          (meta.coverScrollDemo && meta.coverImageMobile) ? ' Project-hero--device' :
           (meta.coverImage && meta.coverImageMobile) ? ' Project-hero--device' : ''
         }`} aria-hidden="true">
           {meta.coverImages?.length ? (
@@ -89,20 +94,36 @@ export function Project() {
                 <img src={meta.coverImages[2]} alt="" className="Project-heroImg Project-heroImg--front" />
               </div>
             </ParallaxLayer>
-          ) : (meta.coverImage && meta.coverImageMobile) ? (
-            <div className="Project-deviceHero">
-              <div className="Project-deviceHero-phone">
-                <PhoneFrame src={meta.coverImageMobile} />
-              </div>
-              <div className="Project-deviceHero-browser">
-                <div className="Project-deviceHero-browserChrome">
-                  <span className="Project-deviceHero-dot" />
-                  <span className="Project-deviceHero-dot" />
-                  <span className="Project-deviceHero-dot" />
+          ) : (meta.coverScrollDemo && meta.coverImageMobile) ? (
+            <ParallaxLayer speed={15}>
+              <div className="Project-deviceHero">
+                <div className="Project-deviceHero-phone">
+                  <PhoneFrame src={meta.coverImageMobile} />
                 </div>
-                <img src={meta.coverImage} alt="" className="Project-deviceHero-browserImg" />
+                <div className="Project-deviceHero-scrollDemo">
+                  <BrowserScrollDemo
+                    headerSrc={meta.coverScrollDemo.headerSrc}
+                    contentSrc={meta.coverScrollDemo.contentSrc}
+                  />
+                </div>
               </div>
-            </div>
+            </ParallaxLayer>
+          ) : (meta.coverImage && meta.coverImageMobile) ? (
+            <ParallaxLayer speed={15}>
+              <div className="Project-deviceHero">
+                <div className="Project-deviceHero-phone">
+                  <PhoneFrame src={meta.coverImageMobile} />
+                </div>
+                <div className="Project-deviceHero-browser">
+                  <div className="Project-deviceHero-browserChrome">
+                    <span className="Project-deviceHero-dot" />
+                    <span className="Project-deviceHero-dot" />
+                    <span className="Project-deviceHero-dot" />
+                  </div>
+                  <img src={meta.coverImage} alt="" className="Project-deviceHero-browserImg" />
+                </div>
+              </div>
+            </ParallaxLayer>
           ) : (
             <span className="mono">final product hero placeholder</span>
           )}

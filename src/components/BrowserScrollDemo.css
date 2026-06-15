@@ -1,0 +1,63 @@
+.BrowserScrollDemo {
+  width: 100%;
+  max-width: 1202px;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid transparent;
+  background-image:
+    linear-gradient(var(--bg-elevated), var(--bg-elevated)),
+    var(--device-border-gradient);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.8), 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.BrowserScrollDemo-chrome {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 32px;
+  padding: 0 14px;
+  background: var(--device-chrome-bg);
+  border-bottom: 1px solid var(--device-chrome-line);
+  flex-shrink: 0;
+}
+
+.BrowserScrollDemo-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--device-dot-border);
+  background: var(--device-dot-fill);
+  flex-shrink: 0;
+}
+
+.BrowserScrollDemo-viewport {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.BrowserScrollDemo-siteHeader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.BrowserScrollDemo-siteHeader img {
+  width: 100%;
+  display: block;
+}
+
+.BrowserScrollDemo-content {
+  position: relative;
+  will-change: transform, opacity;
+}
+
+.BrowserScrollDemo-content img {
+  width: 100%;
+  display: block;
+}

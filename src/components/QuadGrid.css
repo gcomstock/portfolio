@@ -1,0 +1,56 @@
+.QuadGrid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.QuadGrid-img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+.QuadGrid-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16%;
+  aspect-ratio: 1 / 1;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2%;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+}
+
+.QuadGrid-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.QuadGrid-caption {
+  font-size: var(--fs-body-sm);
+  color: var(--text-dim);
+  line-height: 1.65;
+  text-align: right;
+  max-width: 560px;
+  margin-left: auto;
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .QuadGrid {
+    grid-template-columns: 1fr;
+  }
+  .QuadGrid-logo {
+    width: 40%;
+  }
+}

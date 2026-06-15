@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import './ImagePanel.css';
 
-export function ImagePanel({ image, images, placeholder = false, naturalSize = false, fadeImage, fadeBody, alt = '', title, href, cta, after, imgMaxWidth, reverse = false, children }) {
+export function ImagePanel({ image, images, media, placeholder = false, naturalSize = false, fadeImage, fadeBody, alt = '', title, href, cta, after, imgMaxWidth, reverse = false, children }) {
   const mediaRef  = useRef(null);
   const pausedRef = useRef(false);
   const [faded, setFaded]       = useState(false);
@@ -31,6 +31,7 @@ export function ImagePanel({ image, images, placeholder = false, naturalSize = f
   }, [images]);
 
   const renderMedia = () => {
+    if (media) return media;
     if (placeholder) {
       return <div className="ImagePanel-placeholder" />;
     }
