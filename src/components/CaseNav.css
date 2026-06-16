@@ -30,7 +30,7 @@
   font-family: var(--font-sans);
   font-size: 13px;
   font-weight: 500;
-  color: var(--text-muted);
+  color: var(--text-nav);
   white-space: nowrap;
   margin-right: auto;
   padding-right: 24px;
@@ -46,12 +46,12 @@
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--text-dim);
+  color: var(--text-secondary);
   transition: color var(--dur-fast) var(--ease-out);
   white-space: nowrap;
 }
 
-.CaseNav-item:hover { color: var(--text-muted); }
+.CaseNav-item:hover { color: var(--text); }
 .CaseNav-item.is-active { color: var(--accent-blue); }
 
 @media (max-width: 900px) {

@@ -20,7 +20,7 @@
 .Header-nav { display: flex; align-items: center; gap: 28px; }
 .Header-link {
   font-size: 15px;
-  color: var(--text-muted);
+  color: var(--text-nav);
   transition: color var(--dur-fast) var(--ease-out);
 }
 .Header-link:hover { color: var(--text); }

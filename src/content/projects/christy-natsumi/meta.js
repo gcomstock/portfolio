@@ -17,7 +17,6 @@ export default {
   metadata: [
     { label: 'Role', value: 'Designer\nDeveloper\nPhotographer' },
     { label: 'Team', value: 'Solo' },
-    { label: 'Duration', value: '1 month\n(side project with periodic updates)' },
     { label: 'Industry', value: 'Small business, Arts' },
     { label: 'Tooling', value: 'Figma\nPhotoshop\nShopify Liquid, HTML, JavaScript, CSS' },
   ],
