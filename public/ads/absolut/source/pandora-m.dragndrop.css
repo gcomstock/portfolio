@@ -1,0 +1,43 @@
+body {
+	margin: 0;
+	width: 320px;
+	overflow: hidden;
+}
+
+#stage {
+	width: 320px;
+	height: 373px;
+	overflow: hidden;
+	position: absolute;
+}
+
+.draggable {
+	z-index: 1000;
+	position: absolute;
+	cursor: pointer;
+	visibility: hidden;
+	}
+	
+.draggable img {
+	position: absolute;
+}
+
+.active {
+	z-index: 2000;
+}
+
+#dropzone {
+	position: absolute;
+}
+
+#dropzone_activate {
+	position: absolute;
+	z-index: 500;
+	display: none;
+}
+
+#dropzone_over {
+	position: absolute;
+	z-index: 600;
+	display: none;
+}

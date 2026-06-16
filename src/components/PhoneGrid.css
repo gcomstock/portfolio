@@ -12,6 +12,12 @@
   justify-content: center;
 }
 
+.PhoneGrid--wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(322px, 1fr));
+  gap: 48px;
+}
+
 @media (max-width: 900px) {
   .PhoneGrid {
     grid-template-columns: 1fr;

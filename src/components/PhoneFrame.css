@@ -37,6 +37,18 @@
   display: block;
 }
 
+.PhoneFrame-chrome-img {
+  width: 100%;
+  display: block;
+  flex-shrink: 0;
+}
+
+.PhoneFrame-iframe {
+  width: 100%;
+  display: block;
+  border: none;
+}
+
 .PhoneFrame-footer {
   height: 20px;
   background: var(--device-chrome-bg);

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import './BrowserScrollDemo.css';
 
-export function BrowserScrollDemo({ headerSrc, contentSrc }) {
+export function BrowserScrollDemo({ headerSrc, contentSrc, panDuration = 13 }) {
   const contentRef = useRef(null);
   const viewportRef = useRef(null);
 
@@ -28,7 +28,7 @@ export function BrowserScrollDemo({ headerSrc, contentSrc }) {
 
       // Pan from top to bottom
       setStyles(content, {
-        transition: 'transform 13s cubic-bezier(0.37, 0, 0.63, 1)',
+        transition: `transform ${panDuration}s cubic-bezier(0.37, 0, 0.63, 1)`,
         transform: `translateY(-${dist}px)`,
       });
 
@@ -50,7 +50,7 @@ export function BrowserScrollDemo({ headerSrc, contentSrc }) {
             later(runLoop, 900);
           }));
         }, 750);
-      }, 13000 + 800);
+      }, panDuration * 1000 + 800);
     }
 
     later(runLoop, 1200);

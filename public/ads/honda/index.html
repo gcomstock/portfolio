@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <meta name="viewport" content="width=320, user-scalable=no">
+		<meta name="apple-touch-fullscreen" content="yes">
+
+<title>Premium Mobile Slider</title>
+<head>
+
+
+<link rel="stylesheet" type="text/css" media="screen,handheld" href="style.css">
+
+<!-- required javascript libraries, do not remove -->
+<script src="http://www.pandora.com/static/ads/javascript/jquery-1.5.1.min.js"></script>
+<script src="http://www.pandora.com/static/ads/javascript/jquery.ui.touch.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	//each slider variable needs a default value. put them here
+	var slider1 = 1
+	var slider2 = 10
+	
+	//heres a variable to make nub reposition with the draggable. see draggable mousedown
+	var canSlide = 0
+	var canFade = 0
+	
+	
+	//hide the launch button until the sliders are interacted with
+	$("#launch_btn_active").hide();
+
+	//when user touches a slider, fadeout the inactive button and fadein the active one
+	$(".draggable").mousedown(function(){
+		var runOnce = 0
+			if (runOnce == 0) {
+				$("#launch_btn").fadeOut("slow");
+				$("#launch_btn_active").fadeIn("slow");
+				runOnce = 1
+			}
+	});
+	
+	//add touch and drag functionality to the draggable class, no need to modify
+	$(".draggable").draggable({ axis: "x", containment: ".sliderframe" }).addTouch();
+
+
+	
+	$(document).mousemove(function(ev){
+		
+		if (canSlide == 1) {
+		
+		  $("#draggable_bg1").position({
+			my: "top center",
+			of: "#draggable1",
+			offset: "0 0",
+			collision: "none"
+		  });
+		  
+		  $("#draggable_bg2").position({
+			my: "top center",
+			of: "#draggable2",
+			offset: "0 0",
+			collision: "none"
+		  });
+		  
+		}
+		
+	});
+	
+
+	$(".draggable").mousedown(function(e){
+		
+		canSlide = 1
+		
+		//canFade makes it so you cant spam tap the nub and have everything strobe in and out
+		
+		if (canFade == 0) {
+			canFade = 1
+			$(this).siblings(".slider_active").fadeIn(200);
+			$(this).siblings().children(".nub_active").fadeIn(200, function() {
+			canFade = 0	
+			});
+		}
+		
+	});
+	
+	
+
+	$(".draggable").mouseup(function(e){
+		
+		canSlide = 0
+
+		$(this).siblings(".slider_active").fadeOut(600);
+		$(this).siblings().children(".nub_active").fadeOut(600);
+
+	});
+
+
+
+	//each slider needs this block of code. it sets the variable based on the x coordinate of the slider
+	$("#draggable1").mouseup(function(e){
+	
+		  var xPos = $(this).offset();
+
+		  if (xPos.left < 80) {  
+			  $(this).animate({"left": "0px"}, 300);
+			  $(this).siblings(".draggable_bg").animate({"left": "-10px"}, 300);
+			  slider1 = 1
+		  }
+		  
+		  if (xPos.left < 180 && xPos.left > 80) {
+			  $(this).animate({"left": "120px"}, 300);
+			  $(this).siblings(".draggable_bg").animate({"left": "110px"}, 300);
+			  slider1 = 2
+		  }
+		  
+		  if (xPos.left > 180) {
+			$(this).animate({"left": "240px"}, 300);
+			$(this).siblings(".draggable_bg").animate({"left": "230px"}, 300);
+			  slider1 = 3
+		  }
+	
+	});
+	
+	$("#draggable2").mouseup(function(e){
+
+		  var xPos = $(this).offset();
+		  
+		  if (xPos.left < 80) {
+			  $(this).animate({"left": "0px"}, 300);
+			  $(this).siblings(".draggable_bg").animate({"left": "-10px"}, 300);
+	  
+			  slider2 = 10
+		  }
+		  
+		  if (xPos.left < 180 && xPos.left > 80) {
+			  $(this).animate({"left": "120px"}, 300);	
+			  $(this).siblings(".draggable_bg").animate({"left": "110px"}, 300); 
+			  slider2 = 20
+		  }
+		  
+		  if (xPos.left > 180) {			
+			$(this).animate({"left": "240px"}, 300);
+			$(this).siblings(".draggable_bg").animate({"left": "230px"}, 300);
+			  slider2 = 30
+		  }
+	
+	});
+
+	//when user hits launch, a station is launched according to which variables are what
+	$("#launch_btn_active").click(function(){
+		var launchSum = slider1 + slider2
+
+		var stationNames = {
+			11: "Slow Rock",
+			12: "Steady Rock",
+			13: "Fast Rock",
+			21: "Slow Jazz",
+			22: "Steady Jazz",
+			23: "Fast Jazz",
+			31: "Slow Pop",
+			32: "Steady Pop",
+			33: "Fast Pop"
+		};
+
+		var name = stationNames[launchSum];
+		if (name) alert(name + " Launched");
+
+		try { PandoraApp.createStationFromStationId('462751132569976993'); } catch(e) {}
+		try { PandoraApp.closeLandingPage(); } catch(e) {}
+	});
+	
+});
+	
+</script>
+    
+</head>
+<body>
+
+<div id="bg">
+
+
+	<div style="padding-top: 373px;"></div>
+
+
+	<div class="sliderframe">
+		<div id="draggable1" class="draggable"></div>
+        
+        <div id="draggable_bg1" class="draggable_bg">
+        	<div class="nub"></div>
+        	<div class="nub_active"></div>
+        </div>
+        
+        <div class="slider_active"></div>
+    </div>
+    
+
+    <div class="sliderframe">
+        <div id="draggable2" class="draggable"></div>
+        
+        <div id="draggable_bg2" class="draggable_bg">
+        	<div class="nub"></div>
+        	<div class="nub_active"></div>
+        </div>
+        
+        <div class="slider_active"></div>
+    </div>
+    
+    
+
+    <div id="launch_btn"></div>
+    <div id="launch_btn_active"></div>
+
+
+</div>
+
+</body>
+</html>
+
+

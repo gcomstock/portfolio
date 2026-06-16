@@ -1,0 +1,133 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=320, user-scalable=no">
+    <meta name="apple-touch-fullscreen" content="yes">
+
+<!-- jquery libraries required for operation -->
+<script src="http://www.pandora.com/static/ads/javascript/jQuery/jquery-1.6.1.min.js"></script>
+<script src="http://www.pandora.com/static/ads/javascript/jQueryUI/jquery-ui.dragndrop.min.js"></script>
+<script src="http://www.pandora.com/static/ads/javascript/jQueryUI/jquery.ui.touch.js"></script>
+<script src="http://www.pandora.com/static/ads/javascript/jQuery/jquery.animate-enhanced.min"></script>
+
+<!-- custom jquery ui file is version 1.8.15 and includes the following libraries
+<script src="jquery.ui.core.min.js"></script>
+<script src="jquery.ui.widget.min.js"></script>
+<script src="jquery.ui.mouse.min.js"></script>
+<script src="jquery.ui.draggable.min.js"></script>
+<script src="jquery.ui.droppable.min.js"></script>
+<script src="jquery.effects.core.min.js"></script>
+<script src="jquery.effects.scale.min.js"></script>
+-->
+
+<link href="http://www.pandora.com/static/ads/javascript/mobile/pandora-m.dragndrop.css" rel="stylesheet" type="text/css" />
+
+<!-----------------------------------------------------
+	ENTER TITLE
+------------------------------------------------------>    
+
+<title>Mobile Drag and Drop Template</title> 
+
+<!-----------------------------------------------------
+	ENTER DRAG AND DROP LOCATIONS
+------------------------------------------------------>  
+
+<style> 
+	
+	body {
+		background: url(bg.jpg) no-repeat #000;
+	}
+
+	#drag1 {
+		top: 110px;
+		left: 80px;
+	}
+	
+	#drag2 {
+		top: 150px;
+		left: 160px;
+	}
+	
+	#drag3 {
+		top: 110px;
+		left: 240px;
+	}
+	
+	#dropzone {
+		top: 240px;
+		left: 0px;
+		width: 170px;
+		height: 133px;
+	}
+	
+	#dropzone_activate {
+		background-image: url(drop_active.jpg);
+	}
+	
+	#dropzone_over {
+		background-image: url(drop_over.jpg);
+	}
+
+</style>
+
+<script type="text/javascript">
+
+/*-----------------------------------------------------
+	ENTER STATION IDS
+-----------------------------------------------------*/
+
+drag1Station = "417612890389593484"
+drag2Station = "406423267927899532"
+drag3Station = "462751132569976993"
+
+/*-----------------------------------------------------
+	SCALING EFFECT VARIABLES
+-----------------------------------------------------*/
+
+scaleFactor = 1.7
+growSpeed = 100
+shrinkSpeed = 150
+
+/*-----------------------------------------------------
+	DROP AREA TRANSITION SPEED. USE 0 FOR INSTANT
+-----------------------------------------------------*/
+
+dropzoneFadeSpeed = 200
+
+/*-----------------------------------------------------
+	SET TEST MODE "on" FOR DIV BORDERS + STATION ALERT
+-----------------------------------------------------*/
+
+testMode = "off"
+
+</script>
+
+<script type="text/javascript" src="source/pandora-m.dragndrop.js"></script>
+
+</head>
+<body onLoad="applyNewSize();">
+
+<div id="stage">
+
+	<div class="draggable" id="drag1">
+		<img src="drag1.png">
+	</div>
+
+	<div class="draggable" id="drag2">
+		<img src="drag2.png">
+	</div>
+    
+	<div class="draggable" id="drag3">
+		<img src="drag3.png">
+	</div>
+
+	<div id="dropzone">
+		<div id="dropzone_activate"></div>
+		<div id="dropzone_over"></div>
+	</div>
+
+</div>
+
+</body> 
+</html> 

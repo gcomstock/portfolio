@@ -1,8 +1,21 @@
-## Overview
+import adImg1 from './images/1200x900_1.jpg';
+import adImg2 from './images/1200x900_2.jpg';
+import adImg3 from './images/1200x900_3.jpg';
+import adImg4 from './images/1200x900_4.jpg';
+import adTop from './images/mobile-ad-top.jpg';
+import adBot from './images/mobile-ad-bot.jpg';
+import johnLegendSrc from './images/site-johnlegend.jpg';
+import liptonSrc from './images/site-lipton.jpg';
 
-Placeholder body for Advertising Design.
+<QuadGrid images={[adImg1, adImg2, adImg3, adImg4]} />
 
-<FeatureBlock accent="blue" eyebrow="Section" title="A subhead"
-  media={<div className="mono" style={{ color: 'var(--text-dim)' }}>image placeholder</div>}>
-  <p>Placeholder description.</p>
-</FeatureBlock>
+<GradientBlock accent="gray">
+  <PhoneGrid wrap items={[{ iframe: `${import.meta.env.BASE_URL}ads/heineken/index.html`, topImg: adTop, bottomImg: adBot }, { iframe: `${import.meta.env.BASE_URL}ads/honda/index.html`, topImg: adTop, bottomImg: adBot }, { iframe: `${import.meta.env.BASE_URL}ads/absolut/index.html`, topImg: adTop, bottomImg: adBot }]} maxWidth="322px" />
+</GradientBlock>
+
+<ImagePanel media={<BrowserScrollDemo contentSrc={johnLegendSrc} panDuration={8} />} title="Self-Contained Challenges">
+  <p>I spent part of my time at Pandora on their in-house ad design team. These projects offered a great opportunity to move fast and iterate without carrying the baggage of earlier ad campaigns. In a sense, they were a microcosm of larger product design challenges, and design guidelines and templates, a heavy emphasis on metrics and A/B testing, and lots of meeting with and understanding stakeholder needs.</p>
+  <p>They also offered an on-ramp into front-end development. I learned about user agent strings, network requests, breakpoints, event handling, and interfacing with an API. By the time I became a full-time software engineer, I was creating ad template generators for the entire design team, removing the need for designers to modify front-end code.</p>
+</ImagePanel>
+
+<ImagePanel media={<BrowserScrollDemo contentSrc={liptonSrc} panDuration={8} />} reverse />

@@ -11,10 +11,9 @@ export default {
   coverImage,
   coverImageMobile,
   metadata: [
-    { label: 'Role', value: 'Designer\nFront-end Engineer' },
-    { label: 'Team', value: 'TBD' },
-    { label: 'Duration', value: 'TBD' },
+    { label: 'Role', value: 'Designer\nDeveloper' },
+    { label: 'Team', value: 'Product images provided by advertisers' },
     { label: 'Industry', value: 'Music / Consumer' },
-    { label: 'Tooling', value: 'TBD' },
+    { label: 'Tooling', value: 'Photoshop\nIllustrator\nHTML, JavaScript, CSS' },
   ],
 };

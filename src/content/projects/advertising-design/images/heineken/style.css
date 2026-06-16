@@ -1,0 +1,281 @@
+* {
+	padding: 0;
+	margin: 0;
+	background-color: transparent;
+
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+}
+
+
+
+
+@-webkit-keyframes needleFade {
+		10% {
+			opacity: 1;
+        }
+		40% {
+			opacity: 0;
+        }
+		50% {
+			opacity: 0;
+        }
+		75% {
+			opacity: 1;
+        }
+}
+
+@-webkit-keyframes blurFade {
+		10% {
+			opacity: 0;
+        }
+		40% {
+			opacity: 1;
+        }
+		50% {
+			opacity: 1;
+        }
+		75% {
+			opacity: 0;
+        }
+}
+
+
+@-webkit-keyframes tapToSpin {
+		7% {
+			-webkit-transform: rotate(-2deg) translate3d(10px, 0, 0);
+        }
+		14% {
+			-webkit-transform: rotate(2deg) translate3d(-50px, 0, 0);
+        }
+    	28% {
+			-webkit-transform: rotate(6deg) translate3d(-2px, 0, 0);
+        }
+    	39% {
+			-webkit-transform: rotate(-2deg) translate3d(5px, 0, 0);
+        }
+    	53% {
+			-webkit-transform: rotate(0deg) translate3d(0, 0, 0);
+        }
+}
+
+
+@-webkit-keyframes tapToSpinAway {
+		100% {
+			-webkit-transform: translate3d(-320px, 0, 0);
+			opacity: 0;
+        }
+}
+
+
+@-webkit-keyframes tapBottle {
+		14% {
+			-webkit-transform: rotate(0deg) translate3d(0, 0, 0);
+        }
+		18% {
+			-webkit-transform: rotate(-3deg) translate3d(-3px, 0, 0);
+        }
+		25% {
+			-webkit-transform: rotate(2deg) translate3d(2px, 0, 0);
+        }
+    	32% {
+			-webkit-transform: rotate(-1deg) translate3d(-1px, 0, 0);
+        }
+    	39% {
+			-webkit-transform: rotate(1deg) translate3d(1px, 0, 0);
+        }
+    	53% {
+			-webkit-transform: rotate(0deg) translate3d(0, 0, 0);
+        } 
+}
+
+
+
+#stage {
+	width: 320px;
+	height: 320px;
+	position: relative;
+	overflow: hidden;
+}
+
+#stage * {
+	position: absolute;
+	-webkit-transform: translate3d(0, 0, 0);
+	-webkit-transition: all 800ms ease-in-out;
+}
+
+#tapToSpin {
+	-webkit-animation: tapToSpin 2s ease-out infinite;
+	position: absolute;
+	width: 145px;
+	height: 25px;
+	top: 255px;
+	left: 130px;
+	background-image: url(taptospin.png);
+	background-size: 100%;
+	z-index: 200;
+}
+
+#title {
+	width: 225px;
+	height: 40px;
+	right: 0;
+	background-image: url(title.png);
+	background-size: 100%;
+}
+
+#spinner {
+	width: 310px;
+	height: 310px;
+	z-index: 100;
+	left: -105px;
+	-webkit-animation: tapBottle 2s ease-out infinite;
+}
+
+#spinner .needle {
+	width: 310px;
+	height: 310px;
+	background-image: url(bottle.png);
+	background-size: 100%;
+	z-index: 100;
+	-webkit-animation-duration: 3.5s;
+}
+
+#spinner .needleBlur {
+	width: 310px;
+	height: 310px;
+	background-image: url(bottleSpin.png);
+	background-size: 100%;
+	z-index: 90;
+	-webkit-animation-duration: 3.5s;
+	opacity: 0;
+}
+
+
+#spinner.spinning {
+	-webkit-transition: all 3.5s cubic-bezier(0.4, 0, 0.1, 1);
+	transition: all 3.5s cubic-bezier(0.4, 0, 0.1, 1);
+}
+
+
+#bg {
+	width: 800px;
+	height: 320px;
+	background-image: url(bg.gif);
+	background-size: 100%;
+	background-position: bottom;
+	background-repeat: no-repeat;
+}
+
+#star {
+	width: 320px;
+	height: 320px;
+	left: -142px;
+	top: 0;
+	background-image: url(star.png);
+	background-size: 100%;
+	z-index: 80;
+	-webkit-transform: translate3d(400px, 0, 0) scale(0.2) rotate(120deg);
+}
+
+#star.animate1 {
+	-webkit-transform: translate3d(0, 0, 0);
+}
+
+#title.animate1 {
+	-webkit-transform: translate3d(-46px, 0, 0);
+}
+
+#bg.animate1 {
+	-webkit-transform: translate3d(-480px, 0, 0);
+}
+
+
+#spinAgain.animate1 {
+	-webkit-transform: translate3d(90px, 0, 0);
+}
+
+
+.bg.fade {
+	opacity: 0.3;
+}
+
+.bg.fade.stay {
+	opacity: 1;
+	z-index: 300;
+	/*bottom: 130px !important;*/
+	/*-webkit-transform: translate3d(480px, 0, 0) !important;*/
+}
+
+
+
+.bg {
+	width: 363px;
+	height: 93px;
+	background-size: 100%;
+	background-position: right;
+	z-index: 100;
+	right: 0;
+}
+
+#bg1 {
+	background-image: url(bg1.gif);
+	bottom: 188px;
+}
+#bg2 {
+	background-image: url(bg2.gif);
+	bottom: 94px;
+}
+#bg3 {
+	background-image: url(bg3.gif);
+	bottom: 0;
+}
+
+
+
+#spinAgain {
+	display: inline-block;
+	color: #c60000;
+	width: 70px;
+	line-height: 20px;
+	font-size: 0.8em;
+	font-family: 'Open Sans Condensed', sans-serif;
+	left: -90px;
+	background-color: #fff;
+	text-align: right;
+	padding: 3px 8px;
+	text-transform: uppercase;
+	top: 120px;
+	z-index: 300;
+	pointer-events: none;
+}
+
+#launch {
+	color: #f00;
+	z-index: 300;
+	bottom: -50px;
+	height: 40px;
+	width: 310px;
+	display: block;
+	background-color: #fff;
+	text-transform: uppercase;
+	text-align: center;
+	font-family: helvetica, sans-serif;
+	padding: 5px;
+}
+
+#launch a {
+	display: inline-block;
+	color: #c60000;
+	text-decoration: none;
+	position: relative;
+	height: 40px;
+	line-height: 40px;
+	font-size: 1.3em;
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#launch.animate1 {
+	-webkit-transform: translate3d(0, -50px, 0);
+}
