@@ -39,7 +39,7 @@ document.addEventListener('touchstart', function(event) {
 		}
 
 		//initialize draggable, but set to false until hover events to help prevent multiple drags
-		$(".draggable").draggable({ revert: "invalid" , containment: "#stage"}).addTouch();
+		$(".draggable").draggable({ revert: "invalid" , containment: "#stage"});
 
 
 		$("#dropzone").droppable({
