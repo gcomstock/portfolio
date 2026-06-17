@@ -23,6 +23,6 @@ export default {
     { label: 'Team',     value: '1 Product Manager\n1 Engineering Manager\n~7 Engineers\n2 Other Designers' },
     { label: 'Duration', value: '2016\n(about 10 months)' },
     { label: 'Industry', value: 'Music / Consumer' },
-    { label: 'Tooling', value: 'TBD' },
+    { label: 'Tooling', value: 'React, Redux, Sass\nSketch\nPhotoshop\nIllustrator' },
   ],
 };

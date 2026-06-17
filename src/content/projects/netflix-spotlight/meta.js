@@ -25,6 +25,6 @@ export default {
     { label: 'Team',     value: '1 Product Manager\n1 Engineering Manager\n3–5 Engineers' },
     { label: 'Duration', value: '2021 – early 2023\n(off and on involvement)' },
     { label: 'Industry', value: 'Developer Productivity\n& Tooling' },
-    { label: 'Tooling', value: 'TBD' },
+    { label: 'Tooling', value: 'Figma\nPhotoshop\nIllustrator' },
   ],
 };
