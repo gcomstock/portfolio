@@ -30,15 +30,22 @@
   line-height: 1.5;
   font-weight: 400;
   margin: 0;
+}
 
-  background: linear-gradient(160deg, #ffffff 0%, #6aa9ff 100%);
+.HeroExtruded-intro {
+  font-size: clamp(20px, 1.8vw, 28px);
+  font-weight: 600;
+  background: linear-gradient(to bottom, #ffffff 0%, #9fc8ff 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.HeroExtruded-intro   { font-size: clamp(20px, 1.8vw, 28px); font-weight: 600; }
-.HeroExtruded-tagline { font-size: clamp(15px, 1.2vw, 20px); opacity: 0.8; }
+.HeroExtruded-tagline {
+  font-size: clamp(14px, 1.2vw, 18px);
+  font-weight: 400;
+  color: var(--text-muted);
+}
 
 /* Stack holds the static rotation. No animation here. */
 .HeroExtruded-stack {

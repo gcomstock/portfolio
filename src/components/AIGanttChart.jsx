@@ -8,7 +8,7 @@ const ROWS = [
   { label: 'Discovery & Research',  color: '#ff7fb4', start: SEG * 0, end: SEG * 1 + OVERLAP },
   { label: 'Low Fidelity Ideation', color: '#f0b86b', start: SEG * 1, end: SEG * 2 + OVERLAP },
   { label: 'High Fidelity',         color: '#b48cff', start: SEG * 2, end: SEG * 3 + OVERLAP },
-  { label: 'Design Validation',     color: '#66d19e', start: SEG * 3, end: SEG * 4 + OVERLAP },
+  { label: 'Design Validation',     color: '#66d19e', start: SEG * 3, end: SEG * 4 + OVERLAP, dotted: true },
   { label: 'Design Guidance',       color: '#6aa9ff', start: SEG * 4, end: 100 },
   { label: 'Agent · Feature Dev',   color: '#3d4556', start: SEG * 4, end: 100 },
   { label: 'Agent · Feature Dev',   color: '#3d4556', start: SEG * 4, end: 100 },
@@ -43,11 +43,12 @@ export function AIGanttChart() {
             <div className="AIGantt-label mono">{row.label}</div>
             <div className="AIGantt-track">
               <div
-                className="AIGantt-bar"
+                className={`AIGantt-bar${row.dotted ? ' AIGantt-bar--dotted' : ''}`}
                 style={{
                   left: `${row.start}%`,
                   width: visible ? `${row.end - row.start}%` : '0%',
-                  background: row.color,
+                  background: row.dotted ? 'transparent' : row.color,
+                  borderColor: row.dotted ? row.color : undefined,
                   transitionDelay: visible ? `${i * 70}ms` : '0ms',
                 }}
               />
