@@ -55,7 +55,7 @@
 .CaseNav-item.is-active { color: var(--accent-blue); }
 
 @media (max-width: 900px) {
-  .CaseNav { top: var(--header-h-mobile); }
+  .CaseNav { top: var(--header-h-mobile); height: 40px; }
   .CaseNav-title { display: none; }
   .CaseNav-inner { overflow-x: auto; }
   .CaseNav-item { font-size: 9px; padding: 0 10px; }
