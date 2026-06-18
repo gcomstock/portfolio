@@ -12,7 +12,7 @@ export function Footer() {
           </div>
           <div className="Footer-links mono">
             <a href="mailto:gcomstock@gmail.com">gcomstock@gmail.com</a>
-            <a href="/resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+            <a href="/greg-comstock-resume.pdf" target="_blank" rel="noreferrer">Resume</a>
             <a href="https://www.linkedin.com/in/gregcomstock" target="_blank" rel="noreferrer">LinkedIn</a>
           </div>
         </div>

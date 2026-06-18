@@ -6,13 +6,13 @@ export function Header() {
     <header className="Header">
       <div className="Header-inner page">
         <NavLink to="/" className="Header-brand" aria-label="Greg Comstock — Home">
-          <span className="Header-brand-full">Greg Comstock</span>
+<span className="Header-brand-full">Greg Comstock</span>
           <span className="Header-brand-short">G</span>
         </NavLink>
         <nav className="Header-nav">
           <NavLink to="/" end className="Header-link">Work</NavLink>
           <NavLink to="/about" className="Header-link">About</NavLink>
-          <a className="Header-link Header-resume" href="/resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+          <a className="Header-link Header-resume" href="/greg-comstock-resume.pdf" target="_blank" rel="noreferrer">Resume</a>
           <a
             className="Header-link Header-linkedin"
             href="https://www.linkedin.com/in/gregcomstock"
