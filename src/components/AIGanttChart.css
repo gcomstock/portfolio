@@ -50,8 +50,3 @@
   border-radius: 3px;
   border: 2px dotted;
 }
-
-@media (max-width: 900px) {
-  .AIGantt-row { grid-template-columns: 110px 1fr; gap: 10px; }
-  .AIGantt-label { font-size: 10px; }
-}

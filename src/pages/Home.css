@@ -204,6 +204,61 @@
   .ProjectCard:hover .ProjectCard-title { color: #5aabff; }
   .ProjectCard:hover .DeviceScene-browser { transform: translateX(15px); }
   .ProjectCard:hover .DeviceScene-phone { transform: translateX(-30px); }
+
+  /* Blue spotlight glow behind the cover, revealed on hover. Desktop-only (this whole
+     block is gated to hover-capable devices) so a touch tap never latches it. */
+  .CaseRow--iso::before,
+  .ProjectCard::before {
+    content: '';
+    position: absolute;
+    opacity: 0;
+    transition: opacity 500ms var(--ease-out);
+    pointer-events: none;
+    z-index: 0;
+    animation: hazeDrift 7s ease-in-out infinite;
+  }
+  .CaseRow--iso::after,
+  .ProjectCard::after {
+    content: '';
+    position: absolute;
+    opacity: 0;
+    transition: opacity 600ms var(--ease-out);
+    pointer-events: none;
+    z-index: 0;
+    animation: spotlightBreathe 7s ease-in-out infinite;
+  }
+
+  .CaseRow--iso::before {
+    inset: -120px 0;
+    background: radial-gradient(ellipse 30% 45% at 35% 50%, rgba(80, 140, 255, 1) 0%, rgba(80, 140, 255, 1) 20%, rgba(120, 80, 255, 0) 100%);
+  }
+  .CaseRow--iso::after {
+    inset: -120px 0;
+    background: radial-gradient(ellipse 24% 40% at 33% 50%, rgba(200, 235, 255, 0.95) 0%, rgba(120, 195, 255, 0.6) 45%, rgba(80, 140, 255, 0) 88%);
+  }
+  .ProjectCard::before {
+    inset: -160px -80px;
+    background: radial-gradient(ellipse 48% 38% at 50% 45%, rgba(80, 140, 255, 1) 0%, rgba(80, 140, 255, 1) 20%, rgba(120, 80, 255, 0) 100%);
+  }
+  .ProjectCard::after {
+    inset: -160px -80px;
+    background: radial-gradient(ellipse 39% 30% at 50% 44%, rgba(200, 235, 255, 0.95) 0%, rgba(120, 195, 255, 0.6) 45%, rgba(80, 140, 255, 0) 88%);
+  }
+
+  .CaseRow--iso:hover::before,
+  .CaseRow--iso:hover::after,
+  .ProjectCard:hover::before,
+  .ProjectCard:hover::after { opacity: 1; }
+
+  /* Slow drift + pulse so the glow feels alive on hover */
+  @keyframes spotlightBreathe {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(3%, -4%, 0) scale(1.12); }
+  }
+  @keyframes hazeDrift {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); filter: brightness(1); }
+    50% { transform: translate3d(-1.5%, 1.5%, 0) scale(1.04); filter: brightness(0.9); }
+  }
 }
 
 @media (max-width: 900px) {
@@ -214,6 +269,8 @@
     margin-top: 32px;
   }
   .CaseRow { grid-template-columns: 1fr; gap: 20px; }
+  .CaseRow-title { font-size: 32px; }
+  .CaseRow-subhead { font-size: 13px !important; }
   .Home-projectGrid { grid-template-columns: 1fr; gap: 40px; }
   .Home-caseList { gap: 64px; }
 

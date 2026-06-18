@@ -36,7 +36,7 @@ const AI_SECTIONS = [
   {
     color: '#66d19e',
     title: 'Design Validation',
-    body: <>Previously, user feedback sessions and synthesizing sentiment and research helped avoid expensive implementation cycles. <strong>These days, judgment should be exercised on whether validation should happen through a prototype or just getting the feature out into the actual product.</strong> If you do decide to have validation sessions with your user base, AI is a great tool for synthesizing feedback, sentiment, and recurring themes and pain points.</>,
+    body: <>Previously, user feedback sessions and synthesizing sentiment and research helped avoid expensive implementation cycles. <strong>These days, judgment should be exercised on whether validation should happen through a prototype or just getting the feature out into the actual product.</strong> In either case, AI is a great tool for synthesizing feedback, sentiment, and recurring themes and pain points.</>,
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><polyline points="16 11 18 13 22 9" />

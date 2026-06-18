@@ -60,6 +60,10 @@
   text-align: center;
 }
 
+/* Fill the full width before wrapping — the base h3 `text-wrap: balance` makes these
+   titles wrap into a narrow, lopsided block, especially on mobile. */
+.About-aiSection .ColGrid-title { text-wrap: pretty; }
+
 
 @media (max-width: 900px) {
   .About-introGrid { grid-template-columns: 1fr; }
