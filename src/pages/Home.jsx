@@ -2,6 +2,7 @@ import { useRef, useLayoutEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { listProjects } from '../content/projects/index.js';
 import { HeroExtruded } from '../components/HeroExtruded.jsx';
+import { BrowserFrame } from '../components/BrowserFrame.jsx';
 import './Home.css';
 
 export function Home() {
@@ -77,14 +78,9 @@ function DeviceScene({ coverImage, coverImageMobile }) {
 
   return (
     <div ref={sceneRef} className="DeviceScene">
-      <div className="DeviceScene-browser">
-        <div className="DeviceScene-browserChrome">
-          <span className="DeviceScene-dot" />
-          <span className="DeviceScene-dot" />
-          <span className="DeviceScene-dot" />
-        </div>
-        <img ref={browserImgRef} src={coverImage} alt="" className="DeviceScene-browserImg" />
-      </div>
+      <BrowserFrame size="sm" className="DeviceScene-browser">
+        <img ref={browserImgRef} src={coverImage} alt="" className="BrowserFrame-img" loading="lazy" decoding="async" />
+      </BrowserFrame>
       <div ref={phoneRef} className="DeviceScene-phone">
         <div className="DeviceScene-phoneBar">
           <span className="DeviceScene-phonePill" />

@@ -130,8 +130,8 @@
 }
 
 @media (max-width: 900px) {
-  .HeroExtruded { grid-template-columns: 1fr; gap: 24px; }
+  .HeroExtruded { grid-template-columns: 1fr; gap: 44px; }
   .HeroExtruded-left { height: auto; }
   .HeroExtruded-stack { gap: 2px; }
-  .HeroExtruded-word { font-size: clamp(56px, 16vw, 130px); }
+  .HeroExtruded-word { font-size: clamp(64px, 19vw, 150px); }
 }

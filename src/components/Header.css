@@ -16,7 +16,6 @@
   gap: 24px;
 }
 .Header-brand { font-family: var(--font-sans); font-weight: 700; font-size: 17px; letter-spacing: -0.01em; }
-.Header-brand-short { display: none; }
 .Header-nav { display: flex; align-items: center; gap: 28px; }
 .Header-link {
   font-size: 15px;
@@ -29,9 +28,7 @@
 
 @media (max-width: 900px) {
   .Header { height: var(--header-h-mobile); }
-  .Header-brand-short { display: none; }
-  .Header-brand-full { display: inline; font-size: 15px; }
+  .Header-brand { font-size: 15px; }
   .Header-nav { gap: 20px; }
-  .Header-resume { display: none; }
   .Header-linkedin { display: none; }
 }

@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
+import { BrowserFrame } from './BrowserFrame.jsx';
 import './ProductPanel.css';
 
 function easeOut(t) {
@@ -57,14 +58,9 @@ export function ProductPanel({ image, images, alt = '', title, href, cta, placeh
   }, []);
 
   const frame = (
-    <div ref={frameRef} className="ProductPanel-frame">
-      <div className="ProductPanel-chrome">
-        <span className="ProductPanel-dot" />
-        <span className="ProductPanel-dot" />
-        <span className="ProductPanel-dot" />
-      </div>
+    <BrowserFrame ref={frameRef} className="ProductPanel-frame">
       {placeholder
-        ? <div className="ProductPanel-placeholder" />
+        ? <div className="BrowserFrame-placeholder" />
         : imgList.length > 1
           ? (
             <div
@@ -78,14 +74,16 @@ export function ProductPanel({ image, images, alt = '', title, href, cta, placeh
                   src={src}
                   alt={i === 0 ? alt : ''}
                   className="ProductPanel-img ProductPanel-img--fade"
+                  loading="lazy"
+                  decoding="async"
                   style={{ opacity: i === activeIdx ? 1 : 0 }}
                 />
               ))}
             </div>
           )
-          : <img src={imgList[0]} alt={alt} className="ProductPanel-img" />
+          : <img src={imgList[0]} alt={alt} className="ProductPanel-img" loading="lazy" decoding="async" />
       }
-    </div>
+    </BrowserFrame>
   );
 
   const media = href

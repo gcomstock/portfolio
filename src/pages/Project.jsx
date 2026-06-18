@@ -30,6 +30,7 @@ import { SectionText } from '../components/SectionText.jsx';
 import { ScrollDim } from '../components/ScrollDim.jsx';
 import { CaseStudyFooterNav } from '../components/CaseStudyFooterNav.jsx';
 import { ParallaxLayer } from '../components/ParallaxLayer.jsx';
+import { BrowserFrame } from '../components/BrowserFrame.jsx';
 import './Project.css';
 
 // MDX content can use these without importing.
@@ -114,14 +115,13 @@ export function Project() {
                 <div className="Project-deviceHero-phone">
                   <PhoneFrame src={meta.coverImageMobile} />
                 </div>
-                <div className="Project-deviceHero-browser">
-                  <div className="Project-deviceHero-browserChrome">
-                    <span className="Project-deviceHero-dot" />
-                    <span className="Project-deviceHero-dot" />
-                    <span className="Project-deviceHero-dot" />
-                  </div>
-                  <img src={meta.coverImage} alt="" className="Project-deviceHero-browserImg" />
-                </div>
+                <BrowserFrame
+                  size="lg"
+                  className="Project-deviceHero-browser"
+                  src={meta.coverImage}
+                  alt=""
+                  lazy={false}
+                />
               </div>
             </ParallaxLayer>
           ) : (

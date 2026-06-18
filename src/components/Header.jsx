@@ -6,8 +6,7 @@ export function Header() {
     <header className="Header">
       <div className="Header-inner page">
         <NavLink to="/" className="Header-brand" aria-label="Greg Comstock — Home">
-<span className="Header-brand-full">Greg Comstock</span>
-          <span className="Header-brand-short">G</span>
+          Greg Comstock
         </NavLink>
         <nav className="Header-nav">
           <NavLink to="/" end className="Header-link">Work</NavLink>

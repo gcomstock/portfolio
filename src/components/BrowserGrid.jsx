@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react';
+import { BrowserFrame } from './BrowserFrame.jsx';
 import './BrowserGrid.css';
 
 function easeOut(t) {
@@ -47,17 +48,13 @@ function BrowserCell({ src, alt, placeholder }) {
   }, []);
 
   return (
-    <div ref={ref} className="BrowserGrid-frame">
-      <div className="BrowserGrid-chrome">
-        <span className="BrowserGrid-dot" />
-        <span className="BrowserGrid-dot" />
-        <span className="BrowserGrid-dot" />
-      </div>
-      {placeholder
-        ? <div className="BrowserGrid-placeholder" />
-        : <img src={src} alt={alt || ''} className="BrowserGrid-img" />
-      }
-    </div>
+    <BrowserFrame
+      ref={ref}
+      className="BrowserGrid-frame"
+      src={src}
+      alt={alt || ''}
+      placeholder={placeholder}
+    />
   );
 }
 

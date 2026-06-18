@@ -1,0 +1,100 @@
+.BrowserFrame {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* ── Variants ── */
+
+.BrowserFrame--raised {
+  border: 1px solid transparent;
+  /* gradient border: inner fill covers padding, outer gradient shows through the 1px border */
+  background-image:
+    linear-gradient(var(--bg-elevated), var(--bg-elevated)),
+    var(--device-border-gradient);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
+}
+
+.BrowserFrame--flat {
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+}
+
+/* ── Chrome bar ── */
+
+.BrowserFrame-chrome {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  flex-shrink: 0;
+}
+
+.BrowserFrame--raised .BrowserFrame-chrome {
+  background: var(--device-chrome-bg);
+  border-bottom: 1px solid var(--device-chrome-line);
+}
+
+.BrowserFrame--flat .BrowserFrame-chrome {
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border);
+}
+
+.BrowserFrame-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.BrowserFrame--raised .BrowserFrame-dot {
+  border: 1px solid var(--device-dot-border);
+  background: var(--device-dot-fill);
+}
+
+.BrowserFrame--flat .BrowserFrame-dot {
+  border: 1px solid var(--border);
+}
+
+/* ── Content ── */
+
+.BrowserFrame-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.BrowserFrame-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--surface);
+}
+
+/* ── Sizes ── */
+
+/* sm — compact bar for small in-scene mockups */
+.BrowserFrame--sm .BrowserFrame-chrome {
+  height: 20px;
+  padding: 0 10px;
+  gap: 5px;
+}
+.BrowserFrame--sm .BrowserFrame-dot {
+  width: 7px;
+  height: 7px;
+}
+.BrowserFrame--sm.BrowserFrame--raised {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
+}
+
+/* lg — tall bar + deeper shadow for hero-scale windows */
+.BrowserFrame--lg .BrowserFrame-chrome {
+  height: 32px;
+  padding: 0 14px;
+  gap: 7px;
+}
+.BrowserFrame--lg.BrowserFrame--raised {
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.8), 0 8px 20px rgba(0, 0, 0, 0.4);
+}

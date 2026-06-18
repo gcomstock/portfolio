@@ -19,7 +19,8 @@
 }
 
 @media (max-width: 900px) {
-  .PhoneGrid {
+  .PhoneGrid,
+  .PhoneGrid--wrap {
     grid-template-columns: 1fr;
   }
 }

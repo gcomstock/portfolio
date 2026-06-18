@@ -22,7 +22,7 @@ engineers; the visual language should evoke a polished IDE/developer tool.
 - `/work/:slug` — single template for both case studies and smaller projects. The MDX content
   differs in verbosity; layout is the same.
 
-Header items: **Greg Comstock** (left brand, collapses to "G" on mobile) · Work · About · Resume
+Header items: **Greg Comstock** (left brand, full name at all widths) · Work · About · Resume
 (links to `/resume.pdf`, drop the file into `public/` later) · LinkedIn (collapses to icon on
 mobile).
 
@@ -101,9 +101,8 @@ Currently stubbed: `netflix-explorer`, `netflix-console`, `pandora` (case studie
 
 - **Home hero** — animated typographic visualization. Currently a placeholder box. Greg said
   we'll tackle this separately.
-- **About "How I use AI" Gantt chart** — stubbed as a CSS Gantt. Greg flagged that a Gantt may
-  not be the right viz; consider swimlane / annotated timeline when revisited. Don't worry about
-  it yet.
+- **About "How I use AI" Gantt chart** — `AIGanttChart`. This is the permanent visualization,
+  not a stub. Refine in place; don't swap it for another viz type.
 - **Self-portrait, bio paragraph, case-study copy, all images** — placeholders everywhere.
 - **Background texture asset** — Greg will provide; currently a CSS dot pattern.
 - **Video host** — `<VideoEmbed src="TBD">` renders a placeholder. Candidate hosts: Vimeo

@@ -110,46 +110,10 @@
   gap: 72px;
 }
 
+/* Appearance + chrome come from BrowserFrame (size="lg"); this only owns layout sizing */
 .Project-deviceHero-browser {
   flex: 0 1 1202px;
   max-width: 1202px;
-  border-radius: 10px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid transparent;
-  background-image:
-    linear-gradient(var(--bg-elevated), var(--bg-elevated)),
-    var(--device-border-gradient);
-  background-clip: padding-box, border-box;
-  background-origin: padding-box, border-box;
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.8), 0 8px 20px rgba(0, 0, 0, 0.4);
-}
-
-.Project-deviceHero-browserChrome {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  height: 32px;
-  padding: 0 14px;
-  background: var(--device-chrome-bg);
-  border-bottom: 1px solid var(--device-chrome-line);
-  flex-shrink: 0;
-}
-
-.Project-deviceHero-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: 1px solid var(--device-dot-border);
-  background: var(--device-dot-fill);
-  flex-shrink: 0;
-}
-
-.Project-deviceHero-browserImg {
-  width: 100%;
-  height: auto;
-  display: block;
 }
 
 .Project-deviceHero-phone {
@@ -160,6 +124,29 @@
 .Project-deviceHero-scrollDemo {
   flex: 0 1 1202px;
   min-width: 0;
+}
+
+/* Stack the device hero below 900px. Must come AFTER the base rules above so it wins the
+   cascade — critical because in a column flex the base `flex-basis: 1202px` would otherwise
+   be read as the browser's HEIGHT, leaving a tall empty footer under the screenshot. */
+@media (max-width: 900px) {
+  .Project-deviceHero {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+  .Project-deviceHero-browser,
+  .Project-deviceHero-scrollDemo {
+    flex: 0 1 auto;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+  .Project-deviceHero-phone {
+    flex: 0 1 auto;
+    width: 100%;
+    max-width: 362px;
+  }
 }
 
 

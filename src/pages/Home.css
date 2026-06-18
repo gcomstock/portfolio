@@ -21,44 +21,11 @@
   min-width: 0;
   transition: transform var(--dur-med) var(--ease-out);
 }
-.CaseRow:not(.CaseRow--iso):hover { transform: translateY(-4px); }
 
 .CaseRow--iso {
   position: relative;
 }
 
-.CaseRow--iso::before {
-  content: '';
-  position: absolute;
-  inset: -120px 0;
-  background: radial-gradient(ellipse 30% 45% at 35% 50%, rgba(80, 140, 255, 1) 0%, rgba(80, 140, 255, 1) 20%, rgba(120, 80, 255, 0) 100%);
-  opacity: 0;
-  transition: opacity 500ms var(--ease-out);
-  pointer-events: none;
-  z-index: 0;
-  animation: hazeDrift 7s ease-in-out infinite;
-}
-
-/* Brighter, tighter spotlight core layered over the base haze */
-.CaseRow--iso::after {
-  content: '';
-  position: absolute;
-  inset: -120px 0;
-  background: radial-gradient(ellipse 24% 40% at 33% 50%, rgba(200, 235, 255, 0.95) 0%, rgba(120, 195, 255, 0.6) 45%, rgba(80, 140, 255, 0) 88%);
-  opacity: 0;
-  transition: opacity 600ms var(--ease-out);
-  pointer-events: none;
-  z-index: 0;
-  animation: spotlightBreathe 7s ease-in-out infinite;
-}
-
-.CaseRow--iso:hover::before {
-  opacity: 1;
-}
-
-.CaseRow--iso:hover::after {
-  opacity: 1;
-}
 .CaseRow-media {
   grid-column: 1 / 3;
   aspect-ratio: 16 / 10;
@@ -118,21 +85,11 @@
     drop-shadow(-2px 6px 10px rgba(0, 0, 0, 0.4));
 }
 
-/* Hover: spread right — back most, mid some, front anchored */
-.CaseRow--iso:hover .CaseRow-isoImg--mid {
-  transform: translateY(-50%) rotateX(8deg) rotateY(30deg) translateX(7%);
-}
-.CaseRow--iso:hover .CaseRow-isoImg--back {
-  transform: translateY(-50%) rotateX(8deg) rotateY(30deg) translateX(16%);
-}
 .CaseRow-body { position: relative; z-index: 1; }
 .CaseRow-title {
   font-size: clamp(36px, 3.8vw, var(--fs-h1));
   margin: 12px 0 16px;
   transition: color 500ms var(--ease-out);
-}
-.CaseRow--iso:hover .CaseRow-title {
-  color: #5aabff;
 }
 .CaseRow-subhead { max-width: 480px; font-size: clamp(14px, 1.2vw, 18px) !important; }
 
@@ -148,48 +105,6 @@
   display: flex; flex-direction: column; gap: 24px;
   position: relative;
 }
-.ProjectCard::before {
-  content: '';
-  position: absolute;
-  inset: -160px -80px;
-  background: radial-gradient(ellipse 48% 38% at 50% 45%, rgba(80, 140, 255, 1) 0%, rgba(80, 140, 255, 1) 20%, rgba(120, 80, 255, 0) 100%);
-  opacity: 0;
-  transition: opacity 500ms var(--ease-out);
-  pointer-events: none;
-  z-index: 0;
-  animation: hazeDrift 7s ease-in-out infinite;
-}
-/* Brighter, tighter spotlight core layered over the base haze */
-.ProjectCard::after {
-  content: '';
-  position: absolute;
-  inset: -160px -80px;
-  background: radial-gradient(ellipse 39% 30% at 50% 44%, rgba(200, 235, 255, 0.95) 0%, rgba(120, 195, 255, 0.6) 45%, rgba(80, 140, 255, 0) 88%);
-  opacity: 0;
-  transition: opacity 600ms var(--ease-out);
-  pointer-events: none;
-  z-index: 0;
-  animation: spotlightBreathe 7s ease-in-out infinite;
-}
-.ProjectCard:hover::before { opacity: 1; }
-.ProjectCard:hover::after { opacity: 1; }
-
-/* Slow, subtle drift + pulse so the spotlight feels alive on hover */
-@keyframes spotlightBreathe {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-  50% { transform: translate3d(3%, -4%, 0) scale(1.12); }
-}
-/* Gentler, slower motion for the broad base haze */
-@keyframes hazeDrift {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); filter: brightness(1); }
-  50% { transform: translate3d(-1.5%, 1.5%, 0) scale(1.04); filter: brightness(0.9); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .CaseRow--iso::before,
-  .CaseRow--iso::after,
-  .ProjectCard::before,
-  .ProjectCard::after { animation: none; }
-}
 .ProjectCard-media {
   aspect-ratio: 16 / 10;
   border-radius: 10px;
@@ -199,7 +114,6 @@
 }
 .ProjectCard-body { display: flex; flex-direction: column; gap: 12px; margin-left: 28%; margin-right: 12%; max-width: 528px; position: relative; z-index: 1; }
 .ProjectCard-title { font-size: var(--fs-content-title); font-weight: var(--fw-content-title); margin: 0; transition: color 500ms var(--ease-out); }
-.ProjectCard:hover .ProjectCard-title { color: #5aabff; }
 .ProjectCard-desc { color: var(--text-muted); font-size: var(--fs-body-sm); margin: 0; }
 
 /* ── Device scene: web + mobile mockup ── */
@@ -209,7 +123,8 @@
   z-index: 1;
 }
 
-/* Desktop browser */
+/* Desktop browser — appearance + chrome come from BrowserFrame (size="sm");
+   this owns scene positioning + the 8px radius (slightly tighter than the primitive default) */
 .DeviceScene-browser {
   position: absolute;
   top: 14px;
@@ -217,43 +132,7 @@
   right: 12px;
   max-width: 504px;
   border-radius: 8px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid transparent;
-  background-image:
-    linear-gradient(var(--bg-elevated), var(--bg-elevated)),
-    var(--device-border-gradient);
-  background-clip: padding-box, border-box;
-  background-origin: padding-box, border-box;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
   transition: transform 400ms var(--ease-out);
-}
-
-.DeviceScene-browserChrome {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  height: 20px;
-  padding: 0 10px;
-  background: var(--device-chrome-bg);
-  border-bottom: 1px solid var(--device-chrome-line);
-  flex-shrink: 0;
-}
-
-.DeviceScene-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  border: 1px solid var(--device-dot-border);
-  background: var(--device-dot-fill);
-  flex-shrink: 0;
-}
-
-.DeviceScene-browserImg {
-  width: 100%;
-  height: auto;
-  display: block;
 }
 
 /* Mobile phone */
@@ -309,8 +188,23 @@
 }
 
 
-.ProjectCard:hover .DeviceScene-browser { transform: translateX(15px); }
-.ProjectCard:hover .DeviceScene-phone { transform: translateX(-30px); }
+/* Hover effects only on devices that truly hover — a touch tap shouldn't latch these. */
+@media (hover: hover) {
+  .CaseRow:not(.CaseRow--iso):hover { transform: translateY(-4px); }
+
+  /* Iso cover stack spreads right on hover — back most, mid some, front anchored */
+  .CaseRow--iso:hover .CaseRow-isoImg--mid {
+    transform: translateY(-50%) rotateX(8deg) rotateY(30deg) translateX(7%);
+  }
+  .CaseRow--iso:hover .CaseRow-isoImg--back {
+    transform: translateY(-50%) rotateX(8deg) rotateY(30deg) translateX(16%);
+  }
+
+  .CaseRow--iso:hover .CaseRow-title { color: #5aabff; }
+  .ProjectCard:hover .ProjectCard-title { color: #5aabff; }
+  .ProjectCard:hover .DeviceScene-browser { transform: translateX(15px); }
+  .ProjectCard:hover .DeviceScene-phone { transform: translateX(-30px); }
+}
 
 @media (max-width: 900px) {
   .Home { padding-top: 48px; }
@@ -322,4 +216,12 @@
   .CaseRow { grid-template-columns: 1fr; gap: 20px; }
   .Home-projectGrid { grid-template-columns: 1fr; gap: 40px; }
   .Home-caseList { gap: 64px; }
+
+  /* Drop the image more, let the caption span the full page wrapper */
+  .ProjectCard { gap: 32px; }
+  .ProjectCard-body { margin-left: 0; margin-right: 0; max-width: none; }
+
+  /* Cap the device mockup at its desktop size + center it, so it stops growing with the
+     viewport between ~640–900px while the caption below still spans the full wrapper. */
+  .ProjectCard-media { width: 100%; max-width: 672px; margin-left: auto; margin-right: auto; }
 }

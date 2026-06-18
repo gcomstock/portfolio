@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { BrowserFrame } from './BrowserFrame.jsx';
 import './BrowserScrollDemo.css';
 
 export function BrowserScrollDemo({ headerSrc, contentSrc, panDuration = 13 }) {
@@ -62,12 +63,7 @@ export function BrowserScrollDemo({ headerSrc, contentSrc, panDuration = 13 }) {
   }, []);
 
   return (
-    <div className="BrowserScrollDemo">
-      <div className="BrowserScrollDemo-chrome">
-        <span className="BrowserScrollDemo-dot" />
-        <span className="BrowserScrollDemo-dot" />
-        <span className="BrowserScrollDemo-dot" />
-      </div>
+    <BrowserFrame size="lg" className="BrowserScrollDemo">
       <div className="BrowserScrollDemo-viewport" ref={viewportRef}>
         {headerSrc && (
           <div className="BrowserScrollDemo-siteHeader">
@@ -78,6 +74,6 @@ export function BrowserScrollDemo({ headerSrc, contentSrc, panDuration = 13 }) {
           <img src={contentSrc} alt="" draggable="false" />
         </div>
       </div>
-    </div>
+    </BrowserFrame>
   );
 }
