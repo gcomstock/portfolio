@@ -1,5 +1,10 @@
 .GradientBlock {
   position: relative;
+  /* Own stacking context so the z-index:-1 gradient below is scoped to this block and can't
+     lose the paint-order fight with the fixed BgTexture (which is also z-index:-1). Without
+     this, some GPUs/browsers paint the opaque BgTexture over the gradient — it looked cropped
+     at the bottom on some machines but not others. Matches FeatureBlock. */
+  isolation: isolate;
   margin: 64px 0;
   padding: 64px 0;
 }
