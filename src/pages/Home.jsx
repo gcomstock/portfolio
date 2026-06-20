@@ -85,7 +85,7 @@ function DeviceScene({ coverImage, coverImageMobile }) {
         <div className="DeviceScene-phoneBar">
           <span className="DeviceScene-phonePill" />
         </div>
-        <img src={coverImageMobile} alt="" className="DeviceScene-phoneImg" />
+        <img src={coverImageMobile} alt="" className="DeviceScene-phoneImg" loading="lazy" decoding="async" />
         <div className="DeviceScene-phoneFooter" />
       </div>
     </div>
@@ -102,9 +102,9 @@ function CaseRow({ project }) {
         {hasIso
           ? (
             <div className="CaseRow-isoStage">
-              <img src={imgs[0]} alt="" className="CaseRow-isoImg CaseRow-isoImg--back" />
-              <img src={imgs[1]} alt="" className="CaseRow-isoImg CaseRow-isoImg--mid" />
-              <img src={imgs[2]} alt="" className="CaseRow-isoImg CaseRow-isoImg--front" />
+              <img src={imgs[0]} alt="" className="CaseRow-isoImg CaseRow-isoImg--back" loading="lazy" decoding="async" />
+              <img src={imgs[1]} alt="" className="CaseRow-isoImg CaseRow-isoImg--mid" loading="lazy" decoding="async" />
+              <img src={imgs[2]} alt="" className="CaseRow-isoImg CaseRow-isoImg--front" loading="lazy" decoding="async" />
             </div>
           )
           : <span className="mono">{meta.company} · cover image</span>

@@ -49,6 +49,8 @@ export function ImagePanel({ image, images, media, placeholder = false, naturalS
               src={src}
               alt={i === 0 ? alt : ''}
               aria-hidden={i !== 0 ? 'true' : undefined}
+              loading="lazy"
+              decoding="async"
               className={`ImagePanel-slide${i === activeIdx ? ' is-active' : ''}`}
             />
           ))}
@@ -59,16 +61,16 @@ export function ImagePanel({ image, images, media, placeholder = false, naturalS
     if (href) {
       return (
         <a href={href} target="_blank" rel="noopener noreferrer" className="ImagePanel-img-link">
-          <img src={image} alt={alt} className="ImagePanel-img" />
-          {fadeImage && <img src={fadeImage} alt="" aria-hidden="true" className="ImagePanel-img ImagePanel-img--fade" />}
+          <img src={image} alt={alt} className="ImagePanel-img" loading="lazy" decoding="async" />
+          {fadeImage && <img src={fadeImage} alt="" aria-hidden="true" loading="lazy" decoding="async" className="ImagePanel-img ImagePanel-img--fade" />}
         </a>
       );
     }
 
     return (
       <>
-        <img src={image} alt={alt} className="ImagePanel-img" style={imgMaxWidth ? { maxWidth: imgMaxWidth, margin: '0 auto', display: 'block' } : undefined} />
-        {fadeImage && <img src={fadeImage} alt="" aria-hidden="true" className="ImagePanel-img ImagePanel-img--fade" />}
+        <img src={image} alt={alt} className="ImagePanel-img" loading="lazy" decoding="async" style={imgMaxWidth ? { maxWidth: imgMaxWidth, margin: '0 auto', display: 'block' } : undefined} />
+        {fadeImage && <img src={fadeImage} alt="" aria-hidden="true" loading="lazy" decoding="async" className="ImagePanel-img ImagePanel-img--fade" />}
       </>
     );
   };

@@ -12,8 +12,8 @@
   --text: #e6e8ee;
   --text-nav: #a0aab8;       /* main nav links + case-nav project title */
   --text-muted: #8a93a6;
-  --text-secondary: #6c7894; /* sub-nav section items + mono metadata labels */
-  --text-dim: #5a6479;
+  --text-secondary: #7e8aa0; /* sub-nav section items + mono metadata labels — WCAG AA ~5.3:1 on --bg */
+  --text-dim: #767f96;       /* dimmest readable tier (captions, footer credit) — WCAG AA ~4.7:1 on --bg */
 
   /* IDE-style accents — used for syntax-pop highlights and per-block gradients */
   --accent-blue: #6aa9ff;

@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { BrowserFrame } from './BrowserFrame.jsx';
 import './BrowserScrollDemo.css';
 
-export function BrowserScrollDemo({ headerSrc, contentSrc, panDuration = 13 }) {
+export function BrowserScrollDemo({ headerSrc, contentSrc, panDuration = 13, lazy = true }) {
   const contentRef = useRef(null);
   const viewportRef = useRef(null);
 
@@ -67,11 +67,11 @@ export function BrowserScrollDemo({ headerSrc, contentSrc, panDuration = 13 }) {
       <div className="BrowserScrollDemo-viewport" ref={viewportRef}>
         {headerSrc && (
           <div className="BrowserScrollDemo-siteHeader">
-            <img src={headerSrc} alt="" draggable="false" />
+            <img src={headerSrc} alt="" draggable="false" loading={lazy ? 'lazy' : undefined} decoding="async" />
           </div>
         )}
         <div className="BrowserScrollDemo-content" ref={contentRef}>
-          <img src={contentSrc} alt="" draggable="false" />
+          <img src={contentSrc} alt="" draggable="false" loading={lazy ? 'lazy' : undefined} decoding="async" />
         </div>
       </div>
     </BrowserFrame>

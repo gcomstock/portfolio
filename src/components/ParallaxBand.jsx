@@ -11,7 +11,7 @@ export function ParallaxBand({ src, alt = '' }) {
   return (
     <div className="ParallaxBand">
       <div className="ParallaxBand-track" ref={ref}>
-        <img src={src} alt={alt} className="ParallaxBand-img" />
+        <img src={src} alt={alt} className="ParallaxBand-img" loading="lazy" decoding="async" />
       </div>
     </div>
   );

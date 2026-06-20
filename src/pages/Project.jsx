@@ -99,12 +99,13 @@ export function Project() {
             <ParallaxLayer speed={15}>
               <div className="Project-deviceHero">
                 <div className="Project-deviceHero-phone">
-                  <PhoneFrame src={meta.coverImageMobile} />
+                  <PhoneFrame src={meta.coverImageMobile} lazy={false} />
                 </div>
                 <div className="Project-deviceHero-scrollDemo">
                   <BrowserScrollDemo
                     headerSrc={meta.coverScrollDemo.headerSrc}
                     contentSrc={meta.coverScrollDemo.contentSrc}
+                    lazy={false}
                   />
                 </div>
               </div>
@@ -113,7 +114,7 @@ export function Project() {
             <ParallaxLayer speed={15}>
               <div className="Project-deviceHero">
                 <div className="Project-deviceHero-phone">
-                  <PhoneFrame src={meta.coverImageMobile} />
+                  <PhoneFrame src={meta.coverImageMobile} lazy={false} />
                 </div>
                 <BrowserFrame
                   size="lg"

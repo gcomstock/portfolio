@@ -34,6 +34,8 @@ function SwarmCell({ images = [] }) {
           src={src}
           alt=""
           aria-hidden={i !== 0 ? 'true' : undefined}
+          loading="lazy"
+          decoding="async"
           className={`SwarmCell-img${i === activeIdx ? ' is-active' : ''}`}
         />
       ))}

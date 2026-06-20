@@ -17,9 +17,9 @@ export function ColGridItem({ image, icon, placeholder, media, contain = false, 
       {image && (
         contain
           ? <div className={`ColGrid-img-wrap${transparent ? ' ColGrid-img-wrap--transparent' : ''}`}>
-              <img src={image} alt="" className="ColGrid-img--natural" style={imgStyle} />
+              <img src={image} alt="" className="ColGrid-img--natural" style={imgStyle} loading="lazy" decoding="async" />
             </div>
-          : <img src={image} alt="" className="ColGrid-img" />
+          : <img src={image} alt="" className="ColGrid-img" loading="lazy" decoding="async" />
       )}
       {icon && <div className="ColGrid-icon">{icon}</div>}
       {title && <h3 className="ColGrid-title">{title}</h3>}

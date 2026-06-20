@@ -63,6 +63,8 @@ function CollageItem({ images, config }) {
             src={src}
             alt=""
             aria-hidden="true"
+            loading="lazy"
+            decoding="async"
             className={`PhotoCollage-img${i === activeIdx ? ' is-active' : ''}`}
           />
         ))}

@@ -19,7 +19,7 @@ export function AnnotatedImage({ image, alt = '', annotations = [], accent = 'bl
   return (
     <div className="AnnotatedImage" style={{ '--line-color': `var(--accent-${accent})` }}>
       <div className="AnnotatedImage-stage">
-        <img src={image} alt={alt} className="AnnotatedImage-img" />
+        <img src={image} alt={alt} className="AnnotatedImage-img" loading="lazy" decoding="async" />
         {annotations.map((ann, i) => (
           <Annotation key={i} {...ann} />
         ))}
