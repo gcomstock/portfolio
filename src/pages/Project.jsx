@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { lazy, Suspense, useMemo } from 'react';
+import { lazy, Suspense, useMemo, Component } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import { getProject, listProjects } from '../content/projects/index.js';
 import { MetaGrid } from '../components/MetaGrid.jsx';
@@ -36,13 +36,46 @@ import './Project.css';
 // MDX content can use these without importing.
 const mdxComponents = { FeatureBlock, Figure, VideoEmbed, ColGrid, ColGridItem, PullQuote, ImagePanel, PhotoCollage, GradientBlock, AnnotatedImage, GanttChart, SpectrumChart, FeedbackFlow, ProductPanel, StatGrid, StatItem, Callout, BrowserGrid, SwarmGrid, ScrollDim, PhoneGrid, BrowserScrollDemo, QuadGrid, ParallaxBand, SectionText };
 
+// A failed dynamic import on a long-lived tab almost always means the hashed content chunk
+// was replaced by a newer deploy (the old file now 404s). Reload once to pull fresh assets;
+// the sessionStorage guard stops a genuinely-broken chunk from looping.
+const CHUNK_RELOAD_KEY = 'contentChunkReload';
+
+function loadWithReload(factory) {
+  return () =>
+    factory().then(
+      (mod) => {
+        sessionStorage.removeItem(CHUNK_RELOAD_KEY);
+        return mod;
+      },
+      (err) => {
+        if (!sessionStorage.getItem(CHUNK_RELOAD_KEY)) {
+          sessionStorage.setItem(CHUNK_RELOAD_KEY, '1');
+          window.location.reload();
+          return new Promise(() => {}); // suspend until the reload takes over
+        }
+        throw err;
+      }
+    );
+}
+
+// Safety net: if content still fails after the reload (or an MDX render throws), show a
+// graceful message instead of a blank page.
+class ContentErrorBoundary extends Component {
+  state = { failed: false };
+  static getDerivedStateFromError() { return { failed: true }; }
+  render() {
+    return this.state.failed ? this.props.fallback : this.props.children;
+  }
+}
+
 export function Project() {
   const { slug } = useParams();
   const entry = getProject(slug);
 
   const Content = useMemo(() => {
     if (!entry) return null;
-    return lazy(entry.load);
+    return lazy(loadWithReload(entry.load));
   }, [entry]);
 
   if (!entry) {
@@ -138,9 +171,25 @@ export function Project() {
       <div className="page">
         <article className={`Project-body${meta.kind === 'project' ? ' Project-body--project' : ''}`}>
           <MDXProvider components={mdxComponents}>
-            <Suspense fallback={<div className="mono Project-loading">loading…</div>}>
-              <Content components={mdxComponents} />
-            </Suspense>
+            <ContentErrorBoundary
+              key={slug}
+              fallback={
+                <div className="mono Project-loading">
+                  This section failed to load.{' '}
+                  <button
+                    type="button"
+                    onClick={() => window.location.reload()}
+                    style={{ color: 'var(--accent-blue)', background: 'none', border: 'none', font: 'inherit', textDecoration: 'underline', cursor: 'pointer', padding: 0 }}
+                  >
+                    Reload
+                  </button>
+                </div>
+              }
+            >
+              <Suspense fallback={<div className="mono Project-loading">loading…</div>}>
+                <Content components={mdxComponents} />
+              </Suspense>
+            </ContentErrorBoundary>
           </MDXProvider>
         </article>
       </div>
