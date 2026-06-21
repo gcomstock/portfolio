@@ -1,4 +1,8 @@
-.Home { padding-top: 64px; }
+/* Clip horizontal overflow from the 3D-transformed hero text and the rotated case-study
+   cover clusters. Their transformed paint extends past the viewport and oscillates with the
+   hero's bob animation, which let the page scroll sideways and "snap back". Clipping here
+   (rather than on .Hero alone) catches every contributor; nothing on Home bleeds full-width. */
+.Home { padding-top: 64px; overflow-x: clip; }
 .Home-eyebrow { margin-bottom: 32px; }
 
 .Hero {
