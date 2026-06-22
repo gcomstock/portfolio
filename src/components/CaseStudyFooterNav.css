@@ -77,6 +77,7 @@
   line-height: var(--leading-body);
   transition: color 300ms var(--ease-out);
   text-wrap: pretty;
+  max-width: 280px;
 }
 
 @media (max-width: 900px) {
