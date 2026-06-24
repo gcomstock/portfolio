@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import gLogo from '../assets/g-logo.svg';
 import './Footer.css';
 
 export function Footer() {
@@ -7,8 +8,15 @@ export function Footer() {
       <div className="Footer-inner page">
         <div className="Footer-row">
           <div className="Footer-brand">
-            <Link to="/" className="Footer-name">Greg Comstock</Link>
-            <div className="Footer-loc mono">San Francisco Bay Area</div>
+            <span
+              className="Footer-logo"
+              aria-hidden="true"
+              style={{ WebkitMaskImage: `url(${gLogo})`, maskImage: `url(${gLogo})` }}
+            />
+            <div className="Footer-brandText">
+              <Link to="/" className="Footer-name">Greg Comstock</Link>
+              <div className="Footer-loc mono">San Francisco Bay Area</div>
+            </div>
           </div>
           <div className="Footer-links mono">
             <a href="mailto:gcomstock@gmail.com">gcomstock@gmail.com</a>

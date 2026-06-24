@@ -7,9 +7,27 @@
 .Footer-row {
   display: flex;
   justify-content: space-between;
+  /* Align the links to the last text line of the brand ("San Francisco Bay Area"),
+     while the logo stays vertically centered with both lines. */
+  align-items: last baseline;
   gap: 24px;
   flex-wrap: wrap;
 }
+.Footer-brand { display: flex; align-items: center; gap: 14px; }
+/* Dark-gray "G" mark, sized to span both text lines */
+.Footer-logo {
+  width: 75px;
+  height: 75px;
+  flex-shrink: 0;
+  background: #3a3f4c;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+.Footer-brandText { display: flex; flex-direction: column; }
 .Footer-name { font-size: 20px; font-weight: 600; }
 .Footer-loc { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
 .Footer-links { display: flex; gap: 24px; font-size: 13px; flex-wrap: wrap; }

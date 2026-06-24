@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import gLogo from '../assets/g-logo.svg';
 import './Header.css';
 
 export function Header() {
@@ -6,7 +7,12 @@ export function Header() {
     <header className="Header">
       <div className="Header-inner page">
         <NavLink to="/" className="Header-brand" aria-label="Greg Comstock — Home">
-          Greg Comstock
+          <span
+            className="Header-logo"
+            aria-hidden="true"
+            style={{ WebkitMaskImage: `url(${gLogo})`, maskImage: `url(${gLogo})` }}
+          />
+          <span className="Header-brandText">Greg Comstock</span>
         </NavLink>
         <nav className="Header-nav">
           <NavLink to="/" end className="Header-link">Work</NavLink>

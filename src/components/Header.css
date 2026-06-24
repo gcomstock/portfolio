@@ -15,7 +15,29 @@
   justify-content: space-between;
   gap: 24px;
 }
-.Header-brand { font-family: var(--font-sans); font-weight: 700; font-size: 17px; letter-spacing: -0.01em; }
+.Header-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+/* The "G" mark: white fill revealed through the SVG used as a mask */
+.Header-logo {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  background: #fff;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
 .Header-nav { display: flex; align-items: center; gap: 28px; }
 .Header-link {
   font-size: 15px;
@@ -29,6 +51,7 @@
 @media (max-width: 900px) {
   .Header { height: var(--header-h-mobile); }
   .Header-brand { font-size: 15px; }
+  .Header-logo { width: 28px; height: 28px; }
   .Header-nav { gap: 20px; }
   .Header-linkedin { display: none; }
 }
