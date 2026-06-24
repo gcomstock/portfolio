@@ -31,6 +31,7 @@ import { ScrollDim } from '../components/ScrollDim.jsx';
 import { CaseStudyFooterNav } from '../components/CaseStudyFooterNav.jsx';
 import { ParallaxLayer } from '../components/ParallaxLayer.jsx';
 import { BrowserFrame } from '../components/BrowserFrame.jsx';
+import { useDocumentMeta } from '../hooks/useDocumentMeta.js';
 import './Project.css';
 
 // MDX content can use these without importing.
@@ -77,6 +78,11 @@ export function Project() {
     if (!entry) return null;
     return lazy(loadWithReload(entry.load));
   }, [entry]);
+
+  useDocumentMeta({
+    title: entry ? `${entry.meta.title} — Greg Comstock` : 'Not found — Greg Comstock',
+    description: entry?.meta.subtitle,
+  });
 
   if (!entry) {
     return (

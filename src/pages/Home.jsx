@@ -3,11 +3,17 @@ import { Link } from 'react-router-dom';
 import { listProjects } from '../content/projects/index.js';
 import { HeroExtruded } from '../components/HeroExtruded.jsx';
 import { BrowserFrame } from '../components/BrowserFrame.jsx';
+import { useDocumentMeta } from '../hooks/useDocumentMeta.js';
 import './Home.css';
 
 export function Home() {
   const caseStudies = listProjects('case-study');
   const projects = listProjects('project');
+
+  useDocumentMeta({
+    title: 'Greg Comstock — Product Designer',
+    description: 'Product Designer and Builder from the San Francisco Bay Area.',
+  });
 
   return (
     <div className="page Home">

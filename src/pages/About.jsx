@@ -1,5 +1,6 @@
 import portraitSrc from '../content/projects/about/images/about-greg.jpg';
 import { AIGanttChart } from '../components/AIGanttChart.jsx';
+import { useDocumentMeta } from '../hooks/useDocumentMeta.js';
 import './About.css';
 
 const AI_SECTIONS = [
@@ -66,6 +67,11 @@ const AI_SECTIONS = [
 ];
 
 export function About() {
+  useDocumentMeta({
+    title: 'About — Greg Comstock',
+    description: 'Product Designer and Builder from the San Francisco Bay Area.',
+  });
+
   return (
     <div className="page About">
       <section className="About-intro">
