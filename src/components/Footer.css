@@ -14,18 +14,13 @@
   flex-wrap: wrap;
 }
 .Footer-brand { display: flex; align-items: center; gap: 14px; }
-/* Dark-gray "G" mark, sized to span both text lines */
+/* Dark-gray "G" mark (inline SVG), sized to span both text lines */
 .Footer-logo {
   width: 75px;
   height: 75px;
   flex-shrink: 0;
-  background: #3a3f4c;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-size: contain;
-  mask-size: contain;
+  display: block;
+  color: #3a3f4c;
 }
 .Footer-brandText { display: flex; flex-direction: column; }
 .Footer-name { font-size: 20px; font-weight: 600; }

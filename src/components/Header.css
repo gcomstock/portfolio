@@ -25,18 +25,13 @@
   letter-spacing: -0.01em;
   color: #fff;
 }
-/* The "G" mark: white fill revealed through the SVG used as a mask */
+/* The "G" mark — inline SVG, white via currentColor */
 .Header-logo {
   width: 34px;
   height: 34px;
   flex-shrink: 0;
-  background: #fff;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-size: contain;
-  mask-size: contain;
+  display: block;
+  color: #fff;
 }
 .Header-nav { display: flex; align-items: center; gap: 28px; }
 .Header-link {
