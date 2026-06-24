@@ -11,7 +11,7 @@ export function Home() {
   const projects = listProjects('project');
 
   useDocumentMeta({
-    title: 'Greg Comstock — Product Designer',
+    title: 'Greg Comstock — Product Designer & Builder',
     description: 'Product Designer and Builder from the San Francisco Bay Area.',
   });
 
